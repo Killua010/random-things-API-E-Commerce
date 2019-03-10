@@ -1,4 +1,4 @@
-package br.com.randomthings.dto;
+package br.com.randomthings.viewhelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Component
-public class PricingGroupDto extends EntityDto {
+public class PricingGroupViewHelper extends EntityViewHelper {
 	
 	@NotNull(message="O nome do grupo é obrigatório")
 	@NotEmpty(message="O nome do grupo é obrigatório")
@@ -51,17 +51,17 @@ public class PricingGroupDto extends EntityDto {
 	}
 
 	@Override
-	public List<EntityDto> getListDto(List<DomainEntity> entities) {
-		List<EntityDto> dtos = new ArrayList<EntityDto>();
+	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(getDTO(entity));
+			dtos.add(setEntity(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityDto getDTO(DomainEntity pricingGroup) {
-		PricingGroupDto pricingGroupDto = new PricingGroupDto();
+	public EntityViewHelper setEntity(DomainEntity pricingGroup) {
+		PricingGroupViewHelper pricingGroupDto = new PricingGroupViewHelper();
 		pricingGroupDto.setId(pricingGroup.getId());
 		pricingGroupDto.setStatus(pricingGroup.getStatus());
 		pricingGroupDto.setCreationDate(pricingGroup.getCreationDate());

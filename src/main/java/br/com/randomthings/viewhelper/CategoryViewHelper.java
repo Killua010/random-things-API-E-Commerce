@@ -1,4 +1,4 @@
-package br.com.randomthings.dto;
+package br.com.randomthings.viewhelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Component
-public class CategoryDto extends EntityDto {
+public class CategoryViewHelper extends EntityViewHelper {
 	
 	@NotNull(message="O nome da categoria é obrigatório")
 	@NotEmpty(message="O nome da categoria é obrigatório")
@@ -44,17 +44,17 @@ public class CategoryDto extends EntityDto {
 	}
 
 	@Override
-	public List<EntityDto> getListDto(List<DomainEntity> entities) {
-		List<EntityDto> dtos = new ArrayList<EntityDto>();
+	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(getDTO(entity));
+			dtos.add(setEntity(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityDto getDTO(DomainEntity category) {
-		CategoryDto categoryDto = new CategoryDto();
+	public EntityViewHelper setEntity(DomainEntity category) {
+		CategoryViewHelper categoryDto = new CategoryViewHelper();
 		categoryDto.setId(category.getId());
 		categoryDto.setStatus(category.getStatus());
 		categoryDto.setCreationDate(category.getCreationDate());

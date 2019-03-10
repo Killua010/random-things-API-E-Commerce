@@ -1,4 +1,4 @@
-package br.com.randomthings.dto;
+package br.com.randomthings.viewhelper;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public abstract class EntityDto implements Idto{
+public abstract class EntityViewHelper implements IViewHelper{
 	protected Long id;
 
 	protected Boolean status;
@@ -25,5 +25,5 @@ public abstract class EntityDto implements Idto{
 	
 	public abstract DomainEntity getEntity(Long id);
 	
-	public abstract EntityDto getDTO(DomainEntity entity);
+	public abstract EntityViewHelper setEntity(DomainEntity entity);
 }

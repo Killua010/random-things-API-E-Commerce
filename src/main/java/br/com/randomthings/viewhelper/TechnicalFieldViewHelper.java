@@ -1,4 +1,4 @@
-package br.com.randomthings.dto;
+package br.com.randomthings.viewhelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Component
-public class TechnicalFieldDto extends EntityDto {
+public class TechnicalFieldViewHelper extends EntityViewHelper {
 	
 	@NotNull(message="O nome do campo é obrigatório")
 	@NotEmpty(message="O nome do campo é obrigatório")
@@ -44,17 +44,17 @@ public class TechnicalFieldDto extends EntityDto {
 	}
 
 	@Override
-	public List<EntityDto> getListDto(List<DomainEntity> entities) {
-		List<EntityDto> dtos = new ArrayList<EntityDto>();
+	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(getDTO(entity));
+			dtos.add(setEntity(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityDto getDTO(DomainEntity technicalField) {
-		TechnicalFieldDto technicalFieldDto = new TechnicalFieldDto();
+	public EntityViewHelper setEntity(DomainEntity technicalField) {
+		TechnicalFieldViewHelper technicalFieldDto = new TechnicalFieldViewHelper();
 		technicalFieldDto.setId(technicalField.getId());
 		technicalFieldDto.setStatus(technicalField.getStatus());
 		technicalFieldDto.setCreationDate(technicalField.getCreationDate());

@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.randomthings.command.ICommand;
 import br.com.randomthings.controller.utils.HttpResponseEntity;
-import br.com.randomthings.dto.EntityDto;
 import br.com.randomthings.utils.Result;
+import br.com.randomthings.viewhelper.EntityViewHelper;
 
 @CrossOrigin
 @RestController
-public abstract class AbstractController<dto extends EntityDto> {
+public abstract class AbstractController<viewHelper extends EntityViewHelper> {
 
 	@Autowired
-	private dto entity;
+	private viewHelper vh;
 
 	@Autowired
 	private List<ICommand> commands;
@@ -37,8 +37,8 @@ public abstract class AbstractController<dto extends EntityDto> {
 	private HttpResponseEntity standardResponse;
 
 	@PostMapping
-	public @ResponseBody ResponseEntity<Result> save(@Valid @RequestBody dto entity) {
-		Result result = searchCommand("Save").execute(entity.getEntity());
+	public @ResponseBody ResponseEntity<Result> save(@Valid @RequestBody viewHelper vh) {
+		Result result = searchCommand("Save").execute(vh.getEntity());
 		if (null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
 			result.setHttpStatus(400);
 		} else {
@@ -49,8 +49,8 @@ public abstract class AbstractController<dto extends EntityDto> {
 
 	@GetMapping({"", "/{id}"})
     public @ResponseBody ResponseEntity<Result> find(@PathVariable(value="id",required=false) Long id){
-		entity = createEntity();
-		Result result = searchCommand("Find").execute(entity.getEntity(id));
+		vh = createEntity();
+		Result result = searchCommand("Find").execute(vh.getEntity(id));
 		if(null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
 			result.setHttpStatus(404);
 		} else {
@@ -60,8 +60,8 @@ public abstract class AbstractController<dto extends EntityDto> {
     }
 
 	@PutMapping("/{id}")
-	public @ResponseBody ResponseEntity<Result> update(@Valid @RequestBody dto entity, @PathVariable Long id) {
-		Result result = searchCommand("Update").execute(entity.getEntity(id));
+	public @ResponseBody ResponseEntity<Result> update(@Valid @RequestBody viewHelper vh, @PathVariable Long id) {
+		Result result = searchCommand("Update").execute(vh.getEntity(id));
 		if (null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
 			result.setHttpStatus(400);
 		} else {
@@ -72,21 +72,21 @@ public abstract class AbstractController<dto extends EntityDto> {
 
 	@DeleteMapping("/{id}")
 	public @ResponseBody ResponseEntity<Result> delete(@PathVariable Long id) {
-		entity = createEntity();
-		Result result = searchCommand("Delete").execute(entity.getEntity(id));
+		vh = createEntity();
+		Result result = searchCommand("Delete").execute(vh.getEntity(id));
 		result.setHttpStatus(204);
 		return restResponse(result);
 	}
 
-	private dto createEntity() {
+	private viewHelper createEntity() {
 		Object object = null;
 		try {
-			Class classDefinition = Class.forName(entity.getClass().getName());
+			Class classDefinition = Class.forName(vh.getClass().getName());
 			object = classDefinition.newInstance();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return (dto) object;
+		return (viewHelper) object;
 	}
 
 	private ICommand searchCommand(String operation) {

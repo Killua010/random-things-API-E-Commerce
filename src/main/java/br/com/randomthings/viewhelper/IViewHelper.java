@@ -1,4 +1,4 @@
-package br.com.randomthings.dto;
+package br.com.randomthings.viewhelper;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.randomthings.domain.DomainEntity;
 
-public interface Idto {
+public interface IViewHelper {
 	
-	List<EntityDto> getListDto(List<DomainEntity> entities);
+	List<EntityViewHelper> setListEntity(List<DomainEntity> entities);
 	
 	@JsonIgnore
 	DomainEntity getEntity();

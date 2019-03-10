@@ -1,4 +1,4 @@
-package br.com.randomthings.dto;
+package br.com.randomthings.viewhelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +25,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Component
-public class SubCategoryDto extends EntityDto {
+public class SubCategoryViewHelper extends EntityViewHelper {
 	
 	@NotNull(message="O nome da subcategoria é obrigatório")
 	@NotEmpty(message="O nome da subcategoria é obrigatório")
 	private String name;
 	
-	private CategoryDto categoryDto;
+	private CategoryViewHelper category;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message="O id da categoria é obrigatório")
@@ -62,23 +62,23 @@ public class SubCategoryDto extends EntityDto {
 	}
 
 	@Override
-	public List<EntityDto> getListDto(List<DomainEntity> entities) {
-		List<EntityDto> dtos = new ArrayList<EntityDto>();
+	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(new SubCategoryDto().getDTO(entity));
+			dtos.add(new SubCategoryViewHelper().setEntity(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityDto getDTO(DomainEntity subCategory) {
-		SubCategoryDto subCategoryDto = new SubCategoryDto();
+	public EntityViewHelper setEntity(DomainEntity subCategory) {
+		SubCategoryViewHelper subCategoryDto = new SubCategoryViewHelper();
 		subCategoryDto.setId(subCategory.getId());
 		subCategoryDto.setStatus(subCategory.getStatus());
 		subCategoryDto.setCreationDate(subCategory.getCreationDate());
 		subCategoryDto.setLastUpdate(subCategory.getLastUpdate());
 		subCategoryDto.setName(((SubCategory)subCategory).getName());
-		subCategoryDto.setCategoryDto((CategoryDto) new CategoryDto().getDTO(((SubCategory)subCategory).getCategory()));
+		subCategoryDto.setCategory((CategoryViewHelper) new CategoryViewHelper().setEntity(((SubCategory)subCategory).getCategory()));
 		return subCategoryDto;
 	}
 

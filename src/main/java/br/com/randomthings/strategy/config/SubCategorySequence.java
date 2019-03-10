@@ -8,7 +8,7 @@ import br.com.randomthings.domain.SubCategory;
 import br.com.randomthings.strategy.Sequence;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
-import br.com.randomthings.strategy.subcategory.StSubCategoryFindCategory;
+import br.com.randomthings.strategy.subcategory.StSubCategoryRegisterHelp;
 import br.com.randomthings.strategy.subcategory.StSubCategoryValidateExistence;
 
 @Configuration
@@ -18,7 +18,7 @@ public class SubCategorySequence {
 	StSubCategoryValidateExistence stSubCategoryValidateExistence;
 	
 	@Autowired
-	StSubCategoryFindCategory stSubCategoryFindCategory;
+	StSubCategoryRegisterHelp stSubCategoryRegisterHelp;
 	
 	@Autowired
 	StRegistration stRegistration;
@@ -29,7 +29,7 @@ public class SubCategorySequence {
 	@Bean("SAVE_SUBCATEGORY")
 	public Sequence<SubCategory> saveSubCategory() {
 		return new Sequence<SubCategory>()
-				.add(stSubCategoryFindCategory)
+				.add(stSubCategoryRegisterHelp)
 				.add(stSubCategoryValidateExistence)
 				.add(stRegistration);
 	}
@@ -37,7 +37,7 @@ public class SubCategorySequence {
 	@Bean("UPDATE_SUBCATEGORY")
 	public Sequence<SubCategory> updateSubCategory() {
 		return new Sequence<SubCategory>()
-				.add(stSubCategoryFindCategory)
+				.add(stSubCategoryRegisterHelp)
 				.add(stSubCategoryValidateExistence)
 				.add(stLastUpdate);
 	}

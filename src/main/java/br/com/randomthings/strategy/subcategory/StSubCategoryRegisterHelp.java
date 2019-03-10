@@ -11,7 +11,7 @@ import br.com.randomthings.repository.CategoryRepository;
 import br.com.randomthings.strategy.IStrategy;
 
 @Service
-public class StSubCategoryFindCategory implements IStrategy<SubCategory> {
+public class StSubCategoryRegisterHelp implements IStrategy<SubCategory> {
 
 	@Autowired
 	private CategoryRepository categoryRepository;

@@ -1,8 +1,12 @@
 package br.com.randomthings.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -20,4 +24,7 @@ public class SubCategory extends NamedEntity {
 	@ManyToOne (fetch=FetchType.LAZY)
 	@JoinColumn(name="category_id")
 	private Category category;
+	
+	@ManyToMany(mappedBy="subCategory")
+	private List<Product> products = new ArrayList<Product>();
 }
