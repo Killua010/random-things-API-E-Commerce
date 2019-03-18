@@ -60,23 +60,23 @@ public class TechnicalRowViewHelper extends EntityViewHelper {
 	}
 
 	@Override
-	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+	public List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities) {
 		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(new TechnicalRowViewHelper().setEntity(entity));
+			dtos.add(new TechnicalRowViewHelper().getViewHelper(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityViewHelper setEntity(DomainEntity technicalRow) {
+	public EntityViewHelper getViewHelper(DomainEntity technicalRow) {
 		TechnicalRowViewHelper technicalRowDto = new TechnicalRowViewHelper();
 		technicalRowDto.setId(technicalRow.getId());
 		technicalRowDto.setStatus(technicalRow.getStatus());
 		technicalRowDto.setCreationDate(technicalRow.getCreationDate());
 		technicalRowDto.setLastUpdate(technicalRow.getLastUpdate());
 		technicalRowDto.setDescription(((TechnicalRow)technicalRow).getDescription());
-		technicalRowDto.setTechnicalField((TechnicalFieldViewHelper) new TechnicalFieldViewHelper().setEntity(((TechnicalRow)technicalRow).getField()));
+		technicalRowDto.setTechnicalField((TechnicalFieldViewHelper) new TechnicalFieldViewHelper().getViewHelper(((TechnicalRow)technicalRow).getField()));
 		return technicalRowDto;
 	}
 }

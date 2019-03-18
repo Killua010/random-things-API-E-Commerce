@@ -25,5 +25,5 @@ public abstract class EntityViewHelper implements IViewHelper{
 	
 	public abstract DomainEntity getEntity(Long id);
 	
-	public abstract EntityViewHelper setEntity(DomainEntity entity);
+	public abstract EntityViewHelper getViewHelper(DomainEntity entity);
 }

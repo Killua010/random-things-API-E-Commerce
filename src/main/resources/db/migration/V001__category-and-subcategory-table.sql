@@ -18,18 +18,18 @@ CREATE TABLE _sub_category (
 	primary key (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', 'Moda Masculina');
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', 'Moda Feminina');
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', 'Livros');
+INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Masculina');
+INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Feminina');
+INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Livros');
 
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Calça', 1);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Camisa', 1);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Meia', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Meia', 1);
 
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Vestido', 2);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Camisa', 2);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Saia', 2);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Vestido', 2);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 2);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Saia', 2);
 
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Romance', 3);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Terror', 3);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), b'1', 'Ficção', 3);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Romance', 3);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Terror', 3);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Ficção', 3);

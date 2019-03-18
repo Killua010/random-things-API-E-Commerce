@@ -7,9 +7,9 @@ CREATE TABLE _technical_field (
 	primary key (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', "Peso");
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', "Tamanho");
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', "Material");
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', "Autor");
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', "Quantidade de páginas");
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), b'1', "Editora");
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Peso');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Tamanho');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Material');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Autor');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Quantidade de páginas');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Editora');

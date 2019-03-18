@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.Product;
+import br.com.randomthings.domain.TechnicalRow;
 import br.com.randomthings.repository.ProductRepository;
 import br.com.randomthings.strategy.IStrategy;
 

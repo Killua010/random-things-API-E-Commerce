@@ -51,16 +51,16 @@ public class PricingGroupViewHelper extends EntityViewHelper {
 	}
 
 	@Override
-	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+	public List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities) {
 		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(setEntity(entity));
+			dtos.add(getViewHelper(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityViewHelper setEntity(DomainEntity pricingGroup) {
+	public EntityViewHelper getViewHelper(DomainEntity pricingGroup) {
 		PricingGroupViewHelper pricingGroupDto = new PricingGroupViewHelper();
 		pricingGroupDto.setId(pricingGroup.getId());
 		pricingGroupDto.setStatus(pricingGroup.getStatus());

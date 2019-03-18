@@ -8,7 +8,7 @@ import br.com.randomthings.domain.DomainEntity;
 
 public interface IViewHelper {
 	
-	List<EntityViewHelper> setListEntity(List<DomainEntity> entities);
+	List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities);
 	
 	@JsonIgnore
 	DomainEntity getEntity();

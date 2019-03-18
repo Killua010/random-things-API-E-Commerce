@@ -1,7 +1,9 @@
 package br.com.randomthings.viewhelper;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -83,12 +85,13 @@ public class ProductViewHelper extends EntityViewHelper {
 		}
 		
 		if(null != technicalFieldId) {
-			for(Long id: technicalFieldId) {
+			for(int i = 0; i < technicalFieldId.length; i++) {
 				TechnicalRow technicalRow = new TechnicalRow();
 				TechnicalField field = new TechnicalField();
-				field.setId(id);
-				technicalRow.setDescription(description);
+				field.setId(technicalFieldId[i]);
+				technicalRow.setDescription(descriptionField[i]);
 				technicalRow.setField(field);
+				technicalRow.setId(technicalFieldId[i]);
 				product.getTechnicalRows().add(technicalRow);
 			}	
 		}
@@ -117,15 +120,20 @@ public class ProductViewHelper extends EntityViewHelper {
 		}
 		
 		if(null != technicalFieldId) {
-			for(Long idField: technicalFieldId) {
+			List<TechnicalRow> rows = new ArrayList<TechnicalRow>();
+			for(int i = 0; i < technicalFieldId.length; i++) {
 				TechnicalRow technicalRow = new TechnicalRow();
 				TechnicalField field = new TechnicalField();
-				field.setId(idField);
-				technicalRow.setDescription(description);
+				field.setId(technicalFieldId[i]);
+				technicalRow.setDescription(descriptionField[i]);
 				technicalRow.setField(field);
-				product.getTechnicalRows().add(technicalRow);
-			}	
+				technicalRow.setId(technicalFieldId[i]);
+				rows.add(technicalRow);
+			}
+			Set<TechnicalRow> actualRows = new HashSet<TechnicalRow>(rows);
+			product.setTechnicalRows(actualRows);
 		}
+		
 		product.setName(name);
 		product.setBarCode(barCode);
 		product.setDescription(description);
@@ -133,16 +141,16 @@ public class ProductViewHelper extends EntityViewHelper {
 	}
 
 	@Override
-	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+	public List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities) {
 		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(setEntity(entity));
+			dtos.add(getViewHelper(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityViewHelper setEntity(DomainEntity product) {
+	public EntityViewHelper getViewHelper(DomainEntity product) {
 		ProductViewHelper productViewHelper = new ProductViewHelper();
 		productViewHelper.setId(product.getId());
 		productViewHelper.setStatus(product.getStatus());
@@ -151,14 +159,14 @@ public class ProductViewHelper extends EntityViewHelper {
 		productViewHelper.setName(((Product)product).getName());
 		productViewHelper.setBarCode(((Product)product).getBarCode());
 		productViewHelper.setDescription(((Product)product).getDescription());
-		productViewHelper.setPricingGroup((PricingGroupViewHelper) new PricingGroupViewHelper().setEntity(((Product)product).getPricingGroup()));
+		productViewHelper.setPricingGroup((PricingGroupViewHelper) new PricingGroupViewHelper().getViewHelper(((Product)product).getPricingGroup()));
 		productViewHelper.setSubCategories(new ArrayList<>());
 		for(SubCategory subCategory: ((Product)product).getSubCategory()) {
-			productViewHelper.getSubCategories().add((SubCategoryViewHelper) new SubCategoryViewHelper().setEntity(subCategory));
+			productViewHelper.getSubCategories().add((SubCategoryViewHelper) new SubCategoryViewHelper().getViewHelper(subCategory));
 		}
 		productViewHelper.setTechnicalRow(new ArrayList<>());
 		for(TechnicalRow technicalRow: ((Product)product).getTechnicalRows()) {
-			productViewHelper.getTechnicalRow().add((TechnicalRowViewHelper) new TechnicalRowViewHelper().setEntity(technicalRow));
+			productViewHelper.getTechnicalRow().add((TechnicalRowViewHelper) new TechnicalRowViewHelper().getViewHelper(technicalRow));
 		}
 		return productViewHelper;
 	}

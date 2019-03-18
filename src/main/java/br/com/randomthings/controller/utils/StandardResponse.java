@@ -27,7 +27,7 @@ public class StandardResponse <viewHelper extends EntityViewHelper> implements H
 			return ResponseEntity.ok().body(new ArrayList<>());
 		} else {
 			IViewHelper idto = searchDto(result.getResultEntities().get(0));
-			return ResponseEntity.ok().body(idto.setListEntity(result.getResultEntities()));
+			return ResponseEntity.ok().body(idto.getListViewHelper(result.getResultEntities()));
 		}
 	}
 	

@@ -44,16 +44,16 @@ public class TechnicalFieldViewHelper extends EntityViewHelper {
 	}
 
 	@Override
-	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+	public List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities) {
 		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(setEntity(entity));
+			dtos.add(getViewHelper(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityViewHelper setEntity(DomainEntity technicalField) {
+	public EntityViewHelper getViewHelper(DomainEntity technicalField) {
 		TechnicalFieldViewHelper technicalFieldDto = new TechnicalFieldViewHelper();
 		technicalFieldDto.setId(technicalField.getId());
 		technicalFieldDto.setStatus(technicalField.getStatus());

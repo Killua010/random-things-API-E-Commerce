@@ -44,16 +44,16 @@ public class CategoryViewHelper extends EntityViewHelper {
 	}
 
 	@Override
-	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+	public List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities) {
 		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(setEntity(entity));
+			dtos.add(getViewHelper(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityViewHelper setEntity(DomainEntity category) {
+	public EntityViewHelper getViewHelper(DomainEntity category) {
 		CategoryViewHelper categoryDto = new CategoryViewHelper();
 		categoryDto.setId(category.getId());
 		categoryDto.setStatus(category.getStatus());

@@ -62,23 +62,23 @@ public class SubCategoryViewHelper extends EntityViewHelper {
 	}
 
 	@Override
-	public List<EntityViewHelper> setListEntity(List<DomainEntity> entities) {
+	public List<EntityViewHelper> getListViewHelper(List<DomainEntity> entities) {
 		List<EntityViewHelper> dtos = new ArrayList<EntityViewHelper>();
 		for(DomainEntity entity : entities) {
-			dtos.add(new SubCategoryViewHelper().setEntity(entity));
+			dtos.add(new SubCategoryViewHelper().getViewHelper(entity));
 		}
 		return dtos;
 	}
 
 	@Override
-	public EntityViewHelper setEntity(DomainEntity subCategory) {
+	public EntityViewHelper getViewHelper(DomainEntity subCategory) {
 		SubCategoryViewHelper subCategoryDto = new SubCategoryViewHelper();
 		subCategoryDto.setId(subCategory.getId());
 		subCategoryDto.setStatus(subCategory.getStatus());
 		subCategoryDto.setCreationDate(subCategory.getCreationDate());
 		subCategoryDto.setLastUpdate(subCategory.getLastUpdate());
 		subCategoryDto.setName(((SubCategory)subCategory).getName());
-		subCategoryDto.setCategory((CategoryViewHelper) new CategoryViewHelper().setEntity(((SubCategory)subCategory).getCategory()));
+		subCategoryDto.setCategory((CategoryViewHelper) new CategoryViewHelper().getViewHelper(((SubCategory)subCategory).getCategory()));
 		return subCategoryDto;
 	}
 
