@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import br.com.randomthings.domain.Activation;
+import br.com.randomthings.domain.Inactivation;
 import br.com.randomthings.strategy.Sequence;
 import br.com.randomthings.strategy.inactivation.StInactivationValidateProduct;
 import br.com.randomthings.strategy.standard.StRegistration;
@@ -19,8 +20,8 @@ public class InactivationSequence {
 	StRegistration stRegistration;
 
 	@Bean("SAVE_INACTIVATION")
-	public Sequence<Activation> saveCategory() {
-		return new Sequence<Activation>()
+	public Sequence<Inactivation> saveCategory() {
+		return new Sequence<Inactivation>()
 				.add(stInactivationValidateProduct)
 				.add(stRegistration);
 	}

@@ -6,11 +6,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.randomthings.domain.Category;
+import br.com.randomthings.domain.Inactivation;
 
 @Repository
-public interface CategoryRepository extends IRepository<Category> {
+public interface InactivationRepository extends IRepository<Inactivation> {
 	
-	@Transactional(readOnly=true)
-	Optional<Category> findByName(String name);
-
 }

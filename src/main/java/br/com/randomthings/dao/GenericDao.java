@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -31,7 +32,7 @@ public class GenericDao<entity extends DomainEntity> implements IDao<entity>{
 		if(null != entity.getId()) {
 			return Arrays.asList(searchRepository(entity).findById(entity.getId()).orElse(null));
 		}
-		return searchRepository(entity).findAll();
+		return searchRepository(entity).findAll().stream().filter(e -> e.getStatus() == true).collect(Collectors.toList());
 	}
 
 	@Override
