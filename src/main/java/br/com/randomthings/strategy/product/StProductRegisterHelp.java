@@ -59,7 +59,6 @@ public class StProductRegisterHelp implements IStrategy<Product> {
 			stRegistration.execute(row);
 			entity.getTechnicalRows().add(row);
 		}
-		System.err.println(entity.getTechnicalRows().size());
 		
 		return "";
 	}

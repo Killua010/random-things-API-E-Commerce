@@ -46,6 +46,6 @@ public class Product extends NamedEntity {
 	@ManyToMany(cascade = CascadeType.REFRESH	, fetch = FetchType.EAGER)
 	private Set<SubCategory> subCategory = new HashSet<SubCategory>();
 	
-	@OneToMany(mappedBy="product", cascade=CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
 	private Set<TechnicalRow> technicalRows = new HashSet<TechnicalRow>();
 }

@@ -91,7 +91,7 @@ public class ProductViewHelper extends EntityViewHelper {
 				field.setId(technicalFieldId[i]);
 				technicalRow.setDescription(descriptionField[i]);
 				technicalRow.setField(field);
-				technicalRow.setId(technicalFieldId[i]);
+//				technicalRow.setId(technicalFieldId[i]);
 				product.getTechnicalRows().add(technicalRow);
 			}	
 		}
@@ -127,7 +127,7 @@ public class ProductViewHelper extends EntityViewHelper {
 				field.setId(technicalFieldId[i]);
 				technicalRow.setDescription(descriptionField[i]);
 				technicalRow.setField(field);
-				technicalRow.setId(technicalFieldId[i]);
+//				technicalRow.setId(technicalFieldId[i]);
 				rows.add(technicalRow);
 			}
 			Set<TechnicalRow> actualRows = new HashSet<TechnicalRow>(rows);
