@@ -3,6 +3,7 @@ package br.com.randomthings.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,6 +19,8 @@ import lombok.Data;
 @Entity(name="_client")
 public class Client extends Person {
 	
+	@Basic
+	@Column(length = 11, nullable = false, unique = true)
 	private String cpf;
 	
 	@ColumnDefault("0")

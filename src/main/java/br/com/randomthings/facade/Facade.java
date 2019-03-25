@@ -75,7 +75,7 @@ public class Facade<entity extends DomainEntity> implements IFacade<entity> {
 		return result;
 	}
 
-	private StringBuilder runStrategys(entity entity, String operation) {
+	protected StringBuilder runStrategys(entity entity, String operation) {
 		StringBuilder errors = new StringBuilder();
 		
 		listNavigations

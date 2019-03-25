@@ -19,4 +19,11 @@ public class ResourceExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
 		
 	}	
+	
+	@ExceptionHandler(StrategyValidation.class)// trata erros dessa exceção
+	public ResponseEntity<StandardError> validation(StrategyValidation e, HttpServletRequest request){
+		StandardError err = new StandardError(HttpStatus.BAD_REQUEST.value(), e.errors.toString(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+		
+	}
 }

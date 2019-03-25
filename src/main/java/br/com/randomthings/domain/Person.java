@@ -21,7 +21,7 @@ import lombok.Setter;
 @AttributeOverride(name = "name", column = @Column(name = "first_name"))
 public class Person extends NamedEntity {
 	
-	@Column(name = "last_name")
+	@Column(name = "last_name", length = 100, nullable = false)
 	private String lastName;
 	
 	@Enumerated(EnumType.STRING)
