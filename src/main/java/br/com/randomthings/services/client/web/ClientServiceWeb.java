@@ -6,4 +6,6 @@ import br.com.randomthings.exception.StrategyValidation;
 
 public interface ClientServiceWeb {
 	Client save(ClientDTO clientDTO) throws StrategyValidation;
+	
+	Client update(ClientDTO clientDTO) throws StrategyValidation;
 }

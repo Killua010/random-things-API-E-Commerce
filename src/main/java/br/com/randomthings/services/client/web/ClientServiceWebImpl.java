@@ -1,5 +1,7 @@
 package br.com.randomthings.services.client.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,22 @@ public class ClientServiceWebImpl extends Facade<Client> implements ClientServic
 		clientDTO.fill(client);
 		
 		StringBuilder errors = runStrategys(client, "Save");
+		
+		if(errors.length() != 0) {
+			throw new StrategyValidation(errors);
+		}
+		
+		return clientService.save(client);
+	}
+
+	@Override
+	public Client update(ClientDTO clientDTO) throws StrategyValidation {
+		Client client = clientService.findById(clientDTO.getId());
+		System.err.println(client);
+		System.err.println("oi");
+		clientDTO.fill(client);
+		
+		StringBuilder errors = runStrategys(client, "Update");
 		
 		if(errors.length() != 0) {
 			throw new StrategyValidation(errors);

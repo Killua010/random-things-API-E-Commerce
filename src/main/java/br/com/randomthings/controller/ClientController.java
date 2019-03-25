@@ -43,4 +43,17 @@ public class ClientController {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> alterar(@Valid @RequestBody ClientDTO clientDTO, @PathVariable Long id){
+		clientDTO.setId(id);
+		clientServiceWeb.update(clientDTO);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Void> deletar(@PathVariable Long id) {
+		clientService.deletar(id);
+		return ResponseEntity.noContent().build();
+	}
+	
 }

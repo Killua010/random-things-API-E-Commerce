@@ -11,7 +11,8 @@ public class ClientPasswordEqualsValidator implements ConstraintValidator<Client
 	@Override
 	public boolean isValid(ClientDTO objDto, ConstraintValidatorContext context) {
 		
-		if(!objDto.getPassword().equals(objDto.getConfirmPassword())) {
+		if(objDto.getPassword() != null && objDto.getConfirmPassword() != null &&
+				!objDto.getPassword().equals(objDto.getConfirmPassword())) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate("Senhas diferentes").addPropertyNode("password")
 					.addConstraintViolation();

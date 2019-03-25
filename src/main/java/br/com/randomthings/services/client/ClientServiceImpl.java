@@ -36,5 +36,10 @@ public class ClientServiceImpl implements ClientService {
 		domain = clientRepository.save(domain);
 		return domain;
 	}
+
+	@Override
+	public void deletar(Long id) {
+		clientRepository.deleteById(id);		
+	}
 	
 }
