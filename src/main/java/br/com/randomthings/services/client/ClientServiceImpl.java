@@ -1,5 +1,7 @@
 package br.com.randomthings.services.client;
 
+import java.time.LocalDateTime;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class ClientServiceImpl implements ClientService {
 	private UserRepository userRepository;
 	
 	public Client findById(Long id) {		
-		return clientRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
+		return clientRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
 				+ ", tipo: " + Client.class.getSimpleName()));
 	}
 
@@ -38,8 +40,12 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
+	@Transactional 
 	public void deletar(Long id) {
-		clientRepository.deleteById(id);		
+		Client client = findById(id);
+		client.setStatus(false);
+		client.setLastUpdate(LocalDateTime.now());
+		clientRepository.save(client);
 	}
 	
 }

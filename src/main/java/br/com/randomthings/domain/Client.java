@@ -13,9 +13,16 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.ColumnDefault;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name="_client")
 public class Client extends Person {
 	

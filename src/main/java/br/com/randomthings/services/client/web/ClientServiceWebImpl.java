@@ -41,8 +41,6 @@ public class ClientServiceWebImpl extends Facade<Client> implements ClientServic
 	@Override
 	public Client update(ClientDTO clientDTO) throws StrategyValidation {
 		Client client = clientService.findById(clientDTO.getId());
-		System.err.println(client);
-		System.err.println("oi");
 		clientDTO.fill(client);
 		
 		StringBuilder errors = runStrategys(client, "Update");

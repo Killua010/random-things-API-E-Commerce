@@ -1,6 +1,9 @@
 package br.com.randomthings.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.com.randomthings.domain.Client;
+import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.domain.Gender;
 import br.com.randomthings.domain.TelephoneType;
 import br.com.randomthings.dto.validation.ClientPasswordEquals;
@@ -67,6 +71,15 @@ public class ClientDTO extends EntityDTO {
 	@NotNull(message = "O campo confirmação de senha é obrigatório.")
 	private String confirmPassword;
 	
+	private List<DeliveryAddressDTO> deliveryAddress;
+	
+	private void SetDeliveryAddress(Set<DeliveryAddress> set) {
+		this.deliveryAddress = new ArrayList<DeliveryAddressDTO>();
+		for(DeliveryAddress address: set) {
+			this.deliveryAddress.add(DeliveryAddressDTO.from(address));
+		}
+	}
+	
 	public static ClientDTO from(Client client) {
 		ClientDTO clientDTO = new ClientDTO();
 		
@@ -83,6 +96,7 @@ public class ClientDTO extends EntityDTO {
 		clientDTO.setStatus(client.getStatus());
 		clientDTO.setCreationDate(client.getCreationDate());
 		clientDTO.setLastUpdate(client.getLastUpdate());
+		clientDTO.SetDeliveryAddress(client.getAddresses());
 		
 		return clientDTO;
 	}

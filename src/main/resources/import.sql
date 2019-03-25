@@ -62,6 +62,10 @@ INSERT INTO _client(creation_date, last_update, status, first_name, birth_date, 
 
 INSERT INTO _country(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'Brasil');
 
+INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Casa');
+INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Apartamento');
+INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Sitio');
+
 INSERT INTO _state(creation_date, last_update, status, name, sc, country_id) VALUES (NOW(), NOW(), 1, 'Acre', 'AC', 1);
 INSERT INTO _state(creation_date, last_update, status, name, sc, country_id) VALUES (NOW(), NOW(), 1, 'Alagoas', 'AL', 1);
 INSERT INTO _state(creation_date, last_update, status, name, sc, country_id) VALUES (NOW(), NOW(), 1, 'Amapá', 'AP', 1);
