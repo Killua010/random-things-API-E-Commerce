@@ -60,6 +60,9 @@ INSERT INTO _contacts(creation_date, last_update, status, ddd, email, number, te
 
 INSERT INTO _client(creation_date, last_update, status, first_name, birth_date, gender, last_name, cpf, rank, contact_id, user_id ) VALUES (NOW(), NOW(), 1, 'Jurema', '2000-02-24', 'NAOBINARIO', 'Pereira Oliveira', '01234567890', 0, 1, 1);
 
+INSERT INTO _credit_card_flag(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'Visa');
+INSERT INTO _credit_card_flag(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'MasterCard');
+
 INSERT INTO _country(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'Brasil');
 
 INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Casa');

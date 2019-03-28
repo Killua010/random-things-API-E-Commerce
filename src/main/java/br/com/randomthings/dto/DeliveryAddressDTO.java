@@ -53,7 +53,7 @@ public class DeliveryAddressDTO extends EntityDTO {
 	@Min(value=1, message="O id do tipo de residencia deve ser maior ou igual a 1")
 	private Long residenceTypeId;
 	
-	private CityDTO cities;
+	private CityDTO city;
 	
 	public static DeliveryAddressDTO from(DeliveryAddress address) {
 		DeliveryAddressDTO addressDTO = new DeliveryAddressDTO();
@@ -69,7 +69,7 @@ public class DeliveryAddressDTO extends EntityDTO {
 		addressDTO.setZipCode(address.getZipCode());
 		addressDTO.setObservation(address.getObservation());
 		addressDTO.setFavorite(address.getFavorite());
-		addressDTO.setCities(CityDTO.from(address.getCity()));
+		addressDTO.setCity(CityDTO.from(address.getCity()));
 		
 		return addressDTO;
 	}

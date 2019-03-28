@@ -11,12 +11,12 @@ import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.domain.ResidenceType;
 import br.com.randomthings.dto.DeliveryAddressDTO;
 import br.com.randomthings.exception.StrategyValidation;
-import br.com.randomthings.facade.Facade;
+import br.com.randomthings.services.ExecuteStrategys;
 import br.com.randomthings.services.address.DeliveryAddressService;
 import br.com.randomthings.services.client.ClientService;
 
 @Service
-public class DeliveryAddressWebImpl extends Facade<DeliveryAddress> implements DeliveryAddressWebService {
+public class DeliveryAddressWebImpl extends ExecuteStrategys<DeliveryAddress> implements DeliveryAddressWebService {
 
 	@Autowired
 	private ClientService clientService;

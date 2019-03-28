@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.com.randomthings.domain.Client;
+import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.domain.Gender;
 import br.com.randomthings.domain.TelephoneType;
@@ -73,10 +74,19 @@ public class ClientDTO extends EntityDTO {
 	
 	private List<DeliveryAddressDTO> deliveryAddress;
 	
+	private List<CreditCardDTO> cards;
+	
 	private void SetDeliveryAddress(Set<DeliveryAddress> set) {
 		this.deliveryAddress = new ArrayList<DeliveryAddressDTO>();
 		for(DeliveryAddress address: set) {
 			this.deliveryAddress.add(DeliveryAddressDTO.from(address));
+		}
+	}
+	
+	private void SetCreditCards(Set<CreditCard> set) {
+		this.cards = new ArrayList<CreditCardDTO>();
+		for(CreditCard card: set) {
+			this.cards.add(CreditCardDTO.from(card));
 		}
 	}
 	
@@ -97,6 +107,7 @@ public class ClientDTO extends EntityDTO {
 		clientDTO.setCreationDate(client.getCreationDate());
 		clientDTO.setLastUpdate(client.getLastUpdate());
 		clientDTO.SetDeliveryAddress(client.getAddresses());
+		clientDTO.SetCreditCards(client.getCards());
 		
 		return clientDTO;
 	}

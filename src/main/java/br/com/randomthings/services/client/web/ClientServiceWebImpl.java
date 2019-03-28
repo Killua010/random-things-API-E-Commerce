@@ -1,7 +1,5 @@
 package br.com.randomthings.services.client.web;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +8,11 @@ import br.com.randomthings.domain.Contact;
 import br.com.randomthings.domain.User;
 import br.com.randomthings.dto.ClientDTO;
 import br.com.randomthings.exception.StrategyValidation;
-import br.com.randomthings.facade.Facade;
+import br.com.randomthings.services.ExecuteStrategys;
 import br.com.randomthings.services.client.ClientService;
 
 @Service
-public class ClientServiceWebImpl extends Facade<Client> implements ClientServiceWeb {
+public class ClientServiceWebImpl extends ExecuteStrategys<Client> implements ClientServiceWeb {
 	
 	@Autowired
 	private ClientService clientService;
