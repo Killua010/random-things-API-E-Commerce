@@ -17,7 +17,7 @@ public class CreditCard extends DomainEntity {
 	private Boolean favorite;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "crediti_card_flag_id")
+    @JoinColumn(name = "credit_card_flag_id")
 	private CreditCardFlag flag;
 	
 	@ManyToOne (fetch=FetchType.LAZY)

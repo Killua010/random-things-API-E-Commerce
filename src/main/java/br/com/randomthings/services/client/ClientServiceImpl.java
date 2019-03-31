@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.Client;
+import br.com.randomthings.domain.User;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ClientRepository;
 import br.com.randomthings.repository.ContactRepository;
@@ -46,6 +47,12 @@ public class ClientServiceImpl implements ClientService {
 		client.setStatus(false);
 		client.setLastUpdate(LocalDateTime.now());
 		clientRepository.save(client);
+	}
+
+	@Override
+	public Client findByUser(User user) {
+		return clientRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! email: " + user.getEmail()
+				+ " senha: " + user.getPassword() + ", tipo: " + Client.class.getSimpleName()));
 	}
 	
 }

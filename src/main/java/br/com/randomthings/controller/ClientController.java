@@ -6,19 +6,23 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.randomthings.domain.Client;
+import br.com.randomthings.domain.User;
 import br.com.randomthings.dto.ClientDTO;
 import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.services.client.ClientService;
 import br.com.randomthings.services.client.web.ClientServiceWeb;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
@@ -54,6 +58,13 @@ public class ClientController {
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
 		clientService.deletar(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@RequestMapping(value = "/login", method=RequestMethod.POST)
+	public ResponseEntity<ClientDTO> login(@RequestBody User user){
+		Client client = clientService.findByUser(user);
+		return ResponseEntity.ok()
+				.body(ClientDTO.from(client));
 	}
 	
 }

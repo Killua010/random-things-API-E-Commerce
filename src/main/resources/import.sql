@@ -1,73 +1,4 @@
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Masculina');
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Feminina');
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Livros');
-
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 1);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Meia', 1);
-
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Vestido', 2);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 2);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Saia', 2);
-
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Romance', 3);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Terror', 3);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Ficção', 3);
-
-INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Bronze', 30.0);
-INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Silver', 20.0);
-INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Gold', 10.0);
-INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Platinum', 7.5);
-
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Peso');
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Tamanho');
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Material');
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Autor');
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Quantidade de páginas');
-INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Editora');
-
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Polo', 'A Camisa Polo RG 518 Piquet Bordado Contraste Color garante estilo para você aproveitar todos os momentos. Feita em tecido macio, oferece um visual moderno e um caimento confortável.', '0250101972', 2);
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Lisa', 'A Camisa Lisa é confeccionada em algodão e elastano. Possui mangas longas, fechamento por abotoamento e gola dobrada. Seu tecido leve e macio permite uma produção confortável e elegante para festas formais ou casamentos. Combine com calça de alfaiataria e sapato.', '0250108572', 1);
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'O Alquimista', 'O alquimista é a mágica história de Santiago, um menino pastor andaluz que anseia por viajar em busca do tesouro mais magnífico do mundo. De sua casa na Espanha ele parte para os mercados do Tânger e através do deserto egípcio para um encontro do destino com o alquimista. A história dos tesouros que Santiago encontra ao longo de sua jornada nos ensina, como poucas histórias fizeram, sobre a sabedoria de escutarmos nossos corações, aprendendo a ler os sinais que aparecem ao longo do caminho de nossas vidas e, acima de tudo, a seguir nossos sonhos.', '0250101992', 3);
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'A Revolução Dos Bichos', 'Verdadeiro clássico moderno, concebido por um dos mais influentes escritores do século 20, "A Revolução dos Bichos" é uma fábula sobre o poder. Narra a insurreição dos animais de uma granja contra seus donos. Progressivamente, porém, a revolução degenera numa tirania ainda mais opressiva que a dos humanos Escrita em plena Segunda Guerra Mundial e publicada em 1945 depois de ter sido rejeitada por várias editoras, essa pequena narrativa causou desconforto ao satirizar ferozmente a ditadura stalinista numa época em que os soviéticos ainda eram aliados do Ocidente na luta contra o eixo nazifascista. De fato, são claras as referências: o despótico Napoleão seria Stálin, o banido Bola-de-Neve seria Trotsky, e os eventos políticos - expurgos, instituição de um estado policial, deturpação tendenciosa da História - mimetizam os que estavam em curso na União Soviética. Com o acirramento da Guerra Fria, as mesmas razões que causaram constrangimento na época de sua publicação levaram A revolução dos bichos a ser amplamente usada pelo Ocidente nas décadas seguintes como arma ideológica contra o comunismo. O próprio Orwell, adepto do socialismo e inimigo de qualquer forma de manipulação política, sentiu-se incomodado com a utilização de sua fábula como panfleto.', '0256931972', 4);
-
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (1, 2);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (2, 2);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (2, 5);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (3, 9);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (4, 9); 
-
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 1);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 1);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 1);
-
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 2);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 2);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 2);
-
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 3);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Paulo Coelho', 4, 3);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Paralela', 6, 3);
-
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.8 Kg', 1, 4);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'George Orwell', 4, 4);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Companhia Das Letras', 5, 4);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '152', 6, 4);
-
-INSERT INTO _user(creation_date, last_update, status, email, password ) VALUES (NOW(), NOW(), 1, 'admin@admin.com', 'admin1234');
-
-INSERT INTO _contacts(creation_date, last_update, status, ddd, email, number, telephone_type ) VALUES (NOW(), NOW(), 1, '11', 'admin@admin.com', '975905803', 'MOVEL');
-
-INSERT INTO _client(creation_date, last_update, status, first_name, birth_date, gender, last_name, cpf, rank, contact_id, user_id ) VALUES (NOW(), NOW(), 1, 'Jurema', '2000-02-24', 'NAOBINARIO', 'Pereira Oliveira', '01234567890', 0, 1, 1);
-
-INSERT INTO _credit_card_flag(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'Visa');
-INSERT INTO _credit_card_flag(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'MasterCard');
-
 INSERT INTO _country(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'Brasil');
-
-INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Casa');
-INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Apartamento');
-INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Sitio');
 
 INSERT INTO _state(creation_date, last_update, status, name, sc, country_id) VALUES (NOW(), NOW(), 1, 'Acre', 'AC', 1);
 INSERT INTO _state(creation_date, last_update, status, name, sc, country_id) VALUES (NOW(), NOW(), 1, 'Alagoas', 'AL', 1);
@@ -5668,4 +5599,80 @@ INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (N
 INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (NOW(), NOW(), 1, 'Tupiratins', 27),;
 INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (NOW(), NOW(), 1, 'Wanderlândia', 27),;
 INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (NOW(), NOW(), 1, 'Xambioá', 27);
+
+INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Masculina');
+INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Feminina');
+INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Livros');
+
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Meia', 1);
+
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Vestido', 2);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 2);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Saia', 2);
+
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Romance', 3);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Terror', 3);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Ficção', 3);
+
+INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Bronze', 30.0);
+INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Silver', 20.0);
+INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Gold', 10.0);
+INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Platinum', 7.5);
+
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Peso');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Tamanho');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Material');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Autor');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Quantidade de páginas');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Editora');
+
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Polo', 'A Camisa Polo RG 518 Piquet Bordado Contraste Color garante estilo para você aproveitar todos os momentos. Feita em tecido macio, oferece um visual moderno e um caimento confortável.', '0250101972', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Lisa', 'A Camisa Lisa é confeccionada em algodão e elastano. Possui mangas longas, fechamento por abotoamento e gola dobrada. Seu tecido leve e macio permite uma produção confortável e elegante para festas formais ou casamentos. Combine com calça de alfaiataria e sapato.', '0250108572', 1);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'O Alquimista', 'O alquimista é a mágica história de Santiago, um menino pastor andaluz que anseia por viajar em busca do tesouro mais magnífico do mundo. De sua casa na Espanha ele parte para os mercados do Tânger e através do deserto egípcio para um encontro do destino com o alquimista. A história dos tesouros que Santiago encontra ao longo de sua jornada nos ensina, como poucas histórias fizeram, sobre a sabedoria de escutarmos nossos corações, aprendendo a ler os sinais que aparecem ao longo do caminho de nossas vidas e, acima de tudo, a seguir nossos sonhos.', '0250101992', 3);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'A Revolução Dos Bichos', 'Verdadeiro clássico moderno, concebido por um dos mais influentes escritores do século 20, "A Revolução dos Bichos" é uma fábula sobre o poder. Narra a insurreição dos animais de uma granja contra seus donos. Progressivamente, porém, a revolução degenera numa tirania ainda mais opressiva que a dos humanos Escrita em plena Segunda Guerra Mundial e publicada em 1945 depois de ter sido rejeitada por várias editoras, essa pequena narrativa causou desconforto ao satirizar ferozmente a ditadura stalinista numa época em que os soviéticos ainda eram aliados do Ocidente na luta contra o eixo nazifascista. De fato, são claras as referências: o despótico Napoleão seria Stálin, o banido Bola-de-Neve seria Trotsky, e os eventos políticos - expurgos, instituição de um estado policial, deturpação tendenciosa da História - mimetizam os que estavam em curso na União Soviética. Com o acirramento da Guerra Fria, as mesmas razões que causaram constrangimento na época de sua publicação levaram A revolução dos bichos a ser amplamente usada pelo Ocidente nas décadas seguintes como arma ideológica contra o comunismo. O próprio Orwell, adepto do socialismo e inimigo de qualquer forma de manipulação política, sentiu-se incomodado com a utilização de sua fábula como panfleto.', '0256931972', 4);
+
+INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (1, 2);
+INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (2, 2);
+INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (2, 5);
+INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (3, 9);
+INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (4, 9); 
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 1);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 1);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 1);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 2);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 2);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 2);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 3);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Paulo Coelho', 4, 3);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Paralela', 6, 3);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.8 Kg', 1, 4);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'George Orwell', 4, 4);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Companhia Das Letras', 5, 4);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '152', 6, 4);
+
+INSERT INTO _user(creation_date, last_update, status, email, password ) VALUES (NOW(), NOW(), 1, 'admin@admin.com', 'admin1234');
+
+INSERT INTO _contacts(creation_date, last_update, status, ddd, email, number, telephone_type ) VALUES (NOW(), NOW(), 1, '11', 'admin@admin.com', '975905803', 'MOVEL');
+
+INSERT INTO _client(creation_date, last_update, status, first_name, birth_date, gender, last_name, cpf, rank, contact_id, user_id ) VALUES (NOW(), NOW(), 1, 'Jurema', '2000-02-24', 'NAOBINARIO', 'Pereira Oliveira', '01234567890', 0, 1, 1);
+
+INSERT INTO _credit_card_flag(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'Visa');
+INSERT INTO _credit_card_flag(creation_date, last_update, status, name ) VALUES (NOW(), NOW(), 1, 'MasterCard');
+
+INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Casa');
+INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Apartamento');
+INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Sitio');
+
+INSERT INTO _credit_card(creation_date, last_update, status, favorite, number, printed_name, security_code, client_id, credit_card_flag_id) VALUES (NOW(), NOW(), 1, 1, '0123012301230123', 'Jurema Pereira Oliveira', '012', 1, 1); 
+
+INSERT INTO _address(creation_date, last_update, status, favorite, neighborhood, number, observation, street, zip_code, city_id, residence_type_id) VALUES (NOW(), NOW(), 1, 1, 'Esmero', 0, null, 'Rua dos bobos', '00000-000', 1, 1);
+
+INSERT INTO _delivery_address(full_name, id, client_id) VALUES ('Uma casa muito engraçada', 1, 1);
+ 
  
