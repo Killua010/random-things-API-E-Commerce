@@ -43,17 +43,21 @@ public class DeliveryAddressDTO extends EntityDTO {
 	@NotNull(message = "O campo favorito é obrigatório.")
 	private Boolean favorite;
 	
-	@JsonProperty(access = Access.WRITE_ONLY)
+//	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message = "O id da cidade é obrigatório.")
 	@Min(value=1, message="O id da cidade deve ser maior ou igual a 1")
 	private Long cityId;
 	
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@NotNull(message = "O id do estado é obrigatório.")
+	@Min(value=1, message="O id do estado deve ser maior ou igual a 1")
+	private Long stateId;
+	
+//	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message = "O id do tipo de residencia é obrigatório.")
 	@Min(value=1, message="O id do tipo de residencia deve ser maior ou igual a 1")
 	private Long residenceTypeId;
 	
-	private CityDTO city;
+	private CityAddressDTO city;
 	
 	public static DeliveryAddressDTO from(DeliveryAddress address) {
 		DeliveryAddressDTO addressDTO = new DeliveryAddressDTO();
@@ -69,7 +73,10 @@ public class DeliveryAddressDTO extends EntityDTO {
 		addressDTO.setZipCode(address.getZipCode());
 		addressDTO.setObservation(address.getObservation());
 		addressDTO.setFavorite(address.getFavorite());
-		addressDTO.setCity(CityDTO.from(address.getCity()));
+		addressDTO.setCityId(address.getCity().getId());
+		addressDTO.setStateId(address.getCity().getState().getId());
+		addressDTO.setResidenceTypeId(address.getResidenceType().getId());
+		addressDTO.setCity(CityAddressDTO.from(address.getCity()));
 		
 		return addressDTO;
 	}
