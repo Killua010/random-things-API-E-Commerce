@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.CreditCard;
+import br.com.randomthings.domain.CreditCardFlag;
 import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.CreditCardRepository;
@@ -13,6 +14,7 @@ public class CreditCardServiceImpl implements CreditCardService {
 
 	@Autowired
 	private CreditCardRepository creditCardRepository;
+	
 
 	@Override
 	public CreditCard findById(Long id) {
@@ -22,7 +24,8 @@ public class CreditCardServiceImpl implements CreditCardService {
 
 	@Override
 	public CreditCard save(CreditCard domain) {
-		domain = creditCardRepository.save(domain);
+//		domain.getFlag().setId((long) 1);
+		domain = creditCardRepository.saveAndFlush(domain);
 		return domain;
 	}
 

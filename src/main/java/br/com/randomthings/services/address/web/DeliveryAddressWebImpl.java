@@ -44,7 +44,11 @@ public class DeliveryAddressWebImpl extends ExecuteStrategys<DeliveryAddress> im
 	
 	@Override
 	public DeliveryAddress update(@Valid DeliveryAddressDTO deliveryAddressDTO) {
-		DeliveryAddress deliveryAddress = deliveryAddressService.findById(deliveryAddressDTO.getId());
+		DeliveryAddress deliveryAddress = new DeliveryAddress();
+		City city = new City();
+		ResidenceType residenceType = new ResidenceType();
+		deliveryAddress.setResidenceType(residenceType);
+		deliveryAddress.setCity(city);
 		deliveryAddressDTO.fill(deliveryAddress);
 		
 		StringBuilder errors = runStrategys(deliveryAddress, "Update");

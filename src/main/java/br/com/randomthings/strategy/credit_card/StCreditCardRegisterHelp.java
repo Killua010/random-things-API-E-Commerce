@@ -18,12 +18,12 @@ public class StCreditCardRegisterHelp implements IStrategy<CreditCard> {
 
 	@Override
 	public String execute(CreditCard entity) {
-		Optional<CreditCardFlag> flagOptional = creditCardFlagRepository.findByIdAndStatusTrue(entity.getFlag().getId());
-		if(!flagOptional.isPresent()) {
-			return "A bandeira com id = " + entity.getFlag().getId() + " é inexistente";
-		}
-		
-		entity.setFlag(flagOptional.get());
+//		Optional<CreditCardFlag> flagOptional = creditCardFlagRepository.findByIdAndStatusTrue(entity.getFlag().getId());
+//		if(!flagOptional.isPresent()) {
+//			return "A bandeira com id = " + entity.getFlag().getId() + " é inexistente";
+//		}
+//		
+//		entity.setFlag(flagOptional.get());
 		
 		return "";
 	}

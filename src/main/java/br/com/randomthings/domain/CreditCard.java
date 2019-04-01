@@ -1,14 +1,21 @@
 package br.com.randomthings.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name="_credit_card")
 public class CreditCard extends DomainEntity {
 	private String number;
@@ -16,8 +23,9 @@ public class CreditCard extends DomainEntity {
 	private String securityCode;
 	private Boolean favorite;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	
     @JoinColumn(name = "credit_card_flag_id")
+	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
 	private CreditCardFlag flag;
 	
 	@ManyToOne (fetch=FetchType.LAZY)

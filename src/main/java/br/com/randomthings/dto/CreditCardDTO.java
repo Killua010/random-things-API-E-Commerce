@@ -36,7 +36,7 @@ public class CreditCardDTO extends EntityDTO {
 	@NotNull(message = "O campo favorito é obrigatório.")
 	private Boolean favorite;
 	
-	@JsonProperty(access = Access.WRITE_ONLY)
+//	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message = "O id da bandeira é obrigatório.")
 	@Min(value=1, message="O id da bandeira deve ser maior ou igual a 1")
 	private Long creditCardFlagId;
@@ -52,7 +52,7 @@ public class CreditCardDTO extends EntityDTO {
 		creditCardDTO.setStatus(creditCard.getStatus());
 		creditCardDTO.setPrintedName(creditCard.getPrintedName());
 		creditCardDTO.setSecurityCode(creditCard.getSecurityCode());
-		
+		creditCardDTO.setCreditCardFlagId(creditCard.getFlag().getId());
 		creditCardDTO.setNumber(creditCard.getNumber());
 		creditCardDTO.setSecurityCode(creditCard.getSecurityCode());
 		creditCardDTO.setFavorite(creditCard.getFavorite());
