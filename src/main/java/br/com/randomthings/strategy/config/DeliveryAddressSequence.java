@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.strategy.Sequence;
+import br.com.randomthings.strategy.delivery_address.StDeliveryAddressExistenceValidation;
 import br.com.randomthings.strategy.delivery_address.StDeliveryAddressRegisterHelp;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
@@ -17,6 +18,9 @@ public class DeliveryAddressSequence {
 	StDeliveryAddressRegisterHelp stDeliveryAddressRegisterHelp;
 	
 	@Autowired
+	StDeliveryAddressExistenceValidation stDeliveryAddressExistenceValidation;
+	
+	@Autowired
 	StRegistration stRegistration;
 	
 	@Autowired
@@ -26,6 +30,7 @@ public class DeliveryAddressSequence {
 	public Sequence<DeliveryAddress> saveDeliveryAddress() {
 		return new Sequence<DeliveryAddress>()
 				.add(stDeliveryAddressRegisterHelp)
+				.add(stDeliveryAddressExistenceValidation)
 				.add(stRegistration);
 	}
 	
@@ -33,6 +38,7 @@ public class DeliveryAddressSequence {
 	public Sequence<DeliveryAddress> updateDeliveryAddress() {
 		return new Sequence<DeliveryAddress>()
 				.add(stDeliveryAddressRegisterHelp)
+				.add(stDeliveryAddressExistenceValidation)
 				.add(stLastUpdate);
 	}
 

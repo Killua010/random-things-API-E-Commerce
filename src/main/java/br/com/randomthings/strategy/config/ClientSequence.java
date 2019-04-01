@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.randomthings.domain.Client;
 import br.com.randomthings.strategy.Sequence;
+import br.com.randomthings.strategy.client.StClientExistenceValidation;
 import br.com.randomthings.strategy.client.StClientValidatePassword;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
@@ -17,6 +18,9 @@ public class ClientSequence {
 	StClientValidatePassword stClientValidatePassword;
 	
 	@Autowired
+	StClientExistenceValidation stClientExistenceValidation;
+	
+	@Autowired
 	StRegistration stRegistration;
 	
 	@Autowired
@@ -25,6 +29,7 @@ public class ClientSequence {
 	@Bean("SAVE_CLIENT")
 	public Sequence<Client> saveClient() {
 		return new Sequence<Client>()
+				.add(stClientExistenceValidation)
 				.add(stClientValidatePassword)
 				.add(stRegistration);
 	}
@@ -32,6 +37,7 @@ public class ClientSequence {
 	@Bean("UPDATE_CLIENT")
 	public Sequence<Client> updateClient() {
 		return new Sequence<Client>()
+				.add(stClientExistenceValidation)
 				.add(stClientValidatePassword)
 				.add(stLastUpdate);
 	}

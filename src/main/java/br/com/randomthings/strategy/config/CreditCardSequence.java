@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.strategy.Sequence;
+import br.com.randomthings.strategy.credit_card.StCreditCardExistenceValidation;
 import br.com.randomthings.strategy.credit_card.StCreditCardRegisterHelp;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
@@ -17,6 +18,9 @@ public class CreditCardSequence {
 	StCreditCardRegisterHelp stCreditCardRegisterHelp;
 	
 	@Autowired
+	StCreditCardExistenceValidation stCreditCardExistenceValidation;
+	
+	@Autowired
 	StRegistration stRegistration;
 	
 	@Autowired
@@ -26,6 +30,7 @@ public class CreditCardSequence {
 	public Sequence<CreditCard> saveCreditCard() {
 		return new Sequence<CreditCard>()
 				.add(stCreditCardRegisterHelp)
+				.add(stCreditCardExistenceValidation)
 				.add(stRegistration);
 	}
 	
@@ -33,6 +38,7 @@ public class CreditCardSequence {
 	public Sequence<CreditCard> updateCreditCard() {
 		return new Sequence<CreditCard>()
 				.add(stCreditCardRegisterHelp)
+				.add(stCreditCardExistenceValidation)
 				.add(stLastUpdate);
 	}
 

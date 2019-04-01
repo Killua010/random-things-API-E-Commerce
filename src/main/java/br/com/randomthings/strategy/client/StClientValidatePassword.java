@@ -11,11 +11,33 @@ public class StClientValidatePassword implements IStrategy<Client> {
 	@Override
 	public String execute(Client entity) {
 		
-		if(entity.getUser().getPassword().length() < 6) {
-			return "A senha tem que ter no minimo 6 digitos";
+		String password = entity.getUser().getPassword();
+		StringBuilder message = new StringBuilder();
+		
+		boolean findNumber = false;
+	    boolean findLetter = false;
+	    
+	    for (char c : password.toCharArray()) {
+	         if (c >= '0' && c <= '9') {
+	        	 findNumber = true;
+	         } else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+	        	 findLetter = true;
+	         } 
+	    }
+		
+		if(password.length() < 8) {
+			message.append("A senha tem que ter mais de 8 caracteres");
 		}
 		
-		return "";
+		if(!findNumber) {
+			message.append("A senha tem que ter no minimo um numero");
+		}
+		
+		if(!findLetter) {
+			message.append("A senha tem que ter no minimo uma letra");
+		}
+		
+		return message.toString();
 	}
 
 
