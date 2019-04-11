@@ -54,7 +54,7 @@ public class DeliveryAddressController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
-		deliveryAddressService.deletar(id);
+		deliveryAddressService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	

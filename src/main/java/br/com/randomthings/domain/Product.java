@@ -13,9 +13,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,4 +45,10 @@ public class Product extends NamedEntity {
 	
 	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
 	private Set<TechnicalRow> technicalRows = new HashSet<TechnicalRow>();
+	
+	@JoinTable(name = "_images_product", joinColumns = {
+			@JoinColumn(name = "_product", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "_image", referencedColumnName = "id") })
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Set<Image> imagens = new HashSet<>();
 }

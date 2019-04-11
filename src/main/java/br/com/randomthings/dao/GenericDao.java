@@ -1,6 +1,7 @@
 package br.com.randomthings.dao;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -13,13 +14,14 @@ import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.repository.IRepository;
+import br.com.randomthings.services.IService;
 
 @Service
 @Transactional
 public class GenericDao<entity extends DomainEntity> implements IDao<entity>{
 	
 	@Autowired
-	private Map<String, IRepository<entity>> repositories;
+	private Map<String, IService<entity>> services;
 
 	@Override
 	public entity save(entity entity) {
@@ -28,11 +30,10 @@ public class GenericDao<entity extends DomainEntity> implements IDao<entity>{
 
 	@Override
 	public List<entity> find(entity entity) {
-		
 		if(null != entity.getId()) {
-			return Arrays.asList(searchRepository(entity).findById(entity.getId()).orElse(null));
+			return Arrays.asList(searchRepository(entity).findById(entity.getId()));
 		}
-		return searchRepository(entity).findAll().stream().filter(e -> e.getStatus() == true).collect(Collectors.toList());
+		return searchRepository(entity).findAll();
 	}
 
 	@Override
@@ -43,14 +44,14 @@ public class GenericDao<entity extends DomainEntity> implements IDao<entity>{
 
 	@Override
 	public void delete(entity entity) {
-		searchRepository(entity).delete(entity);
+		searchRepository(entity).delete(entity.getId());
 	}
 	
-	private IRepository<entity> searchRepository(entity entity){
-		for (Entry<String, IRepository<entity>> repository : repositories.entrySet()) {
-			if(repository.getKey().toLowerCase()
-					.equals(entity.getClass().getSimpleName().concat("Repository").toLowerCase())) {
-				return repository.getValue();
+	private IService<entity> searchRepository(entity entity){
+		for (Entry<String, IService<entity>> service : services.entrySet()) {
+			if(service.getKey().toLowerCase()
+					.equals(entity.getClass().getSimpleName().concat("ServiceImpl").toLowerCase())) {
+				return service.getValue();
 			}
 		}
 		return null;

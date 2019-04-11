@@ -49,7 +49,7 @@ public class CreditCardController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
-		creditCardService.deletar(id);
+		creditCardService.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	

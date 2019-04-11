@@ -11,11 +11,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.DomainEntity;
+import br.com.randomthings.domain.Image;
 import br.com.randomthings.domain.PricingGroup;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.SubCategory;
@@ -53,14 +56,14 @@ public class ProductViewHelper extends EntityViewHelper {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message="O id da categoria de preço é obrigatório")
 	@Min(value=1, message="O id informado é invalido")
-	private Long pricingGroupId;
+	private String pricingGroupId;
 	
 	private PricingGroupViewHelper pricingGroup;
 	
 	private List<SubCategoryViewHelper> subCategories;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Long[] subCategoryId;
+	private String[] subCategoryId;
 	
 	private List<TechnicalRowViewHelper> technicalRow;
 	
@@ -68,18 +71,33 @@ public class ProductViewHelper extends EntityViewHelper {
 	private String[] descriptionField;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
-	private Long[] technicalFieldId;
+	private String[] technicalFieldId;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
+	protected MultipartFile[] images;
+	
+	private List<String> imgSrc;
 	
 	@Override
 	public DomainEntity getEntity() {
 		Product product = new Product();
 		PricingGroup pricingGroup = new PricingGroup();
-		pricingGroup.setId(pricingGroupId);
+		pricingGroup.setId(Long.parseLong(pricingGroupId));
 		product.setPricingGroup(pricingGroup);
+		
+		if(null != images && images.length > 0) {
+			for(int i = 0; i < images.length; i++) {
+				Image image = new Image();
+				Long idImg = (long) i;
+				image.setId(idImg);
+				image.setFile(images[i]);
+				product.getImagens().add(image);
+			}
+		}
 		if(null != subCategoryId) {
-			for(Long id: subCategoryId) {
+			for(String id: subCategoryId) {
 				SubCategory subCategory = new SubCategory();
-				subCategory.setId(id);
+				subCategory.setId(Long.parseLong(id));
 				product.getSubCategory().add(subCategory);
 			}
 		}
@@ -88,7 +106,7 @@ public class ProductViewHelper extends EntityViewHelper {
 			for(int i = 0; i < technicalFieldId.length; i++) {
 				TechnicalRow technicalRow = new TechnicalRow();
 				TechnicalField field = new TechnicalField();
-				field.setId(technicalFieldId[i]);
+				field.setId(Long.parseLong(technicalFieldId[i]));
 				technicalRow.setDescription(descriptionField[i]);
 				technicalRow.setField(field);
 //				technicalRow.setId(technicalFieldId[i]);
@@ -106,15 +124,27 @@ public class ProductViewHelper extends EntityViewHelper {
 		Boolean status = (null == this.status) ? null : this.status;
 		Product product = new Product();
 		PricingGroup pricingGroup = new PricingGroup();
-		pricingGroup.setId(pricingGroupId);
+		if(pricingGroupId != null) {
+			pricingGroup.setId(Long.parseLong(pricingGroupId));
+		}
+		
+		if(null != images && images.length > 0) {
+			for(int i = 0; i < images.length; i++) {
+				Image image = new Image();
+				Long idImg = (long) i;
+				image.setId(idImg);
+				image.setFile(images[i]);
+				product.getImagens().add(image);
+			}
+		}
 		product.setPricingGroup(pricingGroup);
 		product.setName(name);
 		product.setId(id);
 		product.setStatus(status);
 		if(null != subCategoryId) {
-			for(Long idsubCat: subCategoryId) {
+			for(String idsubCat: subCategoryId) {
 				SubCategory subCategory = new SubCategory();
-				subCategory.setId(idsubCat);
+				subCategory.setId(Long.parseLong(idsubCat));
 				product.getSubCategory().add(subCategory);
 			}
 		}
@@ -124,7 +154,7 @@ public class ProductViewHelper extends EntityViewHelper {
 			for(int i = 0; i < technicalFieldId.length; i++) {
 				TechnicalRow technicalRow = new TechnicalRow();
 				TechnicalField field = new TechnicalField();
-				field.setId(technicalFieldId[i]);
+				field.setId(Long.parseLong(technicalFieldId[i]));
 				technicalRow.setDescription(descriptionField[i]);
 				technicalRow.setField(field);
 //				technicalRow.setId(technicalFieldId[i]);
@@ -167,6 +197,14 @@ public class ProductViewHelper extends EntityViewHelper {
 		productViewHelper.setTechnicalRow(new ArrayList<>());
 		for(TechnicalRow technicalRow: ((Product)product).getTechnicalRows()) {
 			productViewHelper.getTechnicalRow().add((TechnicalRowViewHelper) new TechnicalRowViewHelper().getViewHelper(technicalRow));
+		}
+		
+		if(((Product)product).getImagens().size() > 0) {
+			productViewHelper.setImgSrc(new ArrayList<>());
+			for(Image image: ((Product)product).getImagens()) {
+				String path = "http://localhost:8080/images/" + image.getId();
+				productViewHelper.getImgSrc().add(path);
+			}
 		}
 		return productViewHelper;
 	}

@@ -5600,9 +5600,16 @@ INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (N
 INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (NOW(), NOW(), 1, 'Wanderlândia', 27),;
 INSERT INTO _city (creation_date, last_update, status, name, state_id) VALUES (NOW(), NOW(), 1, 'Xambioá', 27);
 
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Masculina');
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Moda Feminina');
-INSERT INTO _category(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Livros');
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_1.jpg', 'Moda Masculina', 114396, 'image/jpeg', 'Desfile de moda masculina', 561.0, 668.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_2.jpg', 'Moda Feminina', 164470, 'image/jpeg', 'quatro mulheres com roupas de inverno', 332.0, 600.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_3.jpg', 'Brinquedos', 25005, 'image/jpeg', 'Pato de borracha amarelo', 825.0, 826.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_4.jpg', 'Livros', 378200, 'image/jpeg', 'Prateleira com muitos livros', 750.0, 1125.0);
+
+INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Masculina', 1);
+INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Feminina', 2);
+INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Brinquedos', 3);
+INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Livros', 4);
+
 
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 1);

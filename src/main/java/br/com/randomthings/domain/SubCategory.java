@@ -3,6 +3,7 @@ package br.com.randomthings.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Entity(name="_sub_category")
 public class SubCategory extends NamedEntity {
 	
-	@ManyToOne (fetch=FetchType.LAZY)
+	@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.REFRESH)
 	@JoinColumn(name="category_id")
 	private Category category;
 	

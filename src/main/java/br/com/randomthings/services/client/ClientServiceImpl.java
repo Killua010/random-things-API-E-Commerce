@@ -1,6 +1,7 @@
 package br.com.randomthings.services.client;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -42,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	@Transactional 
-	public void deletar(Long id) {
+	public void delete(Long id) {
 		Client client = findById(id);
 		client.setStatus(false);
 		client.setLastUpdate(LocalDateTime.now());
@@ -54,5 +55,12 @@ public class ClientServiceImpl implements ClientService {
 		return clientRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! email: " + user.getEmail()
 				+ " senha: " + user.getPassword() + ", tipo: " + Client.class.getSimpleName()));
 	}
+
+	@Override
+	public List<Client> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

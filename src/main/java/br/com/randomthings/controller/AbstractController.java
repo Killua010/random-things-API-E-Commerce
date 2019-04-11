@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,13 +29,13 @@ import br.com.randomthings.viewhelper.EntityViewHelper;
 public abstract class AbstractController<viewHelper extends EntityViewHelper> {
 
 	@Autowired
-	private viewHelper vh;
+	protected viewHelper vh;
 
 	@Autowired
-	private List<ICommand> commands;
+	protected List<ICommand> commands;
 
 	@Autowired
-	private HttpResponseEntity standardResponse;
+	protected HttpResponseEntity standardResponse;
 
 	@PostMapping
 	public @ResponseBody ResponseEntity<Result> save(@Valid @RequestBody viewHelper vh) {
@@ -89,12 +90,12 @@ public abstract class AbstractController<viewHelper extends EntityViewHelper> {
 		return (viewHelper) object;
 	}
 
-	private ICommand searchCommand(String operation) {
+	protected ICommand searchCommand(String operation) {
 		return commands.stream().filter(cmd -> 
 				(cmd.getClass().getName().toUpperCase().contains(operation.toUpperCase()))).findAny().orElse(null);
 	}
 
-	private ResponseEntity<Result> restResponse(Result result) {
+	protected ResponseEntity<Result> restResponse(Result result) {
 		for (Method method : this.standardResponse.getClass().getMethods()) {
 			if (method.getName().contains(result.getHttpStatus().toString())) {
 				try {

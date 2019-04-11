@@ -20,10 +20,17 @@ public class ResourceExceptionHandler {
 		
 	}	
 	
-	@ExceptionHandler(StrategyValidation.class)// trata erros dessa exceção
+	@ExceptionHandler(StrategyValidation.class)
 	public ResponseEntity<StandardError> validation(StrategyValidation e, HttpServletRequest request){
 		StandardError err = new StandardError(HttpStatus.BAD_REQUEST.value(), e.errors.toString(), System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+		
+	}
+	
+	@ExceptionHandler(UnsupportedFile.class)
+	public ResponseEntity<StandardError> unsupportedFile(UnsupportedFile e, HttpServletRequest request){
+		StandardError err = new StandardError(HttpStatus.UNSUPPORTED_MEDIA_TYPE.value(), e.getMessage(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).body(err);
 		
 	}
 }

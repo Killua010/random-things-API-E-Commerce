@@ -2,6 +2,7 @@ package br.com.randomthings.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Entity(name="_technical_row")
 public class TechnicalRow extends DomainEntity {
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REFRESH)
     @JoinColumn(name = "technical_field_id")
 	private TechnicalField field;
 	

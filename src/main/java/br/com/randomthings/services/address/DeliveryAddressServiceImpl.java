@@ -1,5 +1,7 @@
 package br.com.randomthings.services.address;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,16 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService{
 	}
 
 	@Override
-	public void deletar(Long id) {
+	public void delete(Long id) {
 		findById(id);
 		deliveryAddressRepostory.deleteById(id);
 	}
+
+	@Override
+	public List<DeliveryAddress> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

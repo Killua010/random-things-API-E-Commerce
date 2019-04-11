@@ -1,5 +1,7 @@
 package br.com.randomthings.services.card;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +32,15 @@ public class CreditCardServiceImpl implements CreditCardService {
 	}
 
 	@Override
-	public void deletar(Long id) {
+	public void delete(Long id) {
 		findById(id);
 		creditCardRepository.deleteById(id);
+	}
+
+	@Override
+	public List<CreditCard> findAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

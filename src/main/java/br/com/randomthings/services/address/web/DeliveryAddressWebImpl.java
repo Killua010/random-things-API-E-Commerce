@@ -14,12 +14,16 @@ import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.services.ExecuteStrategys;
 import br.com.randomthings.services.address.DeliveryAddressService;
 import br.com.randomthings.services.client.ClientService;
+import br.com.randomthings.strategy.delivery_address.StDeliveryAddressOnlyOneFavority;
 
 @Service
 public class DeliveryAddressWebImpl extends ExecuteStrategys<DeliveryAddress> implements DeliveryAddressWebService {
 
 	@Autowired
 	private ClientService clientService;
+	
+	@Autowired
+	private StDeliveryAddressOnlyOneFavority stDeliveryAddressOnlyOneFavority;
 	
 	@Autowired
 	private DeliveryAddressService deliveryAddressService;
@@ -35,7 +39,15 @@ public class DeliveryAddressWebImpl extends ExecuteStrategys<DeliveryAddress> im
 		Client client = clientService.findById(idClient);
 		client.getAddresses().add(deliveryAddress);
 		deliveryAddress.setClient(client);
-		runStrategys(deliveryAddress, "SAVE");
+		
+		StringBuilder errors = runStrategys(deliveryAddress, "SAVE");
+		
+		errors.append(stDeliveryAddressOnlyOneFavority.execute(client, deliveryAddress));
+		
+		if(errors.length() != 0) {
+			throw new StrategyValidation(errors);
+		}
+		
 		clientService.save(client);
 		return deliveryAddressService.save(deliveryAddress);
 	}

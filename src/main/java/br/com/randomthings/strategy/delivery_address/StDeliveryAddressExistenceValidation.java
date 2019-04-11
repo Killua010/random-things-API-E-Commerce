@@ -18,12 +18,12 @@ public class StDeliveryAddressExistenceValidation implements IStrategy<DeliveryA
 	
 	@Override
 	public String execute(DeliveryAddress entity) {
-			
-		Optional<Client> clientOptional = clientRepository.findByZipCodeAndNumberAddress(entity.getZipCode(), entity.getNumber());
-		if(clientOptional.isPresent()) {
-			return "Endereço já cadastrado";
-		}
-		
+			//TODO - REFATORAR / não funciona
+//		Optional<Client> clientOptional = clientRepository.findByZipCodeAndNumberAddress(entity.getZipCode(), entity.getNumber());
+//		if(clientOptional.isPresent()) {
+//			return "Endereço já cadastrado";
+//		}
+//		
 		return "";
 	}
 
