@@ -9,6 +9,9 @@ import java.util.Set;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.Image;
@@ -62,6 +65,13 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> findAll() {
 		return productRepository.findAll(); 
+	}
+
+	@Override
+	public Page<Product> getPageabled(Integer pageNumber, Integer qtdPage,String direction, String orderBy) {
+		PageRequest pageRequest = PageRequest.of(pageNumber, qtdPage, Direction.valueOf(direction), orderBy);
+		
+		return productRepository.findAll(pageRequest);
 	}
 	
 }
