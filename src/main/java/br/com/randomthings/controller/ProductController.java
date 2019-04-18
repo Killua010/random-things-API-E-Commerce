@@ -55,13 +55,16 @@ public class ProductController extends AbstractController<ProductViewHelper>{
 	
 	@RequestMapping(path = "/paging/{page}", method = RequestMethod.GET)
 	public ResponseEntity<?> pagingProduct(@PathVariable(name="page",required=true) Integer pageNumber){
-		Integer qtdPage = 2; 
+		Integer qtdPage = 9; 
 		String orderBy = "name";
 		String direction = "ASC";
-		List<DomainEntity> l = new ArrayList<DomainEntity>();
-		for(Product p : productService.getPageabled(pageNumber, qtdPage, direction, orderBy)) {
-			l.add((DomainEntity) p);
+		List<ProductViewHelper> helpers = new ArrayList<>();
+		Page<Product> pages = productService.getPageabled(pageNumber, qtdPage, direction, orderBy);
+		for(Product product : pages) {
+			ProductViewHelper helper = (ProductViewHelper) new ProductViewHelper().getViewHelper(product);
+			helper.setTotalPage(pages.getTotalPages());
+			helpers.add(helper);
 		}
-		return ResponseEntity.ok(new ProductViewHelper().getListViewHelper(l));
+		return ResponseEntity.ok(helpers);
 	}
 }

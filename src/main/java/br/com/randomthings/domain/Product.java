@@ -38,7 +38,7 @@ public class Product extends NamedEntity {
 	private PricingGroup pricingGroup;
 	
 	@JoinTable(name = "_product_sub_category", joinColumns = {
-			@JoinColumn(name = "product_id2", referencedColumnName = "id") }, inverseJoinColumns = {
+			@JoinColumn(name = "product_id", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "sub_category_id", referencedColumnName = "id") })
 	@ManyToMany(cascade = CascadeType.REFRESH	, fetch = FetchType.EAGER)
 	private Set<SubCategory> subCategory = new HashSet<SubCategory>();
@@ -47,8 +47,12 @@ public class Product extends NamedEntity {
 	private Set<TechnicalRow> technicalRows = new HashSet<TechnicalRow>();
 	
 	@JoinTable(name = "_images_product", joinColumns = {
-			@JoinColumn(name = "_product", referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "_image", referencedColumnName = "id") })
+			@JoinColumn(name = "product_id", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "image_id", referencedColumnName = "id") })
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Set<Image> imagens = new HashSet<>();
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stock_id")
+	private Stock stock;
 }

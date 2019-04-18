@@ -53,6 +53,8 @@ public class ProductViewHelper extends EntityViewHelper {
 	
 	private Float price;
 	
+	private Integer totalPage;
+	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message="O id da categoria de preço é obrigatório")
 	@Min(value=1, message="O id informado é invalido")
@@ -188,6 +190,7 @@ public class ProductViewHelper extends EntityViewHelper {
 		productViewHelper.setLastUpdate(product.getLastUpdate());
 		productViewHelper.setName(((Product)product).getName());
 		productViewHelper.setBarCode(((Product)product).getBarCode());
+		productViewHelper.setPrice(((Product)product).getPrice());
 		productViewHelper.setDescription(((Product)product).getDescription());
 		productViewHelper.setPricingGroup((PricingGroupViewHelper) new PricingGroupViewHelper().getViewHelper(((Product)product).getPricingGroup()));
 		productViewHelper.setSubCategories(new ArrayList<>());

@@ -5605,11 +5605,107 @@ INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, 
 INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_3.jpg', 'Brinquedos', 25005, 'image/jpeg', 'Pato de borracha amarelo', 825.0, 826.0);
 INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_4.jpg', 'Livros', 378200, 'image/jpeg', 'Prateleira com muitos livros', 750.0, 1125.0);
 
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_5.jpg', 'Camisa Polo Rg 518 Piquet Bordado Contraste Color - Preto1', 216057, 'image/jpeg', 'Polo masculina preto', 1200.0, 1200.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_6.jpg', 'Camisa Polo Rg 518 Piquet Bordado Contraste Color - Preto2', 164342, 'image/jpeg', 'Polo masculina preto', 1200.0, 1200.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_7.jpg', 'Camisa Polo Rg 518 Piquet Bordado Contraste Color - Preto3', 159921, 'image/jpeg', 'Polo masculina preto', 1200.0, 1200.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_8.jpg', 'Camisa Polo Rg 518 Piquet Bordado Contraste Color - Preto4', 603992, 'image/jpeg', 'Polo masculina preto', 1200.0, 1200.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_9.jpg', 'Camisa Lisa - Preto1', 20426, 'image/jpeg', 'Camisa Lisa masculina preto', 700.0, 561.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_10.jpg', 'Camisa Lisa - Preto2', 20426, 'image/jpeg', 'Camisa Lisa masculina preto', 700.0, 561.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_11.jpg', 'Camisa Lisa - Preto3', 20288, 'image/jpeg', 'Camisa Lisa masculina preto', 700.0, 561.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_12.jpg', 'Camisa Lisa - Preto4', 27493, 'image/jpeg', 'Camisa Lisa masculina preto', 700.0, 561.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_1.jpeg', 'O Alquimista', 54628, 'image/jpeg', 'Capa O Alquimista', 648.0, 430.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_2.jpeg', 'A Revolução Dos Bichos', 88092, 'image/jpeg', 'Capa A Revolução Dos Bichos', 659.0, 430.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_13.jpg', 'TENIS SLIP ON CAMUFLADO1', 330351, 'image/jpeg', 'Tenis masculino slip on camufaldo', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_14.jpg', 'TENIS SLIP ON CAMUFLADO2', 274493, 'image/jpeg', 'Tenis masculino slip on camufaldo', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_15.jpg', 'TENIS SLIP ON CAMUFLADO3', 32927, 'image/jpeg', 'Tenis masculino slip on camufaldo', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_16.jpg', 'JaquetaVintageComRecortes1', 303055, 'image/jpeg', 'Jaqueta vintage com recortes masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_17.jpg', 'JaquetaVintageComRecortes2', 30928, 'image/jpeg', 'Jaqueta vintage com recortes masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_18.jpg', 'JaquetaVintageComRecortes3', 49285, 'image/jpeg', 'Jaqueta vintage com recortes masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_19.jpg', 'JaquetaVintageComRecortes4', 277470, 'image/jpeg', 'Jaqueta vintage com recortes masculina', 1600.0, 1168.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_20.jpg', 'BlusaoRoseEmRetilinea1', 343228, 'image/jpeg', 'Blusao Rose em retilinea masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_21.jpg', 'BlusaoRoseEmRetilinea2', 35223, 'image/jpeg', 'Blusao Rose em retilinea masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_22.jpg', 'BlusaoRoseEmRetilinea3', 317483, 'image/jpeg', 'Blusao Rose em retilinea masculina', 1600.0, 1168.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_23.jpg', 'JaquetaBásicaSintética1', 310045, 'image/jpeg', 'Jaqueta Básica Sintética masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_24.jpg', 'JaquetaBásicaSintética2', 30175, 'image/jpeg', 'Jaqueta Básica Sintética masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_25.jpg', 'JaquetaBásicaSintética3', 27131, 'image/jpeg', 'Jaqueta Básica Sintética masculina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_26.jpg', 'BermudaMoletomEstonadaAzul1', 535147, 'image/jpeg', 'Bermuda Moletom estonada azul masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_27.jpg', 'BermudaMoletomEstonadaAzul2', 25101, 'image/jpeg', 'Bermuda Moletom estonada azul masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_28.jpg', 'BermudaMoletomEstonadaAzul3', 57815, 'image/jpeg', 'Bermuda Moletom estonada azul masculina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_29.jpg', 'BermudaEmSarjaPreta1', 380921, 'image/jpeg', 'Bermuda Moletom estonada azul masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_30.jpg', 'BermudaEmSarjaPreta2', 29628, 'image/jpeg', 'Bermuda Moletom estonada azul masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_31.jpg', 'BermudaEmSarjaPreta3', 52834, 'image/jpeg', 'Bermuda Moletom estonada azul masculina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_32.jpg', 'CalçaSkinnyEmJeansComRasgos1', 313857, 'image/jpeg', 'Calça Skinny em Jeans com rasgos masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_33.jpg', 'CalçaSkinnyEmJeansComRasgos2', 36975, 'image/jpeg', 'Calça Skinny em Jeans com rasgos masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_34.jpg', 'CalçaSkinnyEmJeansComRasgos3', 74250, 'image/jpeg', 'Calça Skinny em Jeans com rasgos masculina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_35.jpg', 'CalçaJoggerEmSarja1', 225384, 'image/jpeg', 'Calça Jogger em Sarja masculina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_36.jpg', 'CalçaJoggerEmSarja2', 23978, 'image/jpeg', 'Calça Jogger em Sarja masculina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_37.jpg', 'CalçaJoggerEmSarja3', 23012, 'image/jpeg', 'Calça Jogger em Sarja masculina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_38.jpg', 'BlusaGolaAltaEmVeludo1', 279752, 'image/jpeg', 'Blusa Gola alta em veludo feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_39.jpg', 'BlusaGolaAltaEmVeludo2', 294681, 'image/jpeg', 'Blusa Gola alta em veludo feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_40.jpg', 'BlusaGolaAltaEmVeludo3', 223036, 'image/jpeg', 'Blusa Gola alta em veludo feminina', 1600.0, 1168.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_41.jpg', 'CalçaAlfaiatariaComListraNaLateral1', 248446, 'image/jpeg', 'Calça alfaiataria com listra na lateral feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_42.jpg', 'CalçaAlfaiatariaComListraNaLateral2', 25679, 'image/jpeg', 'Calça alfaiataria com listra na lateral feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_43.jpg', 'CalçaAlfaiatariaComListraNaLateral3', 47496, 'image/jpeg', 'Calça alfaiataria com listra na lateral feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_44.jpg', 'CalçaSkinnyEmSarjaNavalhada1', 199338, 'image/jpeg', 'Calça Skinny em Sarja Navalhada feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_45.jpg', 'CalçaSkinnyEmSarjaNavalhada2', 240888, 'image/jpeg', 'Calça Skinny em Sarja Navalhada feminina', 	1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_46.jpg', 'CalçaSkinnyEmSarjaNavalhada3', 26417, 'image/jpeg', 'Calça Skinny em Sarja Navalhada feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_47.jpg', 'CalçaSkinnyCinturaAltaEmSarja1', 162515, 'image/jpeg', 'Calça Skinny cintura alta em sarja feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_48.jpg', 'CalçaSkinnyCinturaAltaEmSarja2', 23975, 'image/jpeg', 'Calça Skinny cintura alta em sarja feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_49.jpg', 'CalçaSkinnyCinturaAltaEmSarja3', 28450, 'image/jpeg', 'Calça Skinny cintura alta em sarja feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_50.jpg', 'SaiaComRecorteEmSuede1', 229552, 'image/jpeg', 'Saia com recorte em suede feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_51.jpg', 'SaiaComRecorteEmSuede2', 29164, 'image/jpeg', 'Saia com recorte em suede feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_52.jpg', 'SaiaComRecorteEmSuede3', 27673, 'image/jpeg', 'Saia com recorte em suede feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_53.jpg', 'SaiaJeansComPuídos1', 241873, 'image/jpeg', 'Saia Jeans Com Puídos feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_54.jpg', 'SaiaJeansComPuídos2', 25929, 'image/jpeg', 'Saia Jeans Com Puídos feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_55.jpg', 'SaiaJeansComPuídos3', 275078, 'image/jpeg', 'Saia Jeans Com Puídos feminina', 1600.0, 1168.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_56.jpg', 'SaiaMidiComBotões1', 178995, 'image/jpeg', 'Saia midi com botões feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_57.jpg', 'SaiaMidiComBotões2', 41187, 'image/jpeg', 'Saia midi com botões feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_58.jpg', 'SaiaMidiComBotões3', 20667, 'image/jpeg', 'Saia midi com botões feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_59.jpg', 'SaiaLongaTranspasse1', 246682, 'image/jpeg', 'Saia longa transpasse feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_60.jpg', 'SaiaLongaTranspasse2', 22209, 'image/jpeg', 'Saia longa transpasse feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_61.jpg', 'SaiaLongaTranspasse3', 210349, 'image/jpeg', 'Saia longa transpasse feminina', 1600.0, 1168.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_62.jpg', 'SandáliaMulletComGlitter1', 329302, 'image/jpeg', 'Sandália Mullet com glitter feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_63.jpg', 'SandáliaMulletComGlitter2', 32780, 'image/jpeg', 'Sandália Mullet com glitter feminina', 548.0, 400.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_64.jpg', 'SandáliaMulletComGlitter3', 32365, 'image/jpeg', 'Sandália Mullet com glitter feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_65.jpg', 'BotaCanoBaixoComGlitter1', 343904, 'image/jpeg', 'Bota Cano Baixo com glitter feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_66.jpg', 'BotaCanoBaixoComGlitter2', 46343, 'image/jpeg', 'Bota Cano Baixo com glitter feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_67.jpg', 'BlusaCroppedOmbroAOmbro1', 320683, 'image/jpeg', 'Blusa Cropped Ombro A Ombro feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_68.jpg', 'BlusaCroppedOmbroAOmbro2', 211994, 'image/jpeg', 'Blusa Cropped Ombro A Ombro feminina', 1600.0, 1168.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_69.jpg', 'BlusaCroppedOmbroAOmbro3', 24334, 'image/jpeg', 'Blusa Cropped Ombro A Ombro feminina', 548.0, 400.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_70.jpg', 'BancoImobiliárioGrande1', 34148, 'image/jpeg', 'Banco Imobiliário Grande', 500.0, 500.0);
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_71.jpg', 'BancoImobiliárioGrande2', 31005, 'image/jpeg', 'Banco Imobiliário Grande', 500.0, 500.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_72.jpg', 'JogoWar', 53454, 'image/jpeg', 'Jogo War - Grow', 500.0, 500.0);
+
+INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_73.jpg', 'JogoSuperBancoImobiliário', 45149, 'image/jpeg', 'Jogo Super Banco Imobiliário - Estrela', 500.0, 500.0);
+
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Masculina', 1);
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Feminina', 2);
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Brinquedos', 3);
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Livros', 4);
-
 
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 1);
@@ -5619,9 +5715,17 @@ INSERT INTO _sub_category(creation_date, last_update, status, name, category_id)
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Camisa', 2);
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Saia', 2);
 
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Romance', 3);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Terror', 3);
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Ficção', 3);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Romance', 4);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Terror', 4);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Ficção', 4);
+
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calçados', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Casacos', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Bermudas', 1);
+
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calçados', 2);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Jogos', 3);
 
 INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Bronze', 30.0);
 INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_percentage) VALUES (NOW(), NOW(), 1, 'Silver', 20.0);
@@ -5631,20 +5735,248 @@ INSERT INTO _pricing_group(creation_date, last_update, status, name, profit_perc
 INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Peso');
 INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Tamanho');
 INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Material');
+
 INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Autor');
 INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Quantidade de páginas');
 INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Editora');
 
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Polo', 'A Camisa Polo RG 518 Piquet Bordado Contraste Color garante estilo para você aproveitar todos os momentos. Feita em tecido macio, oferece um visual moderno e um caimento confortável.', '0250101972', 2);
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Lisa', 'A Camisa Lisa é confeccionada em algodão e elastano. Possui mangas longas, fechamento por abotoamento e gola dobrada. Seu tecido leve e macio permite uma produção confortável e elegante para festas formais ou casamentos. Combine com calça de alfaiataria e sapato.', '0250108572', 1);
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'O Alquimista', 'O alquimista é a mágica história de Santiago, um menino pastor andaluz que anseia por viajar em busca do tesouro mais magnífico do mundo. De sua casa na Espanha ele parte para os mercados do Tânger e através do deserto egípcio para um encontro do destino com o alquimista. A história dos tesouros que Santiago encontra ao longo de sua jornada nos ensina, como poucas histórias fizeram, sobre a sabedoria de escutarmos nossos corações, aprendendo a ler os sinais que aparecem ao longo do caminho de nossas vidas e, acima de tudo, a seguir nossos sonhos.', '0250101992', 3);
-INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'A Revolução Dos Bichos', 'Verdadeiro clássico moderno, concebido por um dos mais influentes escritores do século 20, "A Revolução dos Bichos" é uma fábula sobre o poder. Narra a insurreição dos animais de uma granja contra seus donos. Progressivamente, porém, a revolução degenera numa tirania ainda mais opressiva que a dos humanos Escrita em plena Segunda Guerra Mundial e publicada em 1945 depois de ter sido rejeitada por várias editoras, essa pequena narrativa causou desconforto ao satirizar ferozmente a ditadura stalinista numa época em que os soviéticos ainda eram aliados do Ocidente na luta contra o eixo nazifascista. De fato, são claras as referências: o despótico Napoleão seria Stálin, o banido Bola-de-Neve seria Trotsky, e os eventos políticos - expurgos, instituição de um estado policial, deturpação tendenciosa da História - mimetizam os que estavam em curso na União Soviética. Com o acirramento da Guerra Fria, as mesmas razões que causaram constrangimento na época de sua publicação levaram A revolução dos bichos a ser amplamente usada pelo Ocidente nas décadas seguintes como arma ideológica contra o comunismo. O próprio Orwell, adepto do socialismo e inimigo de qualquer forma de manipulação política, sentiu-se incomodado com a utilização de sua fábula como panfleto.', '0256931972', 4);
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Idade recomendada');
+INSERT INTO _technical_field(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Número de Participantes');
 
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (1, 2);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (2, 2);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (2, 5);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (3, 9);
-INSERT INTO _product_sub_category(product_id2, sub_category_id) VALUES (4, 9); 
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Polo Rg 518 Piquet Bordado Contraste Color - Preto', 'A Camisa Polo RG 518 Piquet Bordado Contraste Color garante estilo para você aproveitar todos os momentos. Feita em tecido macio, oferece um visual moderno e um caimento confortável.', '00001', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Camisa Lisa Preto', 'A Camisa Lisa é confeccionada em algodão e elastano. Possui mangas longas, fechamento por abotoamento e gola dobrada. Seu tecido leve e macio permite uma produção confortável e elegante para festas formais ou casamentos. Combine com calça de alfaiataria e sapato.', '00002', 1);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'O Alquimista', 'O alquimista é a mágica história de Santiago, um menino pastor andaluz que anseia por viajar em busca do tesouro mais magnífico do mundo. De sua casa na Espanha ele parte para os mercados do Tânger e através do deserto egípcio para um encontro do destino com o alquimista. A história dos tesouros que Santiago encontra ao longo de sua jornada nos ensina, como poucas histórias fizeram, sobre a sabedoria de escutarmos nossos corações, aprendendo a ler os sinais que aparecem ao longo do caminho de nossas vidas e, acima de tudo, a seguir nossos sonhos.', '00003', 3);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'A Revolução Dos Bichos', 'Verdadeiro clássico moderno, concebido por um dos mais influentes escritores do século 20, "A Revolução dos Bichos" é uma fábula sobre o poder. Narra a insurreição dos animais de uma granja contra seus donos. Progressivamente, porém, a revolução degenera numa tirania ainda mais opressiva que a dos humanos Escrita em plena Segunda Guerra Mundial e publicada em 1945 depois de ter sido rejeitada por várias editoras, essa pequena narrativa causou desconforto ao satirizar ferozmente a ditadura stalinista numa época em que os soviéticos ainda eram aliados do Ocidente na luta contra o eixo nazifascista. De fato, são claras as referências: o despótico Napoleão seria Stálin, o banido Bola-de-Neve seria Trotsky, e os eventos políticos - expurgos, instituição de um estado policial, deturpação tendenciosa da História - mimetizam os que estavam em curso na União Soviética. Com o acirramento da Guerra Fria, as mesmas razões que causaram constrangimento na época de sua publicação levaram A revolução dos bichos a ser amplamente usada pelo Ocidente nas décadas seguintes como arma ideológica contra o comunismo. O próprio Orwell, adepto do socialismo e inimigo de qualquer forma de manipulação política, sentiu-se incomodado com a utilização de sua fábula como panfleto.', '00004', 4);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Tênis Slip On camuflado', 'Sobre o tênis slip on camuflado: estamos completamente enlouquecidos com essa trend irada. Confortável, prático e cheio de estilo para os seus pés e pra fechar o look. Aproveita! .)', '00005', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Jaqueta Vintage com Recortes', 'Um grande sucesso dos anos 90 voltou com tudo para os dias de hoje e virou uma tendência super desejada. A jaqueta corta vento é uma peça versátil que pode ser usada em vários looks. Famosa por ser uma trend mais esportiva e por possuir proteção contra o vento e o frio. A nossa jaqueta queridinha conta com fechamento em botões, bolsos e detalhe em recortes. Também possui amarração externa e fit alongado. Pode ficar a vontade pra investir nesse aposta da nova coleção.', '00006', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Blusão Rose em retilínea', 'Blusão masculino | Modelo regular | Gola redonda | Tecido em retilínea Manga longa | Cor rose | Composição: 50% algodão e 50% acrílico', '00007', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Jaqueta Básica Sintética', 'Jaqueta masculina | Modelo regular | Com bolsos | Fechamento em zíper | Cor preto | Material sintético Composição base: 52% poliéster e 48% viscose', '00008', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Bermuda Moletom Estonada Azul', 'Bermuda masculina | Modelo regular | Com bolsos | Com amarração | Estonada  Em moletom | Tecido em algodão', '00009', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Bermuda em Sarja Preta', 'Bermuda masculina | Modelo regular | Com bolsos | Com cordão interno | Em sarja Tecido em algodão', '00010', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Calça Skinny em Jeans com rasgos', 'Calça masculina | Modelo skinny | Com bolsos | Com rasgos | Com barra desfiada | Tecido em jeans | Cor jeans escuro', '00011', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Calça Jogger em Sarja', 'A calça jogger, super famosa por ser uma peça estilosa e moderna, vem ganhando cada vez mais destaque nos looks, não apenas em produções mais esportivas, mas agora a trend ganhou versatilidade e pode ser usada em looks mais casuais ou até mesmo em looks mais sofisticados. Conhecida por ter detalhe em elástico na cintura e nos tornozelos e ser um modelo de calça mais soltinha no corpo, o conforto se torna uma das principais características dessa aposta.', '00012', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Blusa Gola Alta em Veludo', 'Blusa feminina | Modelo regular | Manga longa | Gola alta Tecido em veludo', '00013', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Calça Alfaiataria com listra na lateral', 'A calça alfaiataria é famosa por ser uma peça clássica e aqui na youcom deixamos ela com um ar bem moderninho pra você usar com aquele seu tênis favorito. Possui detalhe de listra branca nas laterais e fica perfeita nas combinações minimalistas ou até mesmo nas mais despojadas. ', '00014', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Calça Skinny em Sarja Navalhada', 'Calça em sarja é uma peça super versátil que pode ser usada com diversos looks e em várias ocasiões. As calças no fit skinny são famosas por ter a modelagem mais justinha no corpo e podem ser usadas com a barrinha dobrada pra dar aquele toque a mais no look. Sempre presente nas coleções da youcom, a nossa calça queridinha aí de cima possui tecido em sarja que é super confortável e ainda conta detalhe navalhado nos joelhos, o que deixa a peça mais estilosa.', '00015', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Calça Skinny cintura alta em Sarja', 'Calça em sarja é uma peça super versátil que pode ser usada com diversos looks e em várias ocasiões. As calças no fit skinny são famosas por ter a modelagem mais justinha no corpo e podem ser usadas com a barrinha dobrada pra dar aquele toque a mais no look. Sempre presente nas coleções da youcom, a nossa calça queridinha aí de cima possui tecido em sarja que é super confortável e ainda conta com cintura alta, ideal pra usar com todas as suas blusinhas. Bora garantir a sua calça mais curinga da vida!', '00016', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Saia com recorte em suede', 'Saia feminina | Modelo curta | Com recorte e zíper na lateral | Cor preto', '00017', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Saia Jeans com Puídos', 'Saia feminina | Modelo curta | Com barra desfiada e puídos Tecido em jeans | Cor branco', '00018', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Saia Midi com Botões', 'Saia feminina | Modelo midi | Com botões | Cor preta', '00019', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Saia Longa Transpasse', 'Saia feminina | Modelo longa | Transpasse | Cor off-white', '00020', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Sandália Mullet com Glitter', 'A sandália mullet chegou com muito brilho pra deixar os seu looks cheios de estilo e conforto. Possui abertura na frente e na parte de trás, deixando o calcanhar à mostra. Também conta com salto bloco médio que proporciona mais estabilidade ao caminhar.', '00021', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Bota Cano Baixo com Glitter', 'Tá valendo muito brilhar nessa estação. Ainda mais se for você brilhando com a bota cano baixo com glitter. Possui salto pequeno e confortável, dando mais estabilidade ao caminhar. A trend ainda conta com bico fino e muito glitter pra deixar o seu lookinho super fashion nesse inverno.', '00022', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Blusa Cropped Ombro A Ombro', 'Blusa feminina | Modelo cropped | Manga longa | Ombro a ombro', '00023', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Banco Imobiliário Grande - Estrela', 'Um jogo fantástico! Conhecido no mundo inteiro como um dos jogos mais fascinantes para a família toda! Você pode fazer fortuna com seus imóveis ou acabar indo à falência. Com iniciativa, coragem e um pouco de sorte você se torna milionário e monopoliza o mercado imobiliário. Prepare-se para essa emoção!', '00024', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Jogo War - Grow', 'War Edição Especial traz todo o requinte que o jogo War merece! Com WAR, uma batalha nunca é igual a outra e cada jogador precisa usar toda sua inteligência e astúcia para derrotar seus adversários e conquistar territórios e continentes. Conheça as emoções deste jogo de estratégia.', '00025', 2);
+INSERT INTO _product(creation_date, last_update, status, name, description, bar_code, pricing_group_id) VALUES (NOW(), NOW(), 1, 'Jogo Super Banco Imobiliário - Estrela', 'As crianças vão se divertir fazendo bons negócios. Com o Super Banco Imobiliário elas vão comprar e vender grandes empresas, propriedades e ações de renomadas companhias. Nesse jogo, os pequenos irão mostrar suas habilidades administrativas e empresariais. Basta se reunir com os amiguinhos e começar a brincadeira. O melhor negociador vence.', '00026', 2);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (1, 5);
+INSERT INTO _images_product(product_id, image_id) VALUES (1, 6);
+INSERT INTO _images_product(product_id, image_id) VALUES (1, 7);
+INSERT INTO _images_product(product_id, image_id) VALUES (1, 8);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (2, 9);
+INSERT INTO _images_product(product_id, image_id) VALUES (2, 10);
+INSERT INTO _images_product(product_id, image_id) VALUES (2, 11);
+INSERT INTO _images_product(product_id, image_id) VALUES (2, 12);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (3, 13);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (4, 14);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (5, 15);
+INSERT INTO _images_product(product_id, image_id) VALUES (5, 16);
+INSERT INTO _images_product(product_id, image_id) VALUES (5, 17);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (6, 18);
+INSERT INTO _images_product(product_id, image_id) VALUES (6, 19);
+INSERT INTO _images_product(product_id, image_id) VALUES (6, 20);
+INSERT INTO _images_product(product_id, image_id) VALUES (6, 21);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (7, 22);
+INSERT INTO _images_product(product_id, image_id) VALUES (7, 23);
+INSERT INTO _images_product(product_id, image_id) VALUES (7, 24);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (8, 25);
+INSERT INTO _images_product(product_id, image_id) VALUES (8, 26);
+INSERT INTO _images_product(product_id, image_id) VALUES (8, 27);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (9, 28);
+INSERT INTO _images_product(product_id, image_id) VALUES (9, 29);
+INSERT INTO _images_product(product_id, image_id) VALUES (9, 30);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (10, 31);
+INSERT INTO _images_product(product_id, image_id) VALUES (10, 32);
+INSERT INTO _images_product(product_id, image_id) VALUES (10, 33);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (11, 34);
+INSERT INTO _images_product(product_id, image_id) VALUES (11, 35);
+INSERT INTO _images_product(product_id, image_id) VALUES (11, 36);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (12, 37);
+INSERT INTO _images_product(product_id, image_id) VALUES (12, 38);
+INSERT INTO _images_product(product_id, image_id) VALUES (12, 39);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (13, 40);
+INSERT INTO _images_product(product_id, image_id) VALUES (13, 41);
+INSERT INTO _images_product(product_id, image_id) VALUES (13, 42);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (14, 43);
+INSERT INTO _images_product(product_id, image_id) VALUES (14, 44);
+INSERT INTO _images_product(product_id, image_id) VALUES (14, 45);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (15, 46);
+INSERT INTO _images_product(product_id, image_id) VALUES (15, 47);
+INSERT INTO _images_product(product_id, image_id) VALUES (15, 48);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (16, 49);
+INSERT INTO _images_product(product_id, image_id) VALUES (16, 50);
+INSERT INTO _images_product(product_id, image_id) VALUES (16, 51);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (17, 52);
+INSERT INTO _images_product(product_id, image_id) VALUES (17, 53);
+INSERT INTO _images_product(product_id, image_id) VALUES (17, 54);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (18, 55);
+INSERT INTO _images_product(product_id, image_id) VALUES (18, 56);
+INSERT INTO _images_product(product_id, image_id) VALUES (18, 57);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (19, 58);
+INSERT INTO _images_product(product_id, image_id) VALUES (19, 59);
+INSERT INTO _images_product(product_id, image_id) VALUES (19, 60);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (20, 61);
+INSERT INTO _images_product(product_id, image_id) VALUES (20, 62);
+INSERT INTO _images_product(product_id, image_id) VALUES (20, 63);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (21, 64);
+INSERT INTO _images_product(product_id, image_id) VALUES (21, 65);
+INSERT INTO _images_product(product_id, image_id) VALUES (21, 66);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (22, 67);
+INSERT INTO _images_product(product_id, image_id) VALUES (22, 68);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (23, 69);
+INSERT INTO _images_product(product_id, image_id) VALUES (23, 70);
+INSERT INTO _images_product(product_id, image_id) VALUES (23, 71);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (24, 72);
+INSERT INTO _images_product(product_id, image_id) VALUES (24, 73);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (25, 74);
+
+INSERT INTO _images_product(product_id, image_id) VALUES (26, 75);
+
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (1, 2);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (2, 2);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (2, 5);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (3, 9);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (4, 9);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (5, 10);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (6, 11);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (7, 11);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (8, 11);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (9, 12);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (10, 12);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (11, 1);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (12, 2);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (13, 5);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (14, 13);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (15, 13);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (16, 13);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (17, 6);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (18, 6);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (19, 6);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (20, 6);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (21, 14);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (22, 14);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (23, 5);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (24, 15);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (25, 15);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (26, 15);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Acima de 11 anos', 7, 26);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Para 2 a 6 jogadores', 8, 26);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Acima de 11 anos', 7, 25);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '3 a 6 jogadores', 8, 25);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '8 a 11 anos', 7, 24);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'De 2 a 6', 8, 24);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'P', 2, 23);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '96% viscose e 4% elastano', 3, 23);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 23);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 22);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 22);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 21);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 21);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 20);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Poliéster', 3, 20);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 20);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 19);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Viscose', 3, 19);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 19);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 18);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 18);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 18);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 17);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'poliéster', 3, 17);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 17);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 16);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '98% algodão e 2% elastano', 3, 16);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 16);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 15);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '72% algodão e 28% poliéster', 3, 15);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 15);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '36', 2, 14);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '62% poliéster, 33% viscose e 5% elastano', 3, 14);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 14);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 13);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '96% poliéster e 4% elastano', 3, 13);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 13);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 12);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '98% algodão e 2% elastano', 3, 12);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 12);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 11);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '98% algodão e 2% elastano', 3, 11);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 11);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 10);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 10);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 10);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 9);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 9);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.3 Kg', 1, 9);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 8);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '52% poliéster e 48% viscose', 3, 8);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 8);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 7);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '50% algodão e 50% acrílico', 3, 7);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 7);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 6);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Poliéster', 3, 6);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.4 Kg', 1, 6);
+
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '38', 2, 5);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'sintético', 3, 5);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.5 Kg', 1, 5);
 
 INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'M', 2, 1);
 INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Algodão', 3, 1);
@@ -5676,10 +6008,102 @@ INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NO
 INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Apartamento');
 INSERT INTO _residence_type(creation_date, last_update, status, name) VALUES (NOW(), NOW(), 1, 'Sitio');
 
-INSERT INTO _credit_card(creation_date, last_update, status, favorite, number, printed_name, security_code, client_id, credit_card_flag_id) VALUES (NOW(), NOW(), 1, 1, '0123012301230123', 'Jurema Pereira Oliveira', '012', 1, 1); 
+INSERT INTO _credit_card(creation_date, last_update, status, favorite, number, printed_name, security_code, client_id, credit_card_flag_id) VALUES (NOW(), NOW(), 1, 1, '0123012301230123', 'Jurema Pereira Oliveira', '012', 1, 1);
 
 INSERT INTO _address(creation_date, last_update, status, favorite, neighborhood, number, observation, street, zip_code, city_id, residence_type_id) VALUES (NOW(), NOW(), 1, 1, 'Esmero', 0, null, 'Rua dos bobos', '00000-000', 1, 1);
 
 INSERT INTO _delivery_address(full_name, id, client_id) VALUES ('Uma casa muito engraçada', 1, 1);
- 
- 
+
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'All Men', '09.246.932/0001-93', 1);
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'Innovatore Lux', '97.133.354/0001-46', 2);
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'FORTISSIMUS', '29.517.787/0001-45', 1);
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'FORTISSIMUS', '29.517.787/0001-45', 2);
+
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'Uni-Duni-Te Brinquedos', '38.385.891/0001-14', 3);
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'Familyk', '05.079.789/0001-31', 3);
+
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'All Predium', '55.175.177/0001-10', 4);
+INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'GoalGaming', '63.223.034/0001-65', 4);
+
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 1, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 2, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 3, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 4, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 5, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 6, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 7, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 8, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 9, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 10, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 11, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 12, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 13, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 14, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 15, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 16, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 17, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 18, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 19, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 20, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 21, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 22, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 23, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 24, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 25, 5);
+INSERT INTO _stock(creation_date, last_update, status, product_id, total_quantity) VALUES (NOW(), NOW(), 1, 26, 5);
+
+UPDATE _product SET stock_id = 1, price = 30.0 WHERE id = 1;
+UPDATE _product SET stock_id = 2, price = 30.0 WHERE id = 2;
+UPDATE _product SET stock_id = 3, price = 16.5 WHERE id = 3;
+UPDATE _product SET stock_id = 4, price = 16.5 WHERE id = 4;
+UPDATE _product SET stock_id = 5, price = 60.0 WHERE id = 5;
+UPDATE _product SET stock_id = 6, price = 60.0 WHERE id = 6;
+UPDATE _product SET stock_id = 7, price = 60.0 WHERE id = 7;
+UPDATE _product SET stock_id = 8, price = 80.0 WHERE id = 8;
+UPDATE _product SET stock_id = 9, price = 30.0 WHERE id = 9;
+UPDATE _product SET stock_id = 10, price = 30.0 WHERE id = 10;
+UPDATE _product SET stock_id = 11, price = 84.0 WHERE id = 11;
+UPDATE _product SET stock_id = 12, price = 84.0 WHERE id = 12;
+UPDATE _product SET stock_id = 13, price = 30.0 WHERE id = 13;
+UPDATE _product SET stock_id = 14, price = 84.0 WHERE id = 14;
+UPDATE _product SET stock_id = 15, price = 84.0 WHERE id = 15;
+UPDATE _product SET stock_id = 16, price = 84.0 WHERE id = 16;
+UPDATE _product SET stock_id = 17, price = 42.0 WHERE id = 17;
+UPDATE _product SET stock_id = 18, price = 42.0 WHERE id = 18;
+UPDATE _product SET stock_id = 19, price = 42.0 WHERE id = 19;
+UPDATE _product SET stock_id = 20, price = 42.0 WHERE id = 20;
+UPDATE _product SET stock_id = 21, price = 48.0 WHERE id = 21;
+UPDATE _product SET stock_id = 22, price = 48.0 WHERE id = 22;
+UPDATE _product SET stock_id = 23, price = 30.0 WHERE id = 23;
+UPDATE _product SET stock_id = 24, price = 96.0 WHERE id = 24;
+UPDATE _product SET stock_id = 25, price = 96.0 WHERE id = 25;
+UPDATE _product SET stock_id = 26, price = 96.0 WHERE id = 26;
+
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 3, NOW(), 25.0, 1, 1, 1);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 3, NOW(), 25.0, 1, 3, 1);
+
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 25.0, 1, 1, 2);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 15.0, 1, 7, 3);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 15.0, 1, 7, 4);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 50.0, 1, 1, 5);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 50.0, 1, 1, 6);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 50.0, 1, 1, 7);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 50.0, 1, 1, 8);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 25.0, 1, 1, 9);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 25.0, 1, 1, 10);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 70.0, 1, 1, 11);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 70.0, 1, 1, 12);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 25.0, 1, 4, 13);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 70.0, 1, 4, 14);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 70.0, 1, 4, 15);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 70.0, 1, 4, 16);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 35.0, 1, 4, 17);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 35.0, 1, 4, 18);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 35.0, 1, 4, 19);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 35.0, 1, 4, 20);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 40.0, 1, 4, 21);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 40.0, 1, 4, 22);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 25.0, 1, 1, 23);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 80.0, 1, 1, 24);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 80.0, 1, 1, 25);
+INSERT INTO _stock_input(creation_date, last_update, status, quantity, input_date, value, stock_id, provider_id, product_id) VALUES (NOW(), NOW(), 1, 5, NOW(), 80.0, 1, 1, 26);

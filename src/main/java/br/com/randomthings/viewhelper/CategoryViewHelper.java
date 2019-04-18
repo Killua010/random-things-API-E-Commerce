@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.domain.Image;
+import br.com.randomthings.domain.SubCategory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,8 @@ public class CategoryViewHelper extends EntityViewHelper {
 	private MultipartFile image;
 	
 	private String imgSrc;
+	
+	private List<SubCategoryViewHelper> subCategories;
 
 	@Override
 	public DomainEntity getEntity() {
@@ -82,6 +85,18 @@ public class CategoryViewHelper extends EntityViewHelper {
 		} else {
 			categoryDto.setImgSrc(null);
 		}
+		
+		categoryDto.setSubCategories(new ArrayList<>());
+		
+		for(SubCategory subCategory: ((Category)category).getSubCategories()) {
+		
+			SubCategoryViewHelper helper = new SubCategoryViewHelper();
+			helper.setId(subCategory.getId());
+			helper.setName(subCategory.getName());
+			categoryDto.getSubCategories().add(helper);
+			
+		}
+		
 		return categoryDto;
 	}
 
