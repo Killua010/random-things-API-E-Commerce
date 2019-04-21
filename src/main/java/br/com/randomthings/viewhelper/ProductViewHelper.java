@@ -80,6 +80,8 @@ public class ProductViewHelper extends EntityViewHelper {
 	
 	private List<String> imgSrc;
 	
+	private Integer stockQuantity;
+	
 	@Override
 	public DomainEntity getEntity() {
 		Product product = new Product();
@@ -194,6 +196,7 @@ public class ProductViewHelper extends EntityViewHelper {
 		productViewHelper.setDescription(((Product)product).getDescription());
 		productViewHelper.setPricingGroup((PricingGroupViewHelper) new PricingGroupViewHelper().getViewHelper(((Product)product).getPricingGroup()));
 		productViewHelper.setSubCategories(new ArrayList<>());
+		productViewHelper.setStockQuantity(((Product)product).getStock().getTotalQuantity());
 		for(SubCategory subCategory: ((Product)product).getSubCategory()) {
 			productViewHelper.getSubCategories().add((SubCategoryViewHelper) new SubCategoryViewHelper().getViewHelper(subCategory));
 		}

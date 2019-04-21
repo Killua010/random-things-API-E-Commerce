@@ -52,7 +52,7 @@ public class Product extends NamedEntity {
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Set<Image> imagens = new HashSet<>();
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "stock_id")
 	private Stock stock;
 }

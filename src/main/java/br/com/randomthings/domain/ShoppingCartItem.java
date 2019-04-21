@@ -21,7 +21,7 @@ public class ShoppingCartItem extends DomainEntity{
 	
 	private Integer quantity;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id")
 	private Product product;
 	

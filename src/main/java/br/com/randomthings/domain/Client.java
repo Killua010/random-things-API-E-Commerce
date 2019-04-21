@@ -47,6 +47,6 @@ public class Client extends Person {
     @JoinColumn(name = "user_id")
 	private User user;
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy="client")
+	@OneToOne(fetch = FetchType.EAGER, mappedBy="client")
 	private ShoppingCart shoppingCart;
 }

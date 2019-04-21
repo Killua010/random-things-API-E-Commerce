@@ -5992,8 +5992,8 @@ INSERT INTO _technical_row(creation_date, last_update, status, description, tech
 
 INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '0.8 Kg', 1, 4);
 INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'George Orwell', 4, 4);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Companhia Das Letras', 5, 4);
-INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '152', 6, 4);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, '152', 5, 4);
+INSERT INTO _technical_row(creation_date, last_update, status, description, technical_field_id, product_id) VALUES (NOW(), NOW(), 1, 'Companhia Das Letras', 6, 4);
 
 INSERT INTO _user(creation_date, last_update, status, email, password ) VALUES (NOW(), NOW(), 1, 'admin@admin.com', 'admin1234');
 

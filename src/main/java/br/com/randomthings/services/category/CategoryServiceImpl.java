@@ -14,6 +14,8 @@ import br.com.randomthings.domain.Image;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.CategoryRepository;
 import br.com.randomthings.services.image.ImageService;
+import br.com.randomthings.strategy.standard.StLastUpdate;
+import br.com.randomthings.strategy.standard.StRegistration;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {

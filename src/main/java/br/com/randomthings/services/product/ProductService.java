@@ -7,4 +7,6 @@ import br.com.randomthings.services.IService;
 
 public interface ProductService extends IService<Product> {
 	Page<Product> getPageabled(Integer pageNumber, Integer qtdPage, String direction, String orderBy);
+	
+	Product update(Product product);
 }

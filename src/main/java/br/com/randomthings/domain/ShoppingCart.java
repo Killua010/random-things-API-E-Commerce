@@ -24,7 +24,7 @@ public class ShoppingCart extends DomainEntity {
 
 	private Float subTotal;
 	
-	@OneToMany(mappedBy="cart", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="cart", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<ShoppingCartItem> cartItems = new HashSet<>();
 	
 	@OneToOne(fetch = FetchType.LAZY)

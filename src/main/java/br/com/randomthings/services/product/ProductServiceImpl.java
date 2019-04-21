@@ -37,7 +37,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Transactional 
 	public Product save(Product domain) {
-		System.err.println(domain.getImagens().size());
 		try {
 			Set<Image> images = new HashSet<>();
 			for(Image image: domain.getImagens()) {
@@ -72,6 +71,11 @@ public class ProductServiceImpl implements ProductService {
 		PageRequest pageRequest = PageRequest.of(pageNumber, qtdPage, Direction.valueOf(direction), orderBy);
 		
 		return productRepository.findAll(pageRequest);
+	}
+
+	@Override
+	public Product update(Product product) {
+		return productRepository.save(product);
 	}
 	
 }
