@@ -6,7 +6,7 @@ import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.randomthings.services.shopping_cart.web.ShoppingCartWeb;
+import br.com.randomthings.services.shopping_cart.web.ShoppingCartWebService;
 
 @Service
 public class ShoppingCartJob implements Job {
@@ -16,7 +16,7 @@ public class ShoppingCartJob implements Job {
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		ShoppingCartWeb shoppingCartWeb = (ShoppingCartWeb) context.getJobDetail().getJobDataMap().get("SERVICE");
+		ShoppingCartWebService shoppingCartWeb = (ShoppingCartWebService) context.getJobDetail().getJobDataMap().get("SERVICE");
 		shoppingCartWeb.cleanShoppingCart(context.getJobDetail().getJobDataMap().getLong("ID"));
 	}
 

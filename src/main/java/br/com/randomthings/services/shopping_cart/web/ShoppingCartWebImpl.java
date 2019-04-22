@@ -19,6 +19,8 @@ import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.domain.ShoppingCartItem;
 import br.com.randomthings.domain.Stock;
+import br.com.randomthings.dto.CartItemDTO;
+import br.com.randomthings.dto.ShoppingCartDTO;
 import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.job.ShoppingCartJob;
 import br.com.randomthings.services.cart_item.CartItemService;
@@ -31,7 +33,7 @@ import br.com.randomthings.strategy.standard.StRegistration;
 import br.com.randomthings.viewhelper.ProductViewHelper;
 
 @Service
-public class ShoppingCartWebImpl implements ShoppingCartWeb {
+public class ShoppingCartWebImpl implements ShoppingCartWebService {
 	
 	private Scheduler scheduler;
 	
@@ -118,8 +120,8 @@ public class ShoppingCartWebImpl implements ShoppingCartWeb {
 			Integer newStock = cartItem.getProduct().getStock().getTotalQuantity() + cartItem.getQuantity();
 			cartItem.getProduct().getStock().setTotalQuantity(newStock);
 			stockService.save(cartItem.getProduct().getStock());
-			shoppingCartService.save(client.getShoppingCart());
 		}
+		shoppingCartService.save(client.getShoppingCart());
 	}
 	
 	private void startJob(Long id) {
@@ -175,6 +177,24 @@ public class ShoppingCartWebImpl implements ShoppingCartWeb {
 		ShoppingCart cart = shoppingCartService.save(client.getShoppingCart());
 
 		return cart;
+	}
+
+	@Override
+	public ShoppingCart updateShoppingCart(ShoppingCartDTO cartDTO) {
+		ShoppingCart shoppingCart = shoppingCartService.findById(cartDTO.getId());
+		for(ShoppingCartItem cartItem: shoppingCart.getCartItems()) {
+			for(int i = 0; i < cartDTO.getIdItem().length; i++) {
+				if(cartItem.getId().equals(cartDTO.getIdItem()[i])) {
+					cartItem.setQuantity(cartDTO.getQuantityItem()[i]);
+					Integer total = cartItem.getProduct().getStock().getTotalQuantity() + 1;
+					total -= cartDTO.getQuantityItem()[i];
+					cartItem.getProduct().getStock().setTotalQuantity(total);
+					stockService.save(cartItem.getProduct().getStock());
+				}
+			}
+		}
+		startJob(shoppingCart.getClient().getId());
+		return shoppingCartService.save(shoppingCart);
 	}
 
 }

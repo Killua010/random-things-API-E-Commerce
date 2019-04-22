@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.domain.ShoppingCartItem;
@@ -18,7 +21,14 @@ public class ShoppingCartDTO extends EntityDTO {
 	
 	private Integer quantityProduct;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private List<CartItemDTO> itens;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private Long[] idItem;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private Integer[] quantityItem;
 	
 	private void setItens(Set<ShoppingCartItem> cardItens) {
 		this.itens = new ArrayList<>();
@@ -40,4 +50,5 @@ public class ShoppingCartDTO extends EntityDTO {
 		
 		return shoppingCartDTO;
 	}
+	
 }

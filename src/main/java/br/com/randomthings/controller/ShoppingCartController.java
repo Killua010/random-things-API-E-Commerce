@@ -14,7 +14,7 @@ import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.dto.ClientDTO;
 import br.com.randomthings.dto.ShoppingCartDTO;
 import br.com.randomthings.services.shopping_cart.ShoppingCartService;
-import br.com.randomthings.services.shopping_cart.web.ShoppingCartWeb;
+import br.com.randomthings.services.shopping_cart.web.ShoppingCartWebService;
 import br.com.randomthings.viewhelper.ProductViewHelper;
 
 @CrossOrigin
@@ -23,7 +23,7 @@ import br.com.randomthings.viewhelper.ProductViewHelper;
 public class ShoppingCartController {
 	
 	@Autowired
-	private ShoppingCartWeb shoppingCartWeb;
+	private ShoppingCartWebService shoppingCartWeb;
 	
 	@Autowired
 	private ShoppingCartService shoppingCartService;
@@ -33,6 +33,13 @@ public class ShoppingCartController {
 		ShoppingCart shoppingCart = shoppingCartService.findById(id);
 		return ResponseEntity.ok()
 				.body(ShoppingCartDTO.from(shoppingCart));
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<ShoppingCartDTO> update(@PathVariable Long id, @RequestBody ShoppingCartDTO cartDTO) {
+		cartDTO.setId(id);
+		return ResponseEntity.ok(ShoppingCartDTO.from(
+				shoppingCartWeb.updateShoppingCart(cartDTO)));
 	}
 		
 	@RequestMapping(value="/client/{idClient}", method=RequestMethod.POST)
