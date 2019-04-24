@@ -3,6 +3,7 @@ package br.com.randomthings.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +30,7 @@ public class Order extends DomainEntity {
 	
 	@Column(name = "status_order", nullable = true)
 	@Enumerated(EnumType.STRING)
+	@Basic(fetch=FetchType.EAGER)
 	private StatusOrder statusOrder;
 	
 	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)

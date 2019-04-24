@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.Order;
+import br.com.randomthings.domain.StatusOrder;
+import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.OrderRepository;
 
 @Service
@@ -16,8 +19,8 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public Order findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return orderRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
+				+ ", tipo: " + Order.class.getSimpleName()));
 	}
 
 	@Override
@@ -35,6 +38,11 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> findAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Order> getByStatus(StatusOrder order) {
+		return orderRepository.findAllByStatusOrder(order);
 	}
 
 }

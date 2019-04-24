@@ -30,12 +30,9 @@ public class StOrderRemoveStockProduct implements IStrategy<Order> {
 		for(OrderItem item: entity.getItems()) {
 			Product product = productService.findById(item.getProduct().getId());
 			Integer total = product.getStock().getTotalQuantity();
-			System.err.println(item.getQuantity());
-			System.err.println(total);
 			total =  total - item.getQuantity();
 			product.getStock().setTotalQuantity(total);
 //			stockService.save(product.getStock());
-			System.out.println(product.getStock().getTotalQuantity());
 		}
 		return "";
 	}

@@ -182,10 +182,12 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 	@Override
 	public ShoppingCart updateShoppingCart(ShoppingCartDTO cartDTO) {
 		ShoppingCart shoppingCart = shoppingCartService.findById(cartDTO.getId());
+		Float subTotal = (float) 0.0;
 		for(ShoppingCartItem cartItem: shoppingCart.getCartItems()) {
 			for(int i = 0; i < cartDTO.getIdItem().length; i++) {
 				if(cartItem.getId().equals(cartDTO.getIdItem()[i])) {
 					cartItem.setQuantity(cartDTO.getQuantityItem()[i]);
+					subTotal += (cartItem.getQuantity() * cartItem.getProduct().getPrice());
 					Integer total = cartItem.getProduct().getStock().getTotalQuantity() + 1;
 					total -= cartDTO.getQuantityItem()[i];
 					cartItem.getProduct().getStock().setTotalQuantity(total);
@@ -193,6 +195,7 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 				}
 			}
 		}
+		shoppingCart.setSubTotal(subTotal);
 		startJob(shoppingCart.getClient().getId());
 		return shoppingCartService.save(shoppingCart);
 	}
