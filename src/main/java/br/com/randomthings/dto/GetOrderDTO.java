@@ -11,6 +11,7 @@ public class GetOrderDTO {
 	private Long cardId;
 	private Float orderValue;
 	private Float shippingValue;
+	private String coupon;
 	private ShoppingCartDTO cart;
 	
 	public static GetOrderDTO from(Order order) {

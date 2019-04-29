@@ -1,7 +1,5 @@
 package br.com.randomthings.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,41 +9,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.randomthings.domain.Order;
+import br.com.randomthings.dto.ChangeDTO;
 import br.com.randomthings.dto.GetOrderDTO;
 import br.com.randomthings.dto.OrderDTO;
-import br.com.randomthings.services.order.web.OrderServiceWeb;
+import br.com.randomthings.services.change.web.ChangeServiceWeb;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/orders")
-public class OrderController {
+@RequestMapping("/changes")
+public class ChangeController {
 	
 	@Autowired
-	private OrderServiceWeb orderServiceWeb;
+	private ChangeServiceWeb changeServiceWeb;
 	
 	@RequestMapping(value = "", method=RequestMethod.POST)
-	public ResponseEntity<OrderDTO> saveOrder(@RequestBody GetOrderDTO orderDTO) {
-		return ResponseEntity.ok(OrderDTO.from(
-				orderServiceWeb.save(orderDTO)));
+	public ResponseEntity<?> saveOrder(@RequestBody ChangeDTO changeDTO) {
+
+		changeServiceWeb.save(changeDTO);
+		return ResponseEntity.ok().build();
 	}
 	
 	@RequestMapping(value = "/{status}", method=RequestMethod.GET)
 	public ResponseEntity<?> getAllByStatus(@PathVariable("status") String status){
 		return ResponseEntity.ok(
-				orderServiceWeb.getByStatus(status));
+				changeServiceWeb.getByStatus(status));
+	}
+	
+	@RequestMapping(value = "/aproved/{id}", method=RequestMethod.POST)
+	public ResponseEntity<OrderDTO> aprovedChange(@PathVariable("id") Long id) {
+		changeServiceWeb.aprovedChange(id);
+		return ResponseEntity.ok().build();
+	}
+	
+	@RequestMapping(value = "/reproved/{id}", method=RequestMethod.POST)
+	public ResponseEntity<OrderDTO> reprovedChange(@PathVariable("id") Long id) {
+		changeServiceWeb.reprovedChange(id);
+		return ResponseEntity.ok().build();
 	}
 	
 	@RequestMapping(value = "/byIdClient/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> getAllByIdClient(@PathVariable("id") Long id){
 		return ResponseEntity.ok(
-				orderServiceWeb.getByIdClient(id));
-	}
-	
-	@RequestMapping(value = "/{orderId}/nextStep", method=RequestMethod.PUT)
-	public ResponseEntity<?> alterStatus(@PathVariable("orderId") Long id){
-		orderServiceWeb.nextStep(id);
-		return ResponseEntity.noContent().build();
+				changeServiceWeb.getByIdClient(id));
 	}
 	
 }

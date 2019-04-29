@@ -6014,6 +6014,10 @@ INSERT INTO _address(creation_date, last_update, status, favorite, neighborhood,
 
 INSERT INTO _delivery_address(full_name, id, client_id) VALUES ('Uma casa muito engraçada', 1, 1);
 
+INSERT INTO _address(creation_date, last_update, status, favorite, neighborhood, number, observation, street, zip_code, city_id, residence_type_id) VALUES (NOW(), NOW(), 1, 0, 'Nothing', 99, null, 'monty python', '0123-456', 1, 1);
+
+INSERT INTO _delivery_address(full_name, id, client_id) VALUES ('Whatever', 2, 1);
+
 INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'All Men', '09.246.932/0001-93', 1);
 INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'Innovatore Lux', '97.133.354/0001-46', 2);
 INSERT INTO _provider(creation_date, last_update, status, name, cnpj, category_id) VALUES (NOW(), NOW(), 1, 'FORTISSIMUS', '29.517.787/0001-45', 1);

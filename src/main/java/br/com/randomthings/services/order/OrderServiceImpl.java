@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.Order;
 import br.com.randomthings.domain.StatusOrder;
@@ -43,6 +44,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> getByStatus(StatusOrder order) {
 		return orderRepository.findAllByStatusOrder(order);
+	}
+
+	@Override
+	public List<Order> getByClient(Client client) {
+		return orderRepository.findAllByClient(client);
 	}
 
 }

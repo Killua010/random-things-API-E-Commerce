@@ -10,4 +10,5 @@ public interface OrderServiceWeb {
 	public Order save(GetOrderDTO orderDTO);
 	public OrderDTO nextStep(Long id);
 	public List<OrderDTO> getByStatus(String status);
+	public List<OrderDTO> getByIdClient(Long id);
 }

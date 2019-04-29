@@ -23,6 +23,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<!-- Library to convert UUID to url friendly IDs basing on Base62 -->
+		<dependency>
+			<groupId>com.devskiller.friendly-id</groupId>
+			<artifactId>friendly-id-spring-boot-starter</artifactId>
+			<version>1.0.3</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

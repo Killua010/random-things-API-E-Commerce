@@ -2,6 +2,7 @@ package br.com.randomthings.services.product;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,7 @@ import br.com.randomthings.domain.Product;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ProductRepository;
 import br.com.randomthings.services.image.ImageService;
+import br.com.randomthings.viewhelper.ProductViewHelper;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -68,6 +70,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Page<Product> getPageabled(Integer pageNumber, Integer qtdPage,String direction, String orderBy) {
+		
 		PageRequest pageRequest = PageRequest.of(pageNumber, qtdPage, Direction.valueOf(direction), orderBy);
 		
 		return productRepository.findAll(pageRequest);

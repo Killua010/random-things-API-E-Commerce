@@ -18,6 +18,8 @@ public class OrderDTO extends EntityDTO {
 	private Float shippingPrice;
 	
 	private Float TotalPrice;
+	
+	private String statusOrder;
 
 	@JsonProperty(access = Access.READ_ONLY)
 	private List<OrderItemDTO> itens;
@@ -42,7 +44,7 @@ public class OrderDTO extends EntityDTO {
 		dto.setTotalPrice(order.getOrderValue() + order.getShippingPrice().getValue());
 		dto.setShippingPrice(order.getShippingPrice().getValue());
 		dto.setAddress(AddressDTO.from(order.getShippingPrice().getAddress()));
-		
+		dto.setStatusOrder(order.getStatusOrder().getDescription());
 		
 		return dto;
 	}

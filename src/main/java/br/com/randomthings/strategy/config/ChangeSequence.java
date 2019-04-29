@@ -4,17 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.randomthings.domain.Order;
+import br.com.randomthings.domain.Change;
+import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.strategy.Sequence;
-import br.com.randomthings.strategy.order.StOrderRemoveStockProduct;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
 
 @Configuration
-public class OrderSequence {
-	
-	@Autowired
-	StOrderRemoveStockProduct stOrderRemoveStockProduct;
+public class ChangeSequence {
 	
 	@Autowired
 	StRegistration stRegistration;
@@ -22,10 +19,9 @@ public class OrderSequence {
 	@Autowired
 	StLastUpdate stLastUpdate;
 
-	@Bean("SAVE_ORDER")
-	public Sequence<Order> saveOrder() {
-		return new Sequence<Order>()
-				.add(stOrderRemoveStockProduct)
+	@Bean("SAVE_CHANGE")
+	public Sequence<Change> saveChange() {
+		return new Sequence<DomainEntity>()
 				.add(stRegistration);
 	}
 //	
