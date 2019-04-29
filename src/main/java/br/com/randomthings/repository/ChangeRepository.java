@@ -14,4 +14,6 @@ public interface ChangeRepository extends RepositoryImpl<Change>, IRepository<Ch
 	public List<Change> findAllByStatusChange(StatusChange statusChange);
 
 	public List<Change> findAllByClient(Client client);
+	
+	public List<Change> findAllByOrder(Order order);
 }

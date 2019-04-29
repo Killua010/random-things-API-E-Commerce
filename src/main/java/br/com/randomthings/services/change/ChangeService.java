@@ -11,4 +11,5 @@ import br.com.randomthings.services.IService;
 public interface ChangeService extends IService<Change>{
 	public List<Change> getByStatus(StatusChange status);
 	public List<Change> getByClient(Client client);
+	public List<Change> getByOrder(Order order);
 }

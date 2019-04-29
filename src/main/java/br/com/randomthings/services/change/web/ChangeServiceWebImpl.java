@@ -52,8 +52,23 @@ public class ChangeServiceWebImpl extends ExecuteStrategys<Change> implements Ch
 		Order order = orderService.findById(changeDTO.getOrderId());
 		change.setClient(client);
 		change.setOrder(order);
+		Order newOrder = change.getOrder();
+		
 		for(int i = 0; i < changeDTO.getIdItem().length; i++) {
 			OrderItem orderItem = orderItemService.findById(changeDTO.getIdItem()[i]);
+			Integer quantity = orderItem.getQuantity();
+			for(Change changes: changeService.getByOrder(newOrder)) {
+				for(ChangeItem changeItem: changes.getItems()) {
+					if(changeItem.getProduct().equals(orderItem.getProduct())) {
+						quantity -= changeItem.getQuantity();
+						break;
+					}
+				}
+			}
+			
+			if(quantity - changeDTO.getQuantityItem()[i] < 0) {
+				throw new StrategyValidation(new StringBuilder("Produto com id: " + orderItem.getProduct().getId() + " não pode ser trocado"));
+			}
 			
 			ChangeItem changeItem = new ChangeItem();
 			changeItem.setProduct(orderItem.getProduct());
