@@ -2,7 +2,6 @@ package br.com.randomthings.services.product;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,10 +16,10 @@ import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.Image;
 import br.com.randomthings.domain.Product;
+import br.com.randomthings.domain.SubCategory;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ProductRepository;
 import br.com.randomthings.services.image.ImageService;
-import br.com.randomthings.viewhelper.ProductViewHelper;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -79,6 +78,20 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product update(Product product) {
 		return productRepository.save(product);
+	}
+
+	@Override
+	public Page<Product> getPageabledByCategory(Integer pageNumber, Integer qtdPage, String direction, String orderBy,
+			SubCategory subCategory) {
+		
+		PageRequest pageRequest = PageRequest.of(pageNumber, qtdPage, Direction.valueOf(direction), orderBy);
+		
+		return productRepository.findAllBySubCategoryIn(subCategory, pageRequest);
+	}
+
+	@Override
+	public List<Product> findBy(String param) {
+		return productRepository.findBy(param);
 	}
 	
 }

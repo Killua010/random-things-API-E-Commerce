@@ -5869,7 +5869,6 @@ INSERT INTO _images_product(product_id, image_id) VALUES (26, 75);
 
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (1, 2);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (2, 2);
-INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (2, 5);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (3, 9);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (4, 9);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (5, 10);
@@ -5879,7 +5878,7 @@ INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (8, 11);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (9, 12);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (10, 12);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (11, 1);
-INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (12, 2);
+INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (12, 1);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (13, 5);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (14, 13);
 INSERT INTO _product_sub_category(product_id, sub_category_id) VALUES (15, 13);

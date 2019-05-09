@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.services.product.ProductService;
+import br.com.randomthings.services.product.web.ProductServiceWeb;
 import br.com.randomthings.utils.Result;
 import br.com.randomthings.viewhelper.ProductViewHelper;
 
@@ -29,7 +31,7 @@ import br.com.randomthings.viewhelper.ProductViewHelper;
 @RequestMapping("/products")
 public class ProductController extends AbstractController<ProductViewHelper>{
 	@Autowired
-	private ProductService productService;
+	private ProductServiceWeb productServiceWeb;
 	
 	@PostMapping
 	public @ResponseBody ResponseEntity<Result> save(@Valid @ModelAttribute ProductViewHelper vh) {
@@ -54,17 +56,25 @@ public class ProductController extends AbstractController<ProductViewHelper>{
 	}
 	
 	@RequestMapping(path = "/paging/{page}", method = RequestMethod.GET)
-	public ResponseEntity<?> pagingProduct(@PathVariable(name="page",required=true) Integer pageNumber){
+	public ResponseEntity<?> pagingProduct(@PathVariable(name="page",required=true) Integer pageNumber, 
+			@RequestParam(name = "categoryId", required = false) Long subCategoryId){
+		
 		Integer qtdPage = 9; 
 		String orderBy = "name";
 		String direction = "ASC";
 		List<ProductViewHelper> helpers = new ArrayList<>();
-		Page<Product> pages = productService.getPageabled(pageNumber, qtdPage, direction, orderBy);
-		for(Product product : pages) {
-			ProductViewHelper helper = (ProductViewHelper) new ProductViewHelper().getViewHelper(product);
-			helper.setTotalPage(pages.getTotalPages());
-			helpers.add(helper);
+		
+		if(null == subCategoryId) {
+			helpers = productServiceWeb.getPageabled(pageNumber, qtdPage, direction, orderBy);
+		} else {
+			helpers = productServiceWeb.getPageabledByCategory(pageNumber, qtdPage, direction, orderBy, subCategoryId);
 		}
+		
 		return ResponseEntity.ok(helpers);
+	}
+	
+	@RequestMapping(path = "/findBy/{param}", method = RequestMethod.GET)
+	public ResponseEntity<?> findBy(@PathVariable(name="param",required=true) String param){
+		return ResponseEntity.ok(productServiceWeb.findBy(param));
 	}
 }
