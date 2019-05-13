@@ -16,7 +16,7 @@ public class ShippingPrice extends DomainEntity {
 	
 	private Integer businessDays;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.REFRESH)
     @JoinColumn(name = "address_id")
 	private Address address;
 }

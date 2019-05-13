@@ -1,10 +1,12 @@
 package br.com.randomthings.domain;
 
 public enum StatusOrder {
-	APROVADO("Aprovado", 1),
+	REPROVADO("Reprovado", 0),
+	EMPROCESSAMENTO("Em processamento", 1),
+	APROVADO("Aprovado", 2),
 //	EMPROCESSAMENTO("Em Processamento", 2), 
-	EMTRANSITO("Em Transporte", 2), 
-	ENTREGUE("Entregue", 3);
+	EMTRANSITO("Em Transporte", 3), 
+	ENTREGUE("Entregue", 4);
 //	EMTROCA("", 4);
 //	TROCAAUTORIZADA("", 5),
 //	

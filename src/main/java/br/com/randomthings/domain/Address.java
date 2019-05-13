@@ -29,11 +29,11 @@ public class Address extends DomainEntity{
 	
 	private Boolean favorite;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.REFRESH)
     @JoinColumn(name = "residence_type_id")
 	private ResidenceType residenceType;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.REFRESH)
     @JoinColumn(name = "city_id")
 	private City city;
 	

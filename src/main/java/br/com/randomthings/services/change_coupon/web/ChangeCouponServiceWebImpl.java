@@ -32,4 +32,12 @@ public class ChangeCouponServiceWebImpl implements ChangeCouponServiceWeb{
 		return coupons;
 	}
 
+	@Override
+	public ChangeCouponDTO getByIdClientAndName(Long id, String name) {
+		Client client = clientService.findById(id);
+		ChangeCoupon cg = changeCouponService.findByNameAndClient(name, client);
+
+		return ChangeCouponDTO.from(cg);
+	}
+
 }

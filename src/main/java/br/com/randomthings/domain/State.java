@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity(name="_state")
 public class State extends NamedEntity {
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
 	private Country country;
 	

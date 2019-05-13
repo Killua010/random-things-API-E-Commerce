@@ -33,7 +33,7 @@ public class Product extends NamedEntity {
 	
 	private Float price;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pricing_group_id")
 	private PricingGroup pricingGroup;
 	

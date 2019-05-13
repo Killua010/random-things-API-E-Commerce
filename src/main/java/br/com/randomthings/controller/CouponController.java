@@ -24,4 +24,10 @@ public class CouponController {
 				changeCouponServiceWeb.getByIdClient(id));
 	}
 	
+	@RequestMapping(value = "/byIdClientAndName/{id}/{name}", method=RequestMethod.GET)
+	public ResponseEntity<?> getByIdClientAndName(@PathVariable("id") Long id, @PathVariable("name") String name){
+		return ResponseEntity.ok(
+				changeCouponServiceWeb.getByIdClientAndName(id, name));
+	}
+	
 }

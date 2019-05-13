@@ -33,15 +33,15 @@ public class Order extends DomainEntity {
 	@Basic(fetch=FetchType.EAGER)
 	private StatusOrder statusOrder;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name = "shipping_id")
 	private ShippingPrice shippingPrice;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name = "payment_type_id")
 	private PayamentType payamentType;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.REFRESH)
     @JoinColumn(name = "client_id")
 	private Client client;
 	

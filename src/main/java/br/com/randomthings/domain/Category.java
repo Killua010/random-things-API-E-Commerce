@@ -20,7 +20,7 @@ import lombok.Setter;
 @Entity(name="_category")
 public class Category extends NamedEntity {
 	
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
 	private List<SubCategory> subCategories;
 	
 	@OneToOne(fetch = FetchType.EAGER)

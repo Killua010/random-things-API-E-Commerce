@@ -19,7 +19,7 @@ import lombok.Setter;
 @Entity(name="_city")
 public class City extends NamedEntity {
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "state_id")
 	private State state;
 }

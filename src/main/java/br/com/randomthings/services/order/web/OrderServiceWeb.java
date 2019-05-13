@@ -8,6 +8,7 @@ import br.com.randomthings.dto.OrderDTO;
 
 public interface OrderServiceWeb {
 	public Order save(GetOrderDTO orderDTO);
+	public void reprovedOrder(Long id);
 	public OrderDTO nextStep(Long id);
 	public List<OrderDTO> getByStatus(String status);
 	public List<OrderDTO> getByIdClient(Long id);

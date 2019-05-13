@@ -8,4 +8,6 @@ public interface ChangeCouponServiceWeb {
 
 	public List<ChangeCouponDTO> getByIdClient(Long id);
 
+	public ChangeCouponDTO getByIdClientAndName(Long id, String name);
+	
 }

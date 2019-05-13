@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity(name="_technical_row")
 public class TechnicalRow extends DomainEntity {
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.REFRESH)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.REFRESH)
     @JoinColumn(name = "technical_field_id")
 	private TechnicalField field;
 	
