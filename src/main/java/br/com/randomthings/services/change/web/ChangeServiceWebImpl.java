@@ -94,7 +94,7 @@ public class ChangeServiceWebImpl extends ExecuteStrategys<Change> implements Ch
 		
 		List<ChangeDTO> changes = new ArrayList<>(); 
 		for(Change change: changeService.getByStatus(statu)) {
-			changes.add(ChangeDTO.from(change));
+			changes.add((ChangeDTO) new ChangeDTO().from(change));
 		}
 		
 		return changes;
@@ -128,7 +128,7 @@ public class ChangeServiceWebImpl extends ExecuteStrategys<Change> implements Ch
 		Client client = clientService.findById(id);
 		List<ChangeDTO> changes = new ArrayList<>(); 
 		for(Change change: changeService.getByClient(client)) {
-			changes.add(ChangeDTO.from(change));
+			changes.add((ChangeDTO) new ChangeDTO().from(change));
 		}
 		
 		return changes;

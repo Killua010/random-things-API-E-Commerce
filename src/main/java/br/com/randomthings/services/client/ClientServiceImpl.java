@@ -14,10 +14,15 @@ import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ClientRepository;
 import br.com.randomthings.repository.ContactRepository;
 import br.com.randomthings.repository.UserRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class ClientServiceImpl implements ClientService {
+public class ClientServiceImpl extends AbstractService<Client, Long> implements ClientService {
 	
+	public ClientServiceImpl(ClientRepository dao) {
+		super(dao);
+	}
+
 	@Autowired
 	private ClientRepository clientRepository;
 	
@@ -27,11 +32,6 @@ public class ClientServiceImpl implements ClientService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public Client findById(Long id) {		
-		return clientRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
-				+ ", tipo: " + Client.class.getSimpleName()));
-	}
-
 	@Override
 	@Transactional 
 	public Client save(Client domain) {
@@ -43,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	@Transactional 
-	public void delete(Long id) {
+	public void deleteById(Long id) {
 		Client client = findById(id);
 		client.setStatus(false);
 		client.setLastUpdate(LocalDateTime.now());
@@ -55,12 +55,5 @@ public class ClientServiceImpl implements ClientService {
 		return clientRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! email: " + user.getEmail()
 				+ " senha: " + user.getPassword() + ", tipo: " + Client.class.getSimpleName()));
 	}
-
-	@Override
-	public List<Client> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 }

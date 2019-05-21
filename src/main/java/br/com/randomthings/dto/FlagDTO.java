@@ -1,20 +1,29 @@
 package br.com.randomthings.dto;
 
+import org.springframework.stereotype.Component;
+
+import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.CreditCardFlag;
 import lombok.Data;
 
 @Data
-public class FlagDTO extends EntityDTO  {
+@Component
+public class FlagDTO extends AbstractDTO<CreditCardFlag>  {
 	
 	private String name;
-	
-	public static FlagDTO from(CreditCardFlag flag) {
+
+	@Override
+	public IDTO from(CreditCardFlag flag) {
 		FlagDTO flagDTO = new FlagDTO();
+		this.from(flag, flagDTO);
+		
 		flagDTO.setName(flag.getName());
-		flagDTO.setCreationDate(flag.getCreationDate());
-		flagDTO.setId(flag.getId());
-		flagDTO.setLastUpdate(flag.getLastUpdate());
-		flagDTO.setStatus(flag.getStatus());
+		
 		return flagDTO;
+	}
+
+	@Override
+	public CreditCardFlag fill(Long... params) {
+		throw new UnsupportedOperationException("Em desenvolvimento.");
 	}
 }

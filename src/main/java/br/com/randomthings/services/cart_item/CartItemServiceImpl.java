@@ -16,7 +16,6 @@ public class CartItemServiceImpl implements CartItemService{
 	public void delete(ShoppingCartItem cartItem) {
 		cartItemRepository.deleteById(cartItem.getId());
 		cartItemRepository.delete(cartItem);
-		System.err.println(cartItemRepository.findById(cartItem.getId()).isPresent());
 	}
 
 	@Override

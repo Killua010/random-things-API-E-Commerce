@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.SubCategory;
 
 @Repository
-public interface ProductRepository extends RepositoryImpl<Product>, IRepository<Product> {
+public interface ProductRepository extends IRepository<Product, Long>, JpaRepository<Product, Long> {
 	
 	@Transactional(readOnly=true)
 	Optional<Product> findByName(String name);

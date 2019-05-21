@@ -23,10 +23,7 @@ public class CreditCardWebServiceImpl extends ExecuteStrategys<CreditCard> imple
 	
 	@Override
 	public CreditCard save(CreditCardDTO creditCardDTO, Long idClient) {
-		CreditCard creditCard = new CreditCard();
-		CreditCardFlag cardFlag = new CreditCardFlag();
-		creditCard.setFlag(cardFlag);
-		creditCardDTO.fill(creditCard);
+		CreditCard creditCard = creditCardDTO.fill();
 		Client client = clientService.findById(idClient);
 		creditCard.setClient(client);
 		
@@ -41,10 +38,7 @@ public class CreditCardWebServiceImpl extends ExecuteStrategys<CreditCard> imple
 
 	@Override
 	public CreditCard update(CreditCardDTO creditCardDTO) {
-		CreditCard creditCard = creditCardService.findById(creditCardDTO.getId());
-		CreditCardFlag cardFlag = new CreditCardFlag();
-		creditCard.setFlag(cardFlag);
-		creditCardDTO.fill(creditCard);
+		CreditCard creditCard = creditCardDTO.fill(creditCardDTO.getId());
 		
 		StringBuilder errors = runStrategys(creditCard, "Update");
 		

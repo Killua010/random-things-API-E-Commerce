@@ -1,36 +1,43 @@
 package br.com.randomthings.dto;
 
+import org.springframework.stereotype.Component;
+
+import br.com.randomthings.domain.Change;
 import br.com.randomthings.domain.ChangeItem;
 import br.com.randomthings.domain.OrderItem;
 import br.com.randomthings.domain.ShoppingCartItem;
-import br.com.randomthings.viewhelper.ProductViewHelper;
 import lombok.Data;
 import lombok.Setter;
 
 @Data
 @Setter
-public class ChangeItemDTO extends EntityDTO {
+@Component
+public class ChangeItemDTO extends AbstractDTO<ChangeItem> {
 	
-	private ProductViewHelper product;
+	private ProductDTO product;
 	
 	private Integer quantity;
 	
 	private Float subTotal;
+
+	@Override
+	public IDTO from(ChangeItem changeItem) {
+		ChangeItemDTO changeItemDTO = new ChangeItemDTO();
+		this.from(changeItem, changeItemDTO);
 		
-	public static ChangeItemDTO from(ChangeItem changeItem) {
-		ChangeItemDTO orderDTO = new ChangeItemDTO();
 		Float subTotal = changeItem.getProduct().getPrice() * changeItem.getQuantity();
-		orderDTO.setSubTotal(subTotal);
-		orderDTO.setQuantity(changeItem.getQuantity());
-		orderDTO.setId(changeItem.getId());
-		orderDTO.setStatus(changeItem.getStatus());
-		orderDTO.setCreationDate(changeItem.getCreationDate());
-		orderDTO.setLastUpdate(changeItem.getLastUpdate());
+		changeItemDTO.setSubTotal(subTotal);
+		changeItemDTO.setQuantity(changeItem.getQuantity());
 		
-		ProductViewHelper helper = (ProductViewHelper) new ProductViewHelper().getViewHelper(changeItem.getProduct());
-		orderDTO.setProduct(helper);
+		ProductDTO helper = (ProductDTO) new ProductDTO().from(changeItem.getProduct());
+		changeItemDTO.setProduct(helper);
 		
-		return orderDTO;
+		return changeItemDTO;
+	}
+
+	@Override
+	public ChangeItem fill(Long... params) {
+		throw new UnsupportedOperationException("Em desenvolvimento.");
 	}
 	
 }

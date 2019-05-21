@@ -30,12 +30,8 @@ public class DeliveryAddressWebImpl extends ExecuteStrategys<DeliveryAddress> im
 	
 	@Override
 	public DeliveryAddress save(DeliveryAddressDTO addressDTO, Long idClient) {
-		DeliveryAddress deliveryAddress = new DeliveryAddress();
-		City city = new City();
-		ResidenceType residenceType = new ResidenceType();
-		deliveryAddress.setResidenceType(residenceType);
-		deliveryAddress.setCity(city);
-		addressDTO.fill(deliveryAddress);
+		DeliveryAddress deliveryAddress = addressDTO.fill();
+		
 		Client client = clientService.findById(idClient);
 		client.getAddresses().add(deliveryAddress);
 		deliveryAddress.setClient(client);
@@ -56,12 +52,7 @@ public class DeliveryAddressWebImpl extends ExecuteStrategys<DeliveryAddress> im
 	
 	@Override
 	public DeliveryAddress update(@Valid DeliveryAddressDTO deliveryAddressDTO) {
-		DeliveryAddress deliveryAddress = new DeliveryAddress();
-		City city = new City();
-		ResidenceType residenceType = new ResidenceType();
-		deliveryAddress.setResidenceType(residenceType);
-		deliveryAddress.setCity(city);
-		deliveryAddressDTO.fill(deliveryAddress);
+		DeliveryAddress deliveryAddress = deliveryAddressDTO.fill();
 		
 		StringBuilder errors = runStrategys(deliveryAddress, "Update");
 		

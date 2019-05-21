@@ -1,20 +1,28 @@
 package br.com.randomthings.dto;
 
+import org.springframework.stereotype.Component;
+
 import br.com.randomthings.domain.City;
 import lombok.Data;
 
 @Data
-public class CityDTO {
+@Component
+public class CityDTO extends AbstractDTO<City>{
 	
-	private Long id;
 	private String name;
-	
-	public static CityDTO from(City city) {
+
+	@Override
+	public IDTO from(City city) {
 		CityDTO cityDTO = new CityDTO();
+		this.from(city, cityDTO);
 		
-		cityDTO.setId(city.getId());
 		cityDTO.setName(city.getName());
 		
 		return cityDTO;
+	}
+
+	@Override
+	public City fill(Long... params) {
+		throw new UnsupportedOperationException("Em desenvolvimento.");
 	}
 }

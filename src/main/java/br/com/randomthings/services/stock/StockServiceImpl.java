@@ -1,40 +1,15 @@
 package br.com.randomthings.services.stock;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.Stock;
 import br.com.randomthings.repository.StockRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class StockServiceImpl implements StockService {
+public class StockServiceImpl extends AbstractService<Stock, Long> implements StockService {
 	
-	@Autowired
-	StockRepository stockRepository;
-
-	@Override
-	public Stock findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public StockServiceImpl(StockRepository dao) {
+		super(dao);
 	}
-
-	@Override
-	public Stock save(Stock domain) {
-		return stockRepository.save(domain);
-	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Stock> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

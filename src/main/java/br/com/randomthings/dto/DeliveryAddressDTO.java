@@ -5,15 +5,20 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import br.com.randomthings.domain.City;
 import br.com.randomthings.domain.DeliveryAddress;
+import br.com.randomthings.domain.ResidenceType;
+import br.com.randomthings.dto.specific.CityAddressDTO;
 import lombok.Data;
 
 @Data
-public class DeliveryAddressDTO extends EntityDTO {
+@Component
+public class DeliveryAddressDTO extends AbstractDTO<DeliveryAddress> {
 	
 	@NotBlank(message = "O campo nome é obrigatório.")
 	@NotNull(message = "O campo nome é obrigatório.")
@@ -59,13 +64,11 @@ public class DeliveryAddressDTO extends EntityDTO {
 	
 	private CityAddressDTO city;
 	
-	public static DeliveryAddressDTO from(DeliveryAddress address) {
+	@Override
+	public IDTO from(DeliveryAddress address) {
 		DeliveryAddressDTO addressDTO = new DeliveryAddressDTO();
-		
-		addressDTO.setCreationDate(address.getCreationDate());
-		addressDTO.setId(address.getId());
-		addressDTO.setLastUpdate(address.getLastUpdate());
-		addressDTO.setStatus(address.getStatus());
+		this.from(address, addressDTO);
+
 		addressDTO.setFullName(address.getFullName());
 		addressDTO.setStreet(address.getStreet());
 		addressDTO.setNumber(address.getNumber());
@@ -80,8 +83,15 @@ public class DeliveryAddressDTO extends EntityDTO {
 		
 		return addressDTO;
 	}
-	
-	public void fill(DeliveryAddress address) {
+
+	@Override
+	public DeliveryAddress fill(Long... params) {
+		DeliveryAddress address = new DeliveryAddress();
+		City city = new City();
+		ResidenceType residenceType = new ResidenceType();
+		address.setResidenceType(residenceType);
+		address.setCity(city);
+		
 		address.getCity().setId(cityId);
 		address.setFullName(fullName);
 		address.setNeighborhood(neighborhood);
@@ -91,5 +101,11 @@ public class DeliveryAddressDTO extends EntityDTO {
 		address.setStreet(street);
 		address.setZipCode(zipCode);
 		address.setFavorite(favorite);
+		
+		address.setId((null == params[0]) ? null : params[0]);
+		address.setStatus((null == this.status) ? null : this.status);
+		
+		return address;
+		
 	}
 }

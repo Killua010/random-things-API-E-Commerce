@@ -6,7 +6,7 @@ import br.com.randomthings.domain.ChangeCoupon;
 import br.com.randomthings.domain.Client;
 import br.com.randomthings.services.IService;
 
-public interface ChangeCouponService extends IService<ChangeCoupon> {
+public interface ChangeCouponService extends IService<ChangeCoupon, Long> {
 
 	public List<ChangeCoupon> getByClient(Client client);
 	

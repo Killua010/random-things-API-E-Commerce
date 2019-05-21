@@ -11,24 +11,12 @@ import br.com.randomthings.dto.PromotionalCouponDTO;
 import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.services.ExecuteStrategys;
 import br.com.randomthings.services.coupons.PromotionalCouponService;
-import br.com.randomthings.strategy.standard.StRegistration;
 
 @Service
 public class PromotionalCouponServiceWebImpl extends ExecuteStrategys<PromotionalCoupon> implements PromotionalCouponServiceWeb {
 	
 	@Autowired
 	private PromotionalCouponService promotionalCouponService;
-	
-	@Autowired
-	private StRegistration stRegistration;
-	
-	@Override
-	public PromotionalCoupon save(PromotionalCouponDTO promotionalCouponDTO) {
-		PromotionalCoupon promotionalCoupon = new PromotionalCoupon();
-		promotionalCouponDTO.fill(promotionalCoupon);
-		stRegistration.execute(promotionalCoupon);
-		return promotionalCouponService.save(promotionalCoupon);
-	}
 
 	@Override
 	public PromotionalCouponDTO findByName(String name) {
@@ -38,7 +26,7 @@ public class PromotionalCouponServiceWebImpl extends ExecuteStrategys<Promotiona
 			throw new StrategyValidation(new StringBuilder("Cupom vencido no dia " + coupon.getShelfLife().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 		}
 		
-		return PromotionalCouponDTO.from(coupon);
+		return (PromotionalCouponDTO) new PromotionalCouponDTO().from(coupon);
 	}
 
 }

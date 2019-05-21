@@ -3,34 +3,42 @@ package br.com.randomthings.dto;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import org.springframework.stereotype.Component;
+
 import br.com.randomthings.domain.PromotionalCoupon;
 import lombok.Data;
 
 @Data
-public class PromotionalCouponDTO extends EntityDTO {
+@Component
+public class PromotionalCouponDTO extends AbstractDTO<PromotionalCoupon> {
 	private Float value;
 	
 	private String shelfLife;
 	
 	private String name;
-	
-	public static PromotionalCouponDTO from(PromotionalCoupon coupon) {
+
+	@Override
+	public IDTO from(PromotionalCoupon coupon) {
 		PromotionalCouponDTO promotionalCouponDTO = new PromotionalCouponDTO();
-		
-		promotionalCouponDTO.setCreationDate(coupon.getCreationDate());
-		promotionalCouponDTO.setId(coupon.getId());
-		promotionalCouponDTO.setLastUpdate(coupon.getLastUpdate());
-		promotionalCouponDTO.setStatus(coupon.getStatus());
+		this.from(coupon, promotionalCouponDTO);
+
 		promotionalCouponDTO.setShelfLife(coupon.getShelfLife().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		promotionalCouponDTO.setValue(coupon.getValue());
 		promotionalCouponDTO.setName(coupon.getName());
 		
 		return promotionalCouponDTO;
 	}
-	
-	public void fill(PromotionalCoupon promotionalCoupon) {
+
+	@Override
+	public PromotionalCoupon fill(Long... params) {
+		PromotionalCoupon promotionalCoupon = new PromotionalCoupon();
+		
 		promotionalCoupon.setShelfLife(LocalDate.parse(shelfLife));
 		promotionalCoupon.setValue(value);
+		promotionalCoupon.setId((null == params[0]) ? null : params[0]);
+		promotionalCoupon.setStatus((null == this.status) ? null : this.status);
+		
+		return promotionalCoupon;
 	}
 	
 }

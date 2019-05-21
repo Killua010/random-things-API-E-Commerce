@@ -1,10 +1,14 @@
 package br.com.randomthings.dto;
 
+import org.springframework.stereotype.Component;
+
 import br.com.randomthings.domain.Address;
+import br.com.randomthings.dto.specific.CityAddressDTO;
 import lombok.Data;
 
 @Data
-public class AddressDTO extends EntityDTO {
+@Component
+public class AddressDTO extends AbstractDTO<Address> {
 	
 	private String street;
 	
@@ -25,14 +29,12 @@ public class AddressDTO extends EntityDTO {
 	private Long residenceTypeId;
 	
 	private CityAddressDTO city;
-	
-	public static AddressDTO from(Address address) {
+
+	@Override
+	public IDTO from(Address address) {
 		AddressDTO addressDTO = new AddressDTO();
+		this.from(address, addressDTO);
 		
-		addressDTO.setCreationDate(address.getCreationDate());
-		addressDTO.setId(address.getId());
-		addressDTO.setLastUpdate(address.getLastUpdate());
-		addressDTO.setStatus(address.getStatus());
 		addressDTO.setStreet(address.getStreet());
 		addressDTO.setNumber(address.getNumber());
 		addressDTO.setNeighborhood(address.getNeighborhood());
@@ -45,6 +47,11 @@ public class AddressDTO extends EntityDTO {
 		addressDTO.setCity(CityAddressDTO.from(address.getCity()));
 		
 		return addressDTO;
+	}
+
+	@Override
+	public Address fill(Long... params) {
+		throw new UnsupportedOperationException("Em desenvolvimento.");
 	}
 	
 }

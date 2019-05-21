@@ -35,8 +35,8 @@ import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.domain.ShoppingCartItem;
 import br.com.randomthings.domain.StatusChange;
 import br.com.randomthings.domain.StatusOrder;
-import br.com.randomthings.dto.GetOrderDTO;
 import br.com.randomthings.dto.OrderDTO;
+import br.com.randomthings.dto.specific.GetOrderDTO;
 import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.job.OrderPaymantJob;
 import br.com.randomthings.job.ShoppingCartJob;
@@ -178,7 +178,7 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
 		
 		List<OrderDTO> orders = new ArrayList<>(); 
 		for(Order od: orderService.getByStatus(order)) {
-			orders.add(OrderDTO.from(od));
+			orders.add((OrderDTO) new OrderDTO().from(od));
 		}
 		
 		return orders;
@@ -195,7 +195,7 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
         		}
         	});
 		
-		return OrderDTO.from(orderService.save(order));
+		return (OrderDTO) new OrderDTO().from(orderService.save(order));
 	}
 
 	@Override
@@ -217,7 +217,7 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
 			}
 		}
 		for(Order od: list) {
-			orders.add(OrderDTO.from(od));
+			orders.add((OrderDTO) new OrderDTO().from(od));
 		}
 		
 		return orders;

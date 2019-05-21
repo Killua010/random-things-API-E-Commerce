@@ -11,37 +11,24 @@ import org.springframework.stereotype.Service;
 import br.com.randomthings.domain.PricingGroup;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.PricingGroupRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class PricingGroupServiceImpl implements PricingGroupService {
-	
+public class PricingGroupServiceImpl extends AbstractService<PricingGroup, Long> implements PricingGroupService {
 	@Autowired
 	private PricingGroupRepository pricingGroupRepository;
 	
-	public PricingGroup findById(Long id) {		
-		return pricingGroupRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
-				+ ", tipo: " + PricingGroup.class.getSimpleName()));
+	public PricingGroupServiceImpl(PricingGroupRepository dao) {
+		super(dao);
 	}
-
+	
 	@Override
 	@Transactional 
-	public PricingGroup save(PricingGroup domain) {
-		domain = pricingGroupRepository.save(domain);
-		return domain;
-	}
-
-	@Override
-	@Transactional 
-	public void delete(Long id) {
+	public void deleteById(Long id) {
 		PricingGroup pricingGroup = findById(id);
 		pricingGroup.setStatus(false);
 		pricingGroup.setLastUpdate(LocalDateTime.now());
 		pricingGroupRepository.save(pricingGroup);
-	}
-
-	@Override
-	public List<PricingGroup> findAll() {
-		return pricingGroupRepository.findByStatusTrue(); 
 	}
 	
 }

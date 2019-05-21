@@ -6,49 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.Client;
-import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.Order;
 import br.com.randomthings.domain.StatusOrder;
-import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.OrderRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class OrderServiceImpl implements OrderService {
-	
+public class OrderServiceImpl extends AbstractService<Order, Long> implements OrderService {
 	@Autowired
 	private OrderRepository orderRepository;
-
-	@Override
-	public Order findById(Long id) {
-		return orderRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
-				+ ", tipo: " + Order.class.getSimpleName()));
-	}
-
-	@Override
-	public Order save(Order domain) {
-		return orderRepository.save(domain);
-	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Order> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Order> getByStatus(StatusOrder order) {
-		return orderRepository.findAllByStatusOrder(order);
+	
+	public OrderServiceImpl(OrderRepository dao) {
+		super(dao);
 	}
 
 	@Override
 	public List<Order> getByClient(Client client) {
 		return orderRepository.findAllByClient(client);
+	}
+
+	@Override
+	public List<Order> getByStatus(StatusOrder order) {
+		return orderRepository.findAllByStatusOrder(order);
 	}
 
 }

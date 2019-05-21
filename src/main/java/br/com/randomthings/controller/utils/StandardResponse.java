@@ -11,23 +11,26 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.randomthings.domain.DomainEntity;
+import br.com.randomthings.dto.IDTO;
 import br.com.randomthings.utils.Result;
-import br.com.randomthings.viewhelper.EntityViewHelper;
-import br.com.randomthings.viewhelper.IViewHelper;
 
 @Component
-public class StandardResponse <viewHelper extends EntityViewHelper> implements HttpResponseEntity {
+public class StandardResponse <DtoEntity extends IDTO> implements HttpResponseEntity {
 	
 	@Autowired
-	private List<IViewHelper> viewHelper;
+	private List<IDTO> dtos;
 	
 	@Override
 	public ResponseEntity<?> Status200 (Result result) {
 		if(result.getResultEntities().size() == 0) {
 			return ResponseEntity.ok().body(new ArrayList<>());
 		} else {
-			IViewHelper idto = searchDto(result.getResultEntities().get(0));
-			return ResponseEntity.ok().body(idto.getListViewHelper(result.getResultEntities()));
+			IDTO idto = searchDto(result.getResultEntities().get(0));
+			List<IDTO> list = new ArrayList<>(); 
+			for(DomainEntity entity: result.getResultEntities()) {
+				list.add(idto.from(entity));
+			}
+			return ResponseEntity.ok().body(list);
 		}
 	}
 	
@@ -64,8 +67,8 @@ public class StandardResponse <viewHelper extends EntityViewHelper> implements H
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result.getResponse());
 	}
 	
-	private IViewHelper searchDto(DomainEntity entity){
-		return this.viewHelper.stream().filter(dto -> 
+	private IDTO searchDto(DomainEntity entity){
+		return this.dtos.stream().filter(dto -> 
 			(dto.getClass().getName().toLowerCase().contains(entity.getClass().getSimpleName().toLowerCase())))
 			.findAny().orElse(null);
 	}

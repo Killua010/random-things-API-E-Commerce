@@ -5,18 +5,21 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.com.randomthings.domain.CreditCard;
+import br.com.randomthings.domain.CreditCardFlag;
 import br.com.randomthings.domain.DeliveryAddress;
 import lombok.Data;
 import lombok.Setter;
 
 @Data
 @Setter
-public class CreditCardDTO extends EntityDTO {
+@Component
+public class CreditCardDTO extends AbstractDTO<CreditCard> {
 	
 	@NotBlank(message = "O campo numero é obrigatório.")
 	@NotNull(message = "O campo numero é obrigatório.")
@@ -42,30 +45,38 @@ public class CreditCardDTO extends EntityDTO {
 	private Long creditCardFlagId;
 	
 	private FlagDTO flag;
-		
-	public static CreditCardDTO from(CreditCard creditCard) {
+
+	@Override
+	public IDTO from(CreditCard creditCard) {
 		CreditCardDTO creditCardDTO = new CreditCardDTO();
+		this.from(creditCard, creditCardDTO);
 		
-		creditCardDTO.setCreationDate(creditCard.getCreationDate());
-		creditCardDTO.setId(creditCard.getId());
-		creditCardDTO.setLastUpdate(creditCard.getLastUpdate());
-		creditCardDTO.setStatus(creditCard.getStatus());
 		creditCardDTO.setPrintedName(creditCard.getPrintedName());
 		creditCardDTO.setSecurityCode(creditCard.getSecurityCode());
 		creditCardDTO.setCreditCardFlagId(creditCard.getFlag().getId());
 		creditCardDTO.setNumber(creditCard.getNumber());
 		creditCardDTO.setSecurityCode(creditCard.getSecurityCode());
 		creditCardDTO.setFavorite(creditCard.getFavorite());
-		creditCardDTO.setFlag(FlagDTO.from(creditCard.getFlag()));
+		creditCardDTO.setFlag((FlagDTO) new FlagDTO().from(creditCard.getFlag()));
 		
 		return creditCardDTO;
 	}
-	
-	public void fill(CreditCard card) {
+
+	@Override
+	public CreditCard fill(Long... params) {
+		CreditCard card = new CreditCard();
+		CreditCardFlag cardFlag = new CreditCardFlag();
+		
+		card.setFlag(cardFlag);
 		card.setFavorite(favorite);
 		card.getFlag().setId(creditCardFlagId);
 		card.setNumber(number);
 		card.setPrintedName(printedName);
 		card.setSecurityCode(securityCode);
+		
+		card.setId((null == params[0]) ? null : params[0]);
+		card.setStatus((null == this.status) ? null : this.status);
+		
+		return card;
 	}
 }

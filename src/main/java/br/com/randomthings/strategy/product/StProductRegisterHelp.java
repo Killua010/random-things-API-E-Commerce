@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.PricingGroup;
 import br.com.randomthings.domain.Product;
+import br.com.randomthings.domain.Stock;
 import br.com.randomthings.domain.SubCategory;
 import br.com.randomthings.domain.TechnicalField;
 import br.com.randomthings.domain.TechnicalRow;
@@ -59,6 +60,13 @@ public class StProductRegisterHelp implements IStrategy<Product> {
 			stRegistration.execute(row);
 			entity.getTechnicalRows().add(row);
 		}
+		
+		Stock stock = new Stock();
+		stock.setProduct(entity);
+		stock.setTotalQuantity(0);
+		stRegistration.execute(stock);
+		
+		entity.setStock(stock);
 		
 		return "";
 	}

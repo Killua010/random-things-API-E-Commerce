@@ -18,8 +18,7 @@ import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.domain.ShoppingCartItem;
-import br.com.randomthings.domain.Stock;
-import br.com.randomthings.dto.CartItemDTO;
+import br.com.randomthings.dto.ProductDTO;
 import br.com.randomthings.dto.ShoppingCartDTO;
 import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.job.ShoppingCartJob;
@@ -30,7 +29,6 @@ import br.com.randomthings.services.shopping_cart.ShoppingCartService;
 import br.com.randomthings.services.stock.StockService;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
-import br.com.randomthings.viewhelper.ProductViewHelper;
 
 @Service
 public class ShoppingCartWebImpl implements ShoppingCartWebService {
@@ -64,7 +62,7 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 	}
 
 	@Override
-	public ShoppingCart insertProduct(ProductViewHelper helper, Long clientId) {
+	public ShoppingCartDTO insertProduct(ProductDTO helper, Long clientId) {
 		Client client = clientService.findById(clientId);
 		ShoppingCart cart;
 		if(client.getShoppingCart() == null) {
@@ -83,7 +81,7 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 		
 		for(ShoppingCartItem item : cart.getCartItems()) {
 			if(item.getProduct().equals(product)) {
-				return cart;
+				return (ShoppingCartDTO) new ShoppingCartDTO().from(cart);
 			}
 		}
 		
@@ -106,7 +104,7 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 		
 		cart = shoppingCartService.save(cart);
 		startJob(client.getId());
-		return cart;
+		return (ShoppingCartDTO) new ShoppingCartDTO().from(cart);
 	}
 
 	@Override
@@ -150,16 +148,16 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 	}
 
 	@Override
-	public ShoppingCart getShoppingCartByClientId(Long clientId) {
+	public ShoppingCartDTO getShoppingCartByClientId(Long clientId) {
 		ShoppingCart cart = clientService.findById(clientId).getShoppingCart();
 		if(cart == null) {
 			cart = new ShoppingCart();
 		}
-		return cart;
+		return (ShoppingCartDTO) new ShoppingCartDTO().from(cart);
 	}
 
 	@Override
-	public ShoppingCart removeProduct(ProductViewHelper helper, Long clientId) {
+	public ShoppingCartDTO removeProduct(ProductDTO helper, Long clientId) {
 		Client client = clientService.findById(clientId);		
 		Product product = productService.findById(helper.getId());
 		for(ShoppingCartItem cartItem : client.getShoppingCart().getCartItems()) {
@@ -176,11 +174,11 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 		}
 		ShoppingCart cart = shoppingCartService.save(client.getShoppingCart());
 
-		return cart;
+		return (ShoppingCartDTO) new ShoppingCartDTO().from(cart);
 	}
 
 	@Override
-	public ShoppingCart updateShoppingCart(ShoppingCartDTO cartDTO) {
+	public ShoppingCartDTO updateShoppingCart(ShoppingCartDTO cartDTO) {
 		ShoppingCart shoppingCart = shoppingCartService.findById(cartDTO.getId());
 		Float subTotal = (float) 0.0;
 		for(ShoppingCartItem cartItem: shoppingCart.getCartItems()) {
@@ -197,7 +195,14 @@ public class ShoppingCartWebImpl implements ShoppingCartWebService {
 		}
 		shoppingCart.setSubTotal(subTotal);
 		startJob(shoppingCart.getClient().getId());
-		return shoppingCartService.save(shoppingCart);
+		shoppingCart = shoppingCartService.save(shoppingCart);
+		return (ShoppingCartDTO) new ShoppingCartDTO().from(shoppingCart);
+	}
+
+	@Override
+	public ShoppingCartDTO findById(Long id) {
+		ShoppingCart cart = shoppingCartService.findById(id);
+		return (ShoppingCartDTO) new ShoppingCartDTO().from(cart);
 	}
 
 }

@@ -12,21 +12,25 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.com.randomthings.domain.Client;
+import br.com.randomthings.domain.Contact;
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.domain.Gender;
 import br.com.randomthings.domain.TelephoneType;
+import br.com.randomthings.domain.User;
 import br.com.randomthings.dto.validation.ClientPasswordEquals;
 import lombok.Data;
 
 @Data
 @ClientPasswordEquals
-public class ClientDTO extends EntityDTO {
+@Component
+public class ClientDTO extends AbstractDTO<Client> {
 	
 	@NotBlank(message = "O campo nome é obrigatório.")
 	@NotNull(message = "O campo nome é obrigatório.")
@@ -79,19 +83,22 @@ public class ClientDTO extends EntityDTO {
 	private void SetDeliveryAddress(Set<DeliveryAddress> set) {
 		this.deliveryAddress = new ArrayList<DeliveryAddressDTO>();
 		for(DeliveryAddress address: set) {
-			this.deliveryAddress.add(DeliveryAddressDTO.from(address));
+			this.deliveryAddress.add((DeliveryAddressDTO) new DeliveryAddressDTO().from(address));
 		}
 	}
 	
 	private void SetCreditCards(Set<CreditCard> set) {
 		this.cards = new ArrayList<CreditCardDTO>();
 		for(CreditCard card: set) {
-			this.cards.add(CreditCardDTO.from(card));
+			this.cards.add((CreditCardDTO) new CreditCardDTO().from(card));
 		}
 	}
 	
-	public static ClientDTO from(Client client) {
+
+	@Override
+	public IDTO from(Client client) {
 		ClientDTO clientDTO = new ClientDTO();
+		this.from(client, clientDTO);
 		
 		clientDTO.setFirstName(client.getName());
 		clientDTO.setLastName(client.getLastName());
@@ -102,17 +109,21 @@ public class ClientDTO extends EntityDTO {
 		clientDTO.setPhone(client.getContact().getDdd() + client.getContact().getNumber());
 		clientDTO.setTelephoneType(client.getContact().getTelephoneType());
 		clientDTO.setPassword(client.getUser().getPassword());
-		clientDTO.setId(client.getId());
-		clientDTO.setStatus(client.getStatus());
-		clientDTO.setCreationDate(client.getCreationDate());
-		clientDTO.setLastUpdate(client.getLastUpdate());
 		clientDTO.SetDeliveryAddress(client.getAddresses());
 		clientDTO.SetCreditCards(client.getCards());
 		
 		return clientDTO;
 	}
-	
-	public void fill(Client client) {
+
+	@Override
+	public Client fill(Long... params) {
+		Client client = new Client();
+		User user = new User();
+		Contact contact = new Contact();
+		
+		client.setUser(user);
+		client.setContact(contact);
+		
 		client.setName(firstName);
 		client.setLastName(lastName);
 		client.getContact().setEmail(email);
@@ -124,5 +135,9 @@ public class ClientDTO extends EntityDTO {
 		client.getContact().setNumber(phone.substring(2));
 		client.getContact().setTelephoneType(telephoneType);
 		client.getUser().setPassword(password);
+		client.setId((null == params[0]) ? null : params[0]);
+		client.setStatus((null == this.status) ? null : this.status);
+		
+		return client;
 	}
 }

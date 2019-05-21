@@ -17,27 +17,38 @@ import org.springframework.stereotype.Service;
 import br.com.randomthings.domain.Image;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.SubCategory;
+import br.com.randomthings.domain.TechnicalRow;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ProductRepository;
+import br.com.randomthings.services.AbstractService;
 import br.com.randomthings.services.image.ImageService;
+import br.com.randomthings.services.technical_row.TechnicalRowService;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl extends AbstractService<Product, Long> implements ProductService {
+	private final ImageService imageService;
+
+	private final TechnicalRowService technicalRowService;
+
+	private final ProductRepository productRepository;
 	
-	@Autowired
-	private ImageService imageService;
-	
-	@Autowired
-	private ProductRepository productRepository;
-	
-	public Product findById(Long id) {		
-		return productRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
-				+ ", tipo: " + Product.class.getSimpleName()));
+	@Autowired	
+	public ProductServiceImpl(ProductRepository dao, TechnicalRowService technicalRowService,
+			ImageService imageService) {
+		super(dao);
+		this.imageService = imageService;
+		this.productRepository = dao;
+		this.technicalRowService = technicalRowService;
 	}
 
 	@Override
 	@Transactional 
 	public Product save(Product domain) {
+		for(TechnicalRow row: domain.getTechnicalRows()) {
+			row.setId(null);
+			technicalRowService.save(row);
+		}
+		
 		try {
 			Set<Image> images = new HashSet<>();
 			for(Image image: domain.getImagens()) {
@@ -55,16 +66,11 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	@Transactional 
-	public void delete(Long id) {
+	public void deleteById(Long id) {
 		Product product = findById(id);
 		product.setStatus(false);
 		product.setLastUpdate(LocalDateTime.now());
 		productRepository.save(product);
-	}
-
-	@Override
-	public List<Product> findAll() {
-		return productRepository.findAll(); 
 	}
 
 	@Override
@@ -77,7 +83,26 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product update(Product product) {
-		return productRepository.save(product);
+		try {
+			for(TechnicalRow row: technicalRowService.findByProduct(product)) {
+				technicalRowService.deleteById(row.getId());
+			}
+			
+			Set<Image> images = new HashSet<>();
+			for(Image image: product.getImagens()) {
+				image = imageService.save(image.getFile(), "");
+				images.add(image);
+			}
+	
+			product.getImagens().addAll(images);
+			Product dbProduct = findById(product.getId());
+			product.setImagens(dbProduct.getImagens());		
+			
+			return productRepository.save(product);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return product;
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class ChangeCouponServiceWebImpl implements ChangeCouponServiceWeb{
 		Client client = clientService.findById(id);
 		List<ChangeCouponDTO> coupons = new ArrayList<>(); 
 		for(ChangeCoupon coupon: changeCouponService.getByClient(client)) {
-			coupons.add(ChangeCouponDTO.from(coupon));
+			coupons.add((ChangeCouponDTO) new ChangeCouponDTO().from(coupon));
 		}
 		
 		return coupons;
@@ -37,7 +37,7 @@ public class ChangeCouponServiceWebImpl implements ChangeCouponServiceWeb{
 		Client client = clientService.findById(id);
 		ChangeCoupon cg = changeCouponService.findByNameAndClient(name, client);
 
-		return ChangeCouponDTO.from(cg);
+		return (ChangeCouponDTO) new ChangeCouponDTO().from(cg);
 	}
 
 }

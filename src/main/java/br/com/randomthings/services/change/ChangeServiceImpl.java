@@ -9,38 +9,19 @@ import br.com.randomthings.domain.Change;
 import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.Order;
 import br.com.randomthings.domain.StatusChange;
-import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ChangeRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class ChangeServiceImpl implements ChangeService{
+public class ChangeServiceImpl extends AbstractService<Change, Long> implements ChangeService{
 	
 	@Autowired
 	private ChangeRepository changeRepository;
-
-	@Override
-	public Change findById(Long id) {
-		return changeRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
-				+ ", tipo: " + Change.class.getSimpleName()));
+	
+	public ChangeServiceImpl(ChangeRepository dao) {
+		super(dao);
 	}
-
-	@Override
-	public Change save(Change domain) {
-		return changeRepository.save(domain);
-	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Change> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<Change> getByStatus(StatusChange status) {
 		return changeRepository.findAllByStatusChange(status);

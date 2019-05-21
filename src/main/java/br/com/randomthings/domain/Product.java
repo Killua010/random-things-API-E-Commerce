@@ -43,7 +43,7 @@ public class Product extends NamedEntity {
 	@ManyToMany(cascade = CascadeType.REFRESH	, fetch = FetchType.EAGER)
 	private Set<SubCategory> subCategory = new HashSet<SubCategory>();
 	
-	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="product", cascade=CascadeType.REFRESH, fetch=FetchType.EAGER)
 	private Set<TechnicalRow> technicalRows = new HashSet<TechnicalRow>();
 	
 	@JoinTable(name = "_images_product", joinColumns = {
@@ -52,7 +52,7 @@ public class Product extends NamedEntity {
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Set<Image> imagens = new HashSet<>();
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name = "stock_id")
 	private Stock stock;
 }

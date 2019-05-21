@@ -12,21 +12,20 @@ import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ClientRepository;
 import br.com.randomthings.repository.ShoppingCartRepository;
+import br.com.randomthings.services.AbstractService;
 import br.com.randomthings.services.client.ClientService;
 
 @Service
-public class ShoppingCartServiceImpl implements ShoppingCartService {
+public class ShoppingCartServiceImpl extends AbstractService<ShoppingCart, Long> implements ShoppingCartService {
+	private final ClientRepository clientRepository;
+	
+	private final ShoppingCartRepository shoppingCartRepository;
 	
 	@Autowired
-	private ClientRepository clientRepository;
-	
-	@Autowired
-	private ShoppingCartRepository shoppingCartRepository;
-
-	@Override
-	public ShoppingCart findById(Long id) {
-		return shoppingCartRepository.findByIdAndStatusTrue(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! id: " + id
-				+ ", tipo: " + ShoppingCart.class.getSimpleName()));
+	public ShoppingCartServiceImpl(ShoppingCartRepository dao, ClientRepository clientRepository) {
+		super(dao);
+		this.clientRepository = clientRepository;
+		this.shoppingCartRepository = dao;
 	}
 
 	@Override
@@ -36,17 +35,4 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		clientRepository.save(domain.getClient());
 		return cart;
 	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<ShoppingCart> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -1,18 +1,19 @@
 package br.com.randomthings.services.shopping_cart.web;
 
-import br.com.randomthings.domain.ShoppingCart;
+import br.com.randomthings.dto.ProductDTO;
 import br.com.randomthings.dto.ShoppingCartDTO;
-import br.com.randomthings.viewhelper.ProductViewHelper;
 
 public interface ShoppingCartWebService {
 	
-	public ShoppingCart removeProduct(ProductViewHelper helper, Long clientId);
+	public ShoppingCartDTO findById(Long id);
 	
-	public ShoppingCart insertProduct(ProductViewHelper helper, Long clientId);
+	public ShoppingCartDTO removeProduct(ProductDTO helper, Long clientId);
 	
-	public ShoppingCart getShoppingCartByClientId(Long clientId);
+	public ShoppingCartDTO insertProduct(ProductDTO helper, Long clientId);
 	
-	public ShoppingCart updateShoppingCart(ShoppingCartDTO cartDTO);
+	public ShoppingCartDTO getShoppingCartByClientId(Long clientId);
+	
+	public ShoppingCartDTO updateShoppingCart(ShoppingCartDTO cartDTO);
 	
 	public void cleanShoppingCart(Long clientId);
 }

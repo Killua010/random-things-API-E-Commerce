@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -13,7 +15,8 @@ import br.com.randomthings.domain.OrderItem;
 import lombok.Data;
 
 @Data
-public class OrderDTO extends EntityDTO {
+@Component
+public class OrderDTO extends AbstractDTO<Order> {
 	
 	private Float shippingPrice;
 	
@@ -29,24 +32,27 @@ public class OrderDTO extends EntityDTO {
 	private void setItens(Set<OrderItem> orderItems) {
 		this.itens = new ArrayList<OrderItemDTO>();
 		for(OrderItem item: orderItems) {
-			this.itens.add(OrderItemDTO.from(item));
+			this.itens.add((OrderItemDTO) new OrderItemDTO().from(item));
 		}
 	}
-	
-	public static OrderDTO from(Order order) {
+
+	@Override
+	public IDTO from(Order order) {
 		OrderDTO dto = new OrderDTO();
+		this.from(order, dto);
 		
-		dto.setId(order.getId());
-		dto.setStatus(order.getStatus());
-		dto.setCreationDate(order.getCreationDate());
-		dto.setLastUpdate(order.getLastUpdate());
 		dto.setItens(order.getItems());
 		dto.setTotalPrice(order.getOrderValue() + order.getShippingPrice().getValue());
 		dto.setShippingPrice(order.getShippingPrice().getValue());
-		dto.setAddress(AddressDTO.from(order.getShippingPrice().getAddress()));
+		dto.setAddress((AddressDTO) new AddressDTO().from(order.getShippingPrice().getAddress()));
 		dto.setStatusOrder(order.getStatusOrder().getDescription());
 		
 		return dto;
+	}
+
+	@Override
+	public Order fill(Long... params) {
+		throw new UnsupportedOperationException("Em desenvolvimento.");
 	}
 	
 }

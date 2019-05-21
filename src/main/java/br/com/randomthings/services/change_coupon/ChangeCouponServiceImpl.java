@@ -10,34 +10,16 @@ import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ChangeCouponRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class ChangeCouponServiceImpl implements ChangeCouponService{
-
+public class ChangeCouponServiceImpl extends AbstractService<ChangeCoupon, Long> implements ChangeCouponService{
 	@Autowired
 	private ChangeCouponRepository changeCouponRepository;
 	
-	@Override
-	public ChangeCoupon findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ChangeCoupon save(ChangeCoupon domain) {
-		return changeCouponRepository.save(domain);
-	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<ChangeCoupon> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public ChangeCouponServiceImpl(ChangeCouponRepository dao) {
+		super(dao);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
