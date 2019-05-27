@@ -1,7 +1,5 @@
 package br.com.randomthings.domain;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -15,8 +13,6 @@ import lombok.Data;
 public class StockInput extends DomainEntity{
 	
 	private Integer quantity;
-	
-	private LocalDateTime inputDate;
 	
 	private Float value;
 	

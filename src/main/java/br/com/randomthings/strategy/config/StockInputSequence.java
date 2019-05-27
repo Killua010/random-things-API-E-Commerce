@@ -7,16 +7,18 @@ import org.springframework.context.annotation.Configuration;
 import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.domain.Provider;
+import br.com.randomthings.domain.StockInput;
 import br.com.randomthings.strategy.Sequence;
 import br.com.randomthings.strategy.provider.StProviderRegisterHelp;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
+import br.com.randomthings.strategy.stock_input.StStockInpputRegisterHelp;
 
 @Configuration
-public class ProviderSequence {
+public class StockInputSequence {
 
 	@Autowired
-	StProviderRegisterHelp stProviderRegisterHelp;
+	StStockInpputRegisterHelp stStockInpputRegisterHelp;
 	
 	@Autowired
 	StRegistration stRegistration;
@@ -24,18 +26,17 @@ public class ProviderSequence {
 	@Autowired
 	StLastUpdate stLastUpdate;
 	
-	@Bean("SAVE_PROVIDER")
-	public Sequence<Provider> saveCategory() {
-		return new Sequence<Provider>()
-				.add(stProviderRegisterHelp)
+	@Bean("SAVE_STOCKINPUT")
+	public Sequence<StockInput> saveCategory() {
+		return new Sequence<StockInput>()
+				.add(stStockInpputRegisterHelp)
 				.add(stRegistration);
 	}
 	
-	@Bean("UPDATE_PROVIDER")
-	public Sequence<Provider> updateCategory() {
-		System.err.println("oi");
-		return new Sequence<Provider>()
-				.add(stProviderRegisterHelp)
+	@Bean("UPDATE_STOCKINPUT")
+	public Sequence<StockInput> updateCategory() {
+		return new Sequence<StockInput>()
+				.add(stStockInpputRegisterHelp)
 				.add(stLastUpdate);
 	}
 

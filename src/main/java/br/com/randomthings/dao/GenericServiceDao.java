@@ -29,7 +29,7 @@ public class GenericServiceDao<entity extends DomainEntity> implements IDao<enti
 		if(null != entity.getId()) {
 			return (List<entity>) searchRepository(entity).findByIdAndStatusTrue(entity.getId());
 		}
-		return searchRepository(entity).findAll();
+		return searchRepository(entity).findAllByStatusTrue();
 	}
 
 	@Override

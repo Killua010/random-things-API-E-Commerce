@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.SubCategory;
 import br.com.randomthings.dto.ProductDTO;
+import br.com.randomthings.services.category.CategoryService;
 import br.com.randomthings.services.product.ProductService;
 import br.com.randomthings.services.sub_category.SubCategoryService;
 
@@ -21,6 +23,9 @@ public class ProductServiceWebImpl implements ProductServiceWeb {
 	
 	@Autowired
 	private SubCategoryService subCategoryService;
+	
+	@Autowired
+	private CategoryService categoryService;
 	
 	@Override
 	public List<ProductDTO> getPageabled(Integer pageNumber, Integer qtdPage, String direction, String orderBy) {
@@ -58,6 +63,19 @@ public class ProductServiceWebImpl implements ProductServiceWeb {
 		List<ProductDTO> helpers = new ArrayList<>();
 
 		List<Product> products =  productService.findBy(param);
+		for(Product product : products) {
+			ProductDTO helper = (ProductDTO) new ProductDTO().from(product);
+			helpers.add(helper);
+		}
+		return helpers;
+	}
+
+	@Override
+	public List<ProductDTO> findByCategoryId(Long categoryId) {
+		List<ProductDTO> helpers = new ArrayList<>();
+		Category category = categoryService.findById(categoryId);
+		
+		List<Product> products =  productService.findByCategory(category);
 		for(Product product : products) {
 			ProductDTO helper = (ProductDTO) new ProductDTO().from(product);
 			helpers.add(helper);

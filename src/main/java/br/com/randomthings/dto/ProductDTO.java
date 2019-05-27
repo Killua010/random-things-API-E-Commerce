@@ -52,8 +52,10 @@ public class ProductDTO extends AbstractDTO<Product> {
 	@Size(max=255, message="O código de barras deve ter no máximo 255 caracteres")
 	private String barCode;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private Float price;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private Integer totalPage;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
@@ -61,13 +63,16 @@ public class ProductDTO extends AbstractDTO<Product> {
 	@Min(value=1, message="O id informado é invalido")
 	private String pricingGroupId;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private PricingGroupDTO pricingGroup;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private List<SubCategoryDTO> subCategories;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String[] subCategoryId;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private List<TechnicalRowDTO> technicalRow;
 	
 	@JsonProperty(access = Access.WRITE_ONLY)
@@ -79,6 +84,7 @@ public class ProductDTO extends AbstractDTO<Product> {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	protected MultipartFile[] images;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private List<String> imgSrc;
 	
 	private Integer stockQuantity;
@@ -100,6 +106,7 @@ public class ProductDTO extends AbstractDTO<Product> {
 		if(product.getImagens().size() > 0) {
 			productDTO.setImgSrc(new ArrayList<>());
 			for(Image image: product.getImagens()) {
+				
 				String path = SystemVariable.systemPath + "/images/" + image.getId();
 				productDTO.getImgSrc().add(path);
 			}
@@ -129,7 +136,7 @@ public class ProductDTO extends AbstractDTO<Product> {
 		
 		product.setPricingGroup(pricingGroup);
 		product.setName(name);
-		product.setId((null == params[0]) ? null : params[0]);
+		product.setId((params.length == 0) ? null : params[0]);
 		product.setStatus((null == this.status) ? null : this.status);
 		if(null != subCategoryId) {
 			for(String idsubCat: subCategoryId) {

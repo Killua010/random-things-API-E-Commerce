@@ -12,6 +12,8 @@ import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.User;
 import br.com.randomthings.dto.ClientDTO;
 import br.com.randomthings.services.client.ClientService;
+import br.com.randomthings.services.client.web.ClientServiceWeb;
+import br.com.randomthings.utils.SystemVariable;
 
 @CrossOrigin
 @RestController
@@ -19,13 +21,12 @@ import br.com.randomthings.services.client.ClientService;
 public class ClientController extends AbstractController<ClientDTO>{
 	
 	@Autowired
-	private ClientService clientService;
+	private ClientServiceWeb clientServiceWeb;
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST)
 	public ResponseEntity<ClientDTO> login(@RequestBody User user){
-		Client client = clientService.findByUser(user);
 		return ResponseEntity.ok()
-				.body((ClientDTO)new ClientDTO().from(client));
+				.body(clientServiceWeb.findByUser(user));
 	}
 	
 }

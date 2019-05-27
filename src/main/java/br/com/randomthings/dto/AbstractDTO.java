@@ -3,6 +3,8 @@ package br.com.randomthings.dto;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import br.com.randomthings.domain.DomainEntity;
 import lombok.Data;
@@ -14,9 +16,11 @@ public abstract class AbstractDTO<Domain extends DomainEntity> implements IDTO<D
 	protected Boolean status;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	@JsonProperty(access = Access.READ_ONLY)
 	private LocalDateTime creationDate;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	@JsonProperty(access = Access.READ_ONLY)
 	private LocalDateTime lastUpdate;
 
 	protected void from(Domain domain, AbstractDTO dto) {	

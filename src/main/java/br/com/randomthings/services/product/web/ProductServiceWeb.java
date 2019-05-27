@@ -10,4 +10,6 @@ public interface ProductServiceWeb {
 	List<ProductDTO> getPageabledByCategory(Integer pageNumber, Integer qtdPage, String direction, String orderBy, Long subCategoryId);
 	
 	List<ProductDTO> findBy(String param);
+
+	List<ProductDTO> findByCategoryId(Long categoryId);
 }

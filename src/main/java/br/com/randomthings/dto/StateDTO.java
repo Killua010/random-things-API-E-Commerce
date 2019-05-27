@@ -32,7 +32,7 @@ public class StateDTO extends AbstractDTO<State> {
 
 	@Override
 	public State fill(Long... params) {
-		throw new UnsupportedOperationException("Em desenvolvimento.");
+		return new State();
 	}
 	
 	private void setCities(Set<City> set) {

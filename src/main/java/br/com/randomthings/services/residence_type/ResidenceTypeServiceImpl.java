@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 
 import br.com.randomthings.domain.ResidenceType;
 import br.com.randomthings.repository.ResidenceTypeRepository;
+import br.com.randomthings.services.AbstractService;
 
 @Service
-public class ResidenceTypeServiceImpl implements ResidenceTypeService {
-	
+public class ResidenceTypeServiceImpl extends AbstractService<ResidenceType, Long> implements ResidenceTypeService {
+
 	@Autowired
 	private ResidenceTypeRepository residenceTypeRepository;
-
-	@Override
-	public List<ResidenceType> findAll() {
-		return residenceTypeRepository.findAll();
+	
+	public ResidenceTypeServiceImpl(ResidenceTypeRepository dao) {
+		super(dao);
 	}
 
 }

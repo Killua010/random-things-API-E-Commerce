@@ -25,6 +25,7 @@ import br.com.randomthings.domain.Gender;
 import br.com.randomthings.domain.TelephoneType;
 import br.com.randomthings.domain.User;
 import br.com.randomthings.dto.validation.ClientPasswordEquals;
+import br.com.randomthings.utils.SystemVariable;
 import lombok.Data;
 
 @Data
@@ -108,7 +109,7 @@ public class ClientDTO extends AbstractDTO<Client> {
 		clientDTO.setBirthDate(client.getBirthDate());
 		clientDTO.setPhone(client.getContact().getDdd() + client.getContact().getNumber());
 		clientDTO.setTelephoneType(client.getContact().getTelephoneType());
-		clientDTO.setPassword(client.getUser().getPassword());
+		clientDTO.setPassword(SystemVariable.descrypt(client.getUser().getPassword()));
 		clientDTO.SetDeliveryAddress(client.getAddresses());
 		clientDTO.SetCreditCards(client.getCards());
 		
@@ -135,7 +136,7 @@ public class ClientDTO extends AbstractDTO<Client> {
 		client.getContact().setNumber(phone.substring(2));
 		client.getContact().setTelephoneType(telephoneType);
 		client.getUser().setPassword(password);
-		client.setId((null == params[0]) ? null : params[0]);
+		client.setId((params.length == 0) ? null : params[0]);
 		client.setStatus((null == this.status) ? null : this.status);
 		
 		return client;

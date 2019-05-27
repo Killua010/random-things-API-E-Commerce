@@ -1,8 +1,11 @@
 package br.com.randomthings.services.provider;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.Provider;
 import br.com.randomthings.exception.ObjectNotFoundException;
 import br.com.randomthings.repository.ProviderRepository;
@@ -22,5 +25,11 @@ public class ProviderServiceImpl extends AbstractService<Provider, Long> impleme
 		return providerRepository.findByName(name).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! nome: " + name
 				+ ", tipo: " + Provider.class.getSimpleName()));
 	}
-	
+
+	@Override
+	public List<Provider> findByCategory(Category category) {
+		return providerRepository.findAllByCategory(category);
+	}
+
+
 }

@@ -1,5 +1,7 @@
 package br.com.randomthings.controller.generic;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +25,12 @@ public class ProviderController extends AbstractController<ProviderDTO> {
 	public ResponseEntity<ProviderDTO> find(@PathVariable String name) {
 		return ResponseEntity.ok()
 				.body(providerServiceWeb.findByName(name));
+	}
+	
+	@RequestMapping(value="/findByCategory/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<ProviderDTO>> findByCategory(@PathVariable Long id) {
+		return ResponseEntity.ok()
+				.body(providerServiceWeb.findByCategory(id));
 	}
 	
 }

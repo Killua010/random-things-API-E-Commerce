@@ -14,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.Image;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.SubCategory;
@@ -44,11 +45,6 @@ public class ProductServiceImpl extends AbstractService<Product, Long> implement
 	@Override
 	@Transactional 
 	public Product save(Product domain) {
-		for(TechnicalRow row: domain.getTechnicalRows()) {
-			row.setId(null);
-			technicalRowService.save(row);
-		}
-		
 		try {
 			Set<Image> images = new HashSet<>();
 			for(Image image: domain.getImagens()) {
@@ -60,6 +56,14 @@ public class ProductServiceImpl extends AbstractService<Product, Long> implement
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		productRepository.save(domain);
+		
+		for(TechnicalRow row: domain.getTechnicalRows()) {
+			row.setId(null);
+			technicalRowService.save(row);
+		}
+		
 		domain = productRepository.save(domain);
 		return domain;
 	}
@@ -84,18 +88,25 @@ public class ProductServiceImpl extends AbstractService<Product, Long> implement
 	@Override
 	public Product update(Product product) {
 		try {
-			for(TechnicalRow row: technicalRowService.findByProduct(product)) {
-				technicalRowService.deleteById(row.getId());
+			Product dbProduct = findById(product.getId());
+			
+			if(!product.getTechnicalRows().equals(dbProduct.getTechnicalRows())) {
+				for(TechnicalRow row: technicalRowService.findByProduct(product)) {
+					technicalRowService.deleteById(row.getId());
+				}
 			}
 			
 			Set<Image> images = new HashSet<>();
 			for(Image image: product.getImagens()) {
+				if(image.getFile() == null) {
+					continue;
+				}
 				image = imageService.save(image.getFile(), "");
 				images.add(image);
 			}
 	
 			product.getImagens().addAll(images);
-			Product dbProduct = findById(product.getId());
+			
 			product.setImagens(dbProduct.getImagens());		
 			
 			return productRepository.save(product);
@@ -117,6 +128,11 @@ public class ProductServiceImpl extends AbstractService<Product, Long> implement
 	@Override
 	public List<Product> findBy(String param) {
 		return productRepository.findBy(param);
+	}
+
+	@Override
+	public List<Product> findByCategory(Category category) {
+		return productRepository.findByCategory(category);
 	}
 	
 }

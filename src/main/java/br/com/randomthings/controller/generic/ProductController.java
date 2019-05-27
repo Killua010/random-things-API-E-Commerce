@@ -72,4 +72,9 @@ public class ProductController extends AbstractController<ProductDTO>{
 	public ResponseEntity<?> findBy(@PathVariable(name="param",required=true) String param){
 		return ResponseEntity.ok(productServiceWeb.findBy(param));
 	}
+	
+	@RequestMapping(path = "/findByCategory/{categoryId}", method = RequestMethod.GET)
+	public ResponseEntity<List<ProductDTO>> findByCategoryId(@PathVariable(name="categoryId",required=true) Long categoryId){
+		return ResponseEntity.ok(productServiceWeb.findByCategoryId(categoryId));
+	}
 }

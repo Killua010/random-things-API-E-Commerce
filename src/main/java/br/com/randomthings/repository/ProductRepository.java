@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.randomthings.domain.Category;
 import br.com.randomthings.domain.Product;
 import br.com.randomthings.domain.SubCategory;
 
@@ -30,4 +31,7 @@ public interface ProductRepository extends IRepository<Product, Long>, JpaReposi
 		 "OR prod.price LIKE CONCAT('%',:param,'%'))")
 	List<Product> findBy(@Param("param") String param);
 //	@Query("SELECT prod FROM _product prod WHERE (UPPER(prod.name) LIKE UPPER(CONCAT('%',:param,'%')))")
+
+	@Query("SELECT prod FROM _product prod JOIN prod.subCategory subCat WHERE subCat.category = ?1")
+	List<Product> findByCategory(Category category);
 }
