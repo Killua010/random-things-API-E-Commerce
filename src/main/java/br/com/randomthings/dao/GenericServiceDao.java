@@ -1,5 +1,6 @@
 package br.com.randomthings.dao;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -27,7 +28,7 @@ public class GenericServiceDao<entity extends DomainEntity> implements IDao<enti
 	@Override
 	public List<entity> find(entity entity) {
 		if(null != entity.getId()) {
-			return (List<entity>) searchRepository(entity).findByIdAndStatusTrue(entity.getId());
+			return (List<entity>) Arrays.asList(searchRepository(entity).findByIdAndStatusTrue(entity.getId()));
 		}
 		return searchRepository(entity).findAllByStatusTrue();
 	}

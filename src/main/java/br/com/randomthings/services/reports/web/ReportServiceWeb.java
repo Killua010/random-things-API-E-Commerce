@@ -13,9 +13,9 @@ public interface ReportServiceWeb {
 	
 	public List<ReportDTO> getOrdersCategoryGenderAge(String gender, int start, int end, int mounth);
 	
-	public List<ReportDTO> getOrdersByCategory();
+	public List<ReportDTO> getOrdersByCategory(int mounth);
 	
-	public List<ReportDTO> getOrdersByProducts();
+	public List<ReportDTO> getOrdersByProducts(int mounth);
 	
 	public List<List<ReportDTO>> getOrdersProductByMounths();
 	

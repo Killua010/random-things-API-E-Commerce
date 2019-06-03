@@ -15,6 +15,7 @@ import br.com.randomthings.repository.ClientRepository;
 import br.com.randomthings.repository.ContactRepository;
 import br.com.randomthings.repository.UserRepository;
 import br.com.randomthings.services.AbstractService;
+import br.com.randomthings.utils.SystemVariable;
 
 @Service
 public class ClientServiceImpl extends AbstractService<Client, Long> implements ClientService {
@@ -53,7 +54,7 @@ public class ClientServiceImpl extends AbstractService<Client, Long> implements 
 	@Override
 	public Client findByUser(User user) {
 		return clientRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! email: " + user.getEmail()
-				+ " senha: " + user.getPassword() + ", tipo: " + Client.class.getSimpleName()));
+				+ " senha: " + SystemVariable.descrypt(user.getPassword()) + ", tipo: " + Client.class.getSimpleName()));
 	}
 	
 }

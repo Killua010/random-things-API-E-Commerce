@@ -41,14 +41,14 @@ public class ReportController {
 		return ResponseEntity.ok(Arrays.asList(reportServiceWeb.getOrdersByMounths()));
 	}
 	
-	@RequestMapping(value = "/orders/categories", method=RequestMethod.GET)
-	public ResponseEntity<?> getAllOrdersByCategories(){
-		return ResponseEntity.ok(reportServiceWeb.getOrdersByCategory());
+	@RequestMapping(value = "/orders/categories/{mounth}", method=RequestMethod.GET)
+	public ResponseEntity<?> getAllOrdersByCategories(@PathVariable("mounth") int mounth){
+		return ResponseEntity.ok(reportServiceWeb.getOrdersByCategory(mounth));
 	}
 	
-	@RequestMapping(value = "/orders/products", method=RequestMethod.GET)
-	public ResponseEntity<?> getAllOrdersByProducts(){
-		return ResponseEntity.ok(reportServiceWeb.getOrdersByProducts());
+	@RequestMapping(value = "/orders/products/{mounth}", method=RequestMethod.GET)
+	public ResponseEntity<?> getAllOrdersByProducts(@PathVariable("mounth") int mounth){
+		return ResponseEntity.ok(reportServiceWeb.getOrdersByProducts(mounth));
 	}
 	
 	@RequestMapping(value = "/ordersProduct", method=RequestMethod.GET)
