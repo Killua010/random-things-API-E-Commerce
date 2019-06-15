@@ -18,11 +18,11 @@ public class StCreditCardExistenceValidation implements IStrategy<CreditCard> {
 
 	@Override
 	public String execute(CreditCard entity) {
-//		Optional<Client> clientOptional = clientRepository.findByCreditCardNumber(entity.getNumber());
-//		if(clientOptional.isPresent()) {
-//			return "Cartão já cadastrado no sistema !";
-//		}
-//		
+		Optional<CreditCard> cartOptional = clientRepository.findByCreditCardNumber(entity.getNumber());
+		if(cartOptional.isPresent() && cartOptional.get().getId() != entity.getId()) {
+			return "Cartão já cadastrado no sistema !";
+		}
+		
 		return "";
 	}
 

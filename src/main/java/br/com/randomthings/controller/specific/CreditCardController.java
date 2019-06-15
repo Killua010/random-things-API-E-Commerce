@@ -43,7 +43,7 @@ public class CreditCardController {
 	public ResponseEntity<Void> alterar(@Valid @RequestBody CreditCardDTO creditCardDTO,
 			@PathVariable("idClient") Long idClient, @PathVariable("idCard") Long idCard){
 		creditCardDTO.setId(idCard);
-		creditCardWebService.update(creditCardDTO);
+		creditCardWebService.update(creditCardDTO, idClient);
 		return ResponseEntity.noContent().build();
 	}
 	

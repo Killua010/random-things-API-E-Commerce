@@ -6,5 +6,5 @@ import br.com.randomthings.dto.CreditCardDTO;
 public interface CreditCardWebService {
 	CreditCard save(CreditCardDTO creditCardDTO, Long idClient);
 
-	CreditCard update(CreditCardDTO creditCardDTO);
+	CreditCard update(CreditCardDTO creditCardDTO, Long idCard);
 }

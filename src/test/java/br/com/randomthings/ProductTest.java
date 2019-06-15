@@ -1,12 +1,13 @@
 package br.com.randomthings;
 
-import java.util.List;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -16,7 +17,7 @@ public class ProductTest {
 	private String caminho = "http://localhost:3000/admin/produtos/listar-produtos";
 
 	@Test
-	public void crud() throws InterruptedException {
+	public void crud() throws InterruptedException{
 		navegador = new ChromeDriver();
 		navegador.get(caminho);
 		navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -34,13 +35,41 @@ public class ProductTest {
 		Thread.sleep(1000);
 		navegador.findElement(By.id("btnSaveField")).click();
 		Thread.sleep(1500);
+		navegador.findElement(By.id("tabFotos")).click();
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[1]/div[2]/div/div/div")).click();
+		Thread.sleep(1000);
 		
+		Robot robo;
+		try {
+			robo = new Robot();
+			Thread.sleep(1000);
+			robo.keyPress(KeyEvent.VK_ENTER);
+			Thread.sleep(1000);    
+			robo.keyRelease(KeyEvent.VK_ENTER);
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Thread.sleep(500);
+		
+		
+		Thread.sleep(2000);
 		navegador.findElement(By.id("btnSaveProduct")).click();
-		Thread.sleep(1500);
+		Thread.sleep(1000);
+		
 		navegador.findElement(By.xpath("/html/body/div[2]/div/div[3]/div/button")).click();
-		navegador.findElement(By.xpath("//*[@id=\"tableList\"]/tr[5]/td[1]")).click();
+		
+		Thread.sleep(1000);
+		
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div[2]/div/label/input")).click();
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div[2]/div/label/input")).sendKeys("Calça jeans");
+		Thread.sleep(1000);
+		
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/div/table/tbody/tr/td[3]/a")).click();
 		
 		navegador.findElement(By.id("productName")).sendKeys(" Masculino");
+		
 		navegador.findElement(By.id("productDescription")).sendKeys(" Recomendo");
 		navegador.findElement(By.id("tabDescricao")).click();
 		navegador.findElement(By.id("btnNewDescription")).click();
@@ -54,12 +83,21 @@ public class ProductTest {
 		Thread.sleep(1500);
 		navegador.findElement(By.xpath("/html/body/div[2]/div/div[3]/div/button")).click();
 		Thread.sleep(1000);
-		navegador.findElement(By.xpath("//*[@id=\"tableList\"]/tr[5]/td[3]/a")).click();
+		
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div[2]/div/label/input")).click();
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[2]/div/div[1]/div[2]/div/label/input")).sendKeys("Calça jeans");
+		Thread.sleep(1000);
+		
+		navegador.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div/div[2]/div/div[2]/div/div/table/tbody/tr/td[4]/a")).click();
 		Thread.sleep(1500);
 		navegador.findElement(By.id("statuDescription")).sendKeys("Poucas vendas");
 		navegador.findElement(By.id("btnInactiveProduct")).click();
 		Thread.sleep(2500);
 		navegador.close();
+	}
+	
+	private void adicionarArquivo() throws AWTException, InterruptedException {
+		
 	}
 
 }

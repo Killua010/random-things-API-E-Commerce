@@ -8,5 +8,5 @@ import br.com.randomthings.dto.DeliveryAddressDTO;
 public interface DeliveryAddressWebService {
 	DeliveryAddress save(DeliveryAddressDTO addressDTO, Long idClient);
 
-	DeliveryAddress update(@Valid DeliveryAddressDTO deliveryAddressDTO);
+	DeliveryAddress update(@Valid DeliveryAddressDTO deliveryAddressDTO, Long idClient);
 }

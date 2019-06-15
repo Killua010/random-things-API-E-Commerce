@@ -5703,7 +5703,7 @@ INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, 
 INSERT INTO _image(creation_date, last_update, status, name, origin_name, size, type, description, heigth, width) VALUES (NOW(), NOW(), 1, 'imagem_73.jpg', 'JogoSuperBancoImobiliário', 45149, 'image/jpeg', 'Jogo Super Banco Imobiliário - Estrela', 500.0, 500.0);
 
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Masculina', 1);
-INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Feminina', 2);
+INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Moda Feminina', 50);
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Brinquedos', 3);
 INSERT INTO _category(creation_date, last_update, status, name, image_id) VALUES (NOW(), NOW(), 1, 'Livros', 4);
 
@@ -5723,7 +5723,7 @@ INSERT INTO _sub_category(creation_date, last_update, status, name, category_id)
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Casacos', 1);
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Bermudas', 1);
 
-INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 1);
+INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calça', 2);
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Calçados', 2);
 INSERT INTO _sub_category(creation_date, last_update, status, name, category_id) VALUES (NOW(), NOW(), 1, 'Jogos', 3);
 

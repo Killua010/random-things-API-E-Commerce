@@ -31,22 +31,14 @@ public class ProductController extends AbstractController<ProductDTO>{
 	@PostMapping
 	public @ResponseBody ResponseEntity<Result> save(@Valid @ModelAttribute ProductDTO dto) {
 		Result result = searchCommand("Save").execute(dto.fill());
-		if (null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
-			result.setHttpStatus(400);
-		} else {
-			result.setHttpStatus(201);
-		}
+		result.setHttpStatus(201);
 		return restResponse(result);
 	}
 	
 	@PutMapping("/{id}")
 	public @ResponseBody ResponseEntity<Result> update(@Valid @ModelAttribute ProductDTO dto, @PathVariable Long id) {
 		Result result = searchCommand("Update").execute(dto.fill(id));
-		if (null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
-			result.setHttpStatus(400);
-		} else {
-			result.setHttpStatus(200);
-		}
+		result.setHttpStatus(200);
 		return restResponse(result);
 	}
 	
@@ -76,5 +68,10 @@ public class ProductController extends AbstractController<ProductDTO>{
 	@RequestMapping(path = "/findByCategory/{categoryId}", method = RequestMethod.GET)
 	public ResponseEntity<List<ProductDTO>> findByCategoryId(@PathVariable(name="categoryId",required=true) Long categoryId){
 		return ResponseEntity.ok(productServiceWeb.findByCategoryId(categoryId));
+	}
+	
+	@RequestMapping(path="/popular", method=RequestMethod.GET)
+	public ResponseEntity<List<ProductDTO>> getPopularProduct(){
+		return ResponseEntity.ok(productServiceWeb.getPopularProduct());
 	}
 }

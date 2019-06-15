@@ -1,5 +1,7 @@
 package br.com.randomthings.services.reports.web;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.randomthings.dto.specific.ReportDTO;
@@ -22,4 +24,8 @@ public interface ReportServiceWeb {
 	public List<ReportDTO> getOrdersProductGender(String gender, int mounth);
 	
 	public List<ReportDTO> getOrdersProductGenderAge(String gender, int start, int end, int mounth);
+
+	public List<List<ReportDTO>> getOrdersCategoryByDate(LocalDateTime start, LocalDateTime end);
+
+	public List<List<ReportDTO>> getOrdersProductByDate(LocalDateTime start, LocalDateTime end);
 }

@@ -12,4 +12,6 @@ public interface ProductServiceWeb {
 	List<ProductDTO> findBy(String param);
 
 	List<ProductDTO> findByCategoryId(Long categoryId);
+
+	List<ProductDTO> getPopularProduct();
 }

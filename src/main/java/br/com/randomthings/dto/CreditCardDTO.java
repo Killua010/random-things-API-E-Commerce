@@ -74,7 +74,7 @@ public class CreditCardDTO extends AbstractDTO<CreditCard> {
 		card.setPrintedName(printedName);
 		card.setSecurityCode(securityCode);
 		
-		card.setId((null == params[0]) ? null : params[0]);
+		card.setId((params.length == 0) ? null : params[0]);
 		card.setStatus((null == this.status) ? null : this.status);
 		
 		return card;

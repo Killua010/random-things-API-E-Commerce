@@ -91,7 +91,8 @@ public class ClientDTO extends AbstractDTO<Client> {
 	private void SetCreditCards(Set<CreditCard> set) {
 		this.cards = new ArrayList<CreditCardDTO>();
 		for(CreditCard card: set) {
-			this.cards.add((CreditCardDTO) new CreditCardDTO().from(card));
+			if(card.getStatus() == true)
+				this.cards.add((CreditCardDTO) new CreditCardDTO().from(card));
 		}
 	}
 	
@@ -132,8 +133,8 @@ public class ClientDTO extends AbstractDTO<Client> {
 		client.setGender(gender);
 		client.setCpf(cpf);
 		client.setBirthDate(birthDate);
-		client.getContact().setDdd(phone.substring(0, 2));
-		client.getContact().setNumber(phone.substring(2));
+		client.getContact().setDdd((phone != null) ? phone.substring(0, 2):null);
+		client.getContact().setNumber((phone != null) ? phone.substring(2) : null);
 		client.getContact().setTelephoneType(telephoneType);
 		client.getUser().setPassword(password);
 		client.setId((params.length == 0) ? null : params[0]);

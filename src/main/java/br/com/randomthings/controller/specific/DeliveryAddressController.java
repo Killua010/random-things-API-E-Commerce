@@ -43,7 +43,7 @@ public class DeliveryAddressController {
 	public ResponseEntity<Void> alterar(@Valid @RequestBody DeliveryAddressDTO deliveryAddressDTO,
 			@PathVariable("idClient") Long idClient, @PathVariable("idAddress") Long idAddress){
 		deliveryAddressDTO.setId(idAddress);
-		deliveryAddressWebService.update(deliveryAddressDTO);
+		deliveryAddressWebService.update(deliveryAddressDTO, idClient);
 		return ResponseEntity.noContent().build();
 	}
 	

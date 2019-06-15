@@ -46,7 +46,7 @@ public class PricingGroupDTO extends AbstractDTO<PricingGroup> {
 		PricingGroup pricingGroup = new PricingGroup();
 		pricingGroup.setName(name);
 		pricingGroup.setProfitPercentage(profitPercentage);
-		pricingGroup.setId((null == params[0]) ? null : params[0]);
+		pricingGroup.setId((params.length == 0) ? null : params[0]);
 		pricingGroup.setStatus((null == this.status) ? null : this.status);
 		return pricingGroup;
 	}

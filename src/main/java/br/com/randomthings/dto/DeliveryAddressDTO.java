@@ -102,7 +102,7 @@ public class DeliveryAddressDTO extends AbstractDTO<DeliveryAddress> {
 		address.setZipCode(zipCode);
 		address.setFavorite(favorite);
 		
-		address.setId((null == params[0]) ? null : params[0]);
+		address.setId((params.length == 0) ? null : params[0]);
 		address.setStatus((null == this.status) ? null : this.status);
 		
 		return address;

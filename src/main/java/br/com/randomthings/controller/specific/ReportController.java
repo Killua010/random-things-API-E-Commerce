@@ -1,5 +1,7 @@
 package br.com.randomthings.controller.specific;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,11 @@ public class ReportController {
 	@RequestMapping(value = "/ordersCategory", method=RequestMethod.GET)
 	public ResponseEntity<?> getAllOrdersCategory(){
 		return ResponseEntity.ok(reportServiceWeb.getOrdersCategoryByMounths());
+	}
+	
+	@RequestMapping(value = "/ordersCategory/{startDate}/{endDate}", method=RequestMethod.GET)
+	public ResponseEntity<?> getAllOrdersCategoryByDate(@PathVariable("startDate") String start, @PathVariable("endDate") String end){
+		return ResponseEntity.ok(reportServiceWeb.getOrdersCategoryByDate(LocalDateTime.parse(start+" 00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")), LocalDateTime.parse(end+" 00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))));
 	}
 	
 	@RequestMapping(value = "/ordersCategory/gender/{gender}/{mounth}", method=RequestMethod.GET)
@@ -54,6 +61,11 @@ public class ReportController {
 	@RequestMapping(value = "/ordersProduct", method=RequestMethod.GET)
 	public ResponseEntity<?> getAllOrdersProduct(){
 		return ResponseEntity.ok(reportServiceWeb.getOrdersProductByMounths());
+	}
+	
+	@RequestMapping(value = "/ordersProduct/{startDate}/{endDate}", method=RequestMethod.GET)
+	public ResponseEntity<?> getAllOrdersProductByDate(@PathVariable("startDate") String start, @PathVariable("endDate") String end){
+		return ResponseEntity.ok(reportServiceWeb.getOrdersProductByDate(LocalDateTime.parse(start+" 00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")), LocalDateTime.parse(end+" 00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))));
 	}
 	
 	@RequestMapping(value = "/ordersProduct/gender/{gender}/{mounth}", method=RequestMethod.GET)

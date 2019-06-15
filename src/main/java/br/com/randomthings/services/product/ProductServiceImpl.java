@@ -90,10 +90,16 @@ public class ProductServiceImpl extends AbstractService<Product, Long> implement
 		try {
 			Product dbProduct = findById(product.getId());
 			
-			if(!product.getTechnicalRows().equals(dbProduct.getTechnicalRows())) {
-				for(TechnicalRow row: technicalRowService.findByProduct(product)) {
-					technicalRowService.deleteById(row.getId());
-				}
+			product.setCreationDate(dbProduct.getCreationDate());
+			product.setStatus(dbProduct.getStatus());
+			
+			for(TechnicalRow row: technicalRowService.findByProduct(product)) {
+				technicalRowService.deleteById(row.getId());
+			}
+			
+			for(TechnicalRow row: product.getTechnicalRows()) {
+				row.setId(null);
+				technicalRowService.save(row);
 			}
 			
 			Set<Image> images = new HashSet<>();

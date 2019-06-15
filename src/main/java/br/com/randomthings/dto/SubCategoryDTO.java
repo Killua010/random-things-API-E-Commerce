@@ -54,7 +54,7 @@ public class SubCategoryDTO extends AbstractDTO<SubCategory> {
 		Category category = new Category();
 		category.setId(categoryId);
 		subCategory.setName(name);
-		subCategory.setId((null == params[0]) ? null : params[0]);
+		subCategory.setId((params.length == 0) ? null : params[0]);
 		subCategory.setStatus((null == this.status) ? null : this.status);
 		subCategory.setCategory(category);
 		return subCategory;

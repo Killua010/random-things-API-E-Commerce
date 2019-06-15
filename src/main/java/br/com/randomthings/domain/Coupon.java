@@ -2,13 +2,8 @@ package br.com.randomthings.domain;
 
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
 
 import com.devskiller.friendly_id.FriendlyId;
 
@@ -21,7 +16,7 @@ public class Coupon extends DomainEntity {
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 	
-	private float value;
+	private Float value;
 	
 	public Coupon() {
 		super();

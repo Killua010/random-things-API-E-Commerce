@@ -39,7 +39,7 @@ public class TechnicalFieldDTO extends AbstractDTO<TechnicalField> {
 	public TechnicalField fill(Long... params) {
 		TechnicalField technicalField = new TechnicalField();
 		technicalField.setName(name);
-		technicalField.setId((null == params[0]) ? null : params[0]);
+		technicalField.setId((params.length == 0) ? null : params[0]);
 		technicalField.setStatus((null == this.status) ? null : this.status);
 		return technicalField;
 	}

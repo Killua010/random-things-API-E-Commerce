@@ -58,7 +58,11 @@ public class CategoryServiceImpl extends AbstractService<Category, Long> impleme
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		} else {
+			Category category = findById(domain.getId());
+			domain.setImage(category.getImage());
 		}
+		
 		domain = categoryRepository.save(domain);
 		return domain;
 	}

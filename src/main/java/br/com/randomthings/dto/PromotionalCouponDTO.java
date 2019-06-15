@@ -32,10 +32,9 @@ public class PromotionalCouponDTO extends AbstractDTO<PromotionalCoupon> {
 	@Override
 	public PromotionalCoupon fill(Long... params) {
 		PromotionalCoupon promotionalCoupon = new PromotionalCoupon();
-		
-		promotionalCoupon.setShelfLife(LocalDate.parse(shelfLife));
-		promotionalCoupon.setValue(value);
-		promotionalCoupon.setId((null == params[0]) ? null : params[0]);
+		promotionalCoupon.setShelfLife((null == shelfLife) ? null: LocalDate.parse(shelfLife) );
+		promotionalCoupon.setValue((null == value) ? null: value);
+		promotionalCoupon.setId((params.length == 0) ? null : params[0]);
 		promotionalCoupon.setStatus((null == this.status) ? null : this.status);
 		
 		return promotionalCoupon;

@@ -64,7 +64,7 @@ public class CategoryDTO extends AbstractDTO<Category> {
 		image.setFile(this.image);
 		category.setImage(image);
 		category.setName(name);
-		category.setId((null == params[0]) ? null : params[0]);
+		category.setId((params.length == 0) ? null : params[0]);
 		category.setStatus((null == this.status) ? null : this.status);
 		return category;
 	}

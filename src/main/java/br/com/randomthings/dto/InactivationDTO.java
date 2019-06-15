@@ -60,7 +60,7 @@ public class InactivationDTO extends AbstractDTO<Inactivation> {
 		product.setId(productId);
 		inactivation.setProduct(product);
 		inactivation.setStatusInactivation(statusInactivation);
-		inactivation.setId((null == params[0]) ? null : params[0]);
+		inactivation.setId((params.length == 0) ? null : params[0]);
 		inactivation.setStatus((null == this.status) ? null : this.status);
 		
 		return inactivation;

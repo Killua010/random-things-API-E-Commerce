@@ -23,7 +23,6 @@ public class CreditCard extends DomainEntity {
 	private String securityCode;
 	private Boolean favorite;
 	
-	
     @JoinColumn(name = "credit_card_flag_id")
 	@OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
 	private CreditCardFlag flag;

@@ -37,8 +37,12 @@ public class CreditCardWebServiceImpl extends ExecuteStrategys<CreditCard> imple
 	}
 
 	@Override
-	public CreditCard update(CreditCardDTO creditCardDTO) {
+	public CreditCard update(CreditCardDTO creditCardDTO, Long idClient) {
 		CreditCard creditCard = creditCardDTO.fill(creditCardDTO.getId());
+		
+		Client client = clientService.findById(idClient);
+		
+		creditCard.setClient(client);
 		
 		StringBuilder errors = runStrategys(creditCard, "Update");
 		
