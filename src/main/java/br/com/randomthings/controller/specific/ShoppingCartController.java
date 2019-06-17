@@ -2,6 +2,7 @@ package br.com.randomthings.controller.specific;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,27 +22,32 @@ public class ShoppingCartController {
 	@Autowired
 	private ShoppingCartWebService shoppingCartWeb;
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<ShoppingCartDTO> find(@PathVariable Long id ) {
 		return ResponseEntity.ok().body(shoppingCartWeb.findById(id));
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<ShoppingCartDTO> update(@PathVariable Long id, @RequestBody ShoppingCartDTO cartDTO) {
 		cartDTO.setId(id);
 		return ResponseEntity.ok(shoppingCartWeb.updateShoppingCart(cartDTO));
 	}
 		
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/client/{idClient}", method=RequestMethod.POST)
 	public ResponseEntity<ShoppingCartDTO> insertShoppingCart(@PathVariable("idClient") Long clientId, @RequestBody ProductDTO product) {
 		return ResponseEntity.ok(shoppingCartWeb.insertProduct(product, clientId));
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/client/{idClient}", method=RequestMethod.DELETE)
 	public ResponseEntity<ShoppingCartDTO> removeShoppingCart(@PathVariable("idClient") Long clientId, @RequestBody ProductDTO product) {
 		return ResponseEntity.ok(shoppingCartWeb.removeProduct(product, clientId));
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/client/{idClient}", method=RequestMethod.GET)
 	public ResponseEntity<ShoppingCartDTO> getShoppingCart(@PathVariable("idClient") Long clientId) {
 		return ResponseEntity.ok(shoppingCartWeb.getShoppingCartByClientId(clientId));

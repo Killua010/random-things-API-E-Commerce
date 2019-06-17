@@ -44,7 +44,7 @@ public class Client extends Person {
     @JoinColumn(name = "contact_id")
 	private Contact contact;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name = "user_id")
 	private User user;
 	

@@ -4,11 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import br.com.randomthings.domain.Activation;
 import br.com.randomthings.domain.Client;
+import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.strategy.Sequence;
 import br.com.randomthings.strategy.client.StClientExistenceValidation;
 import br.com.randomthings.strategy.client.StClientPasswordEncrypt;
+import br.com.randomthings.strategy.client.StClientUpdateHelper;
+import br.com.randomthings.strategy.client.StClientValidateAuthorization;
 import br.com.randomthings.strategy.client.StClientValidatePassword;
+import br.com.randomthings.strategy.standard.StAdminAuthorization;
 import br.com.randomthings.strategy.standard.StLastUpdate;
 import br.com.randomthings.strategy.standard.StRegistration;
 
@@ -29,7 +34,16 @@ public class ClientSequence {
 	
 	@Autowired
 	StLastUpdate stLastUpdate;
-
+	
+	@Autowired
+	StClientValidateAuthorization stClientValidateAuthorization;
+	
+	@Autowired
+	StAdminAuthorization stAdminAuthorization;
+	
+	@Autowired
+	StClientUpdateHelper stClientUpdateHelper;
+	
 	@Bean("SAVE_CLIENT")
 	public Sequence<Client> saveClient() {
 		return new Sequence<Client>()
@@ -43,9 +57,22 @@ public class ClientSequence {
 	public Sequence<Client> updateClient() {
 		return new Sequence<Client>()
 				.add(stClientExistenceValidation)
+				.add(stClientValidateAuthorization)
 				.add(stClientValidatePassword)
 				.add(stClientPasswordEncrypt)
+				.add(stClientUpdateHelper)
 				.add(stLastUpdate);
 	}
+	
+	@Bean("FIND_CLIENT")
+	public Sequence<Client> findClient() {
+		return new Sequence<Client>()
+				.add(stClientValidateAuthorization);
+	}
 
+	@Bean("DELETE_CLIENT")
+	public Sequence<Activation> deleteClient() {
+		return new Sequence<DomainEntity>()
+				.add(stAdminAuthorization);
+	}
 }

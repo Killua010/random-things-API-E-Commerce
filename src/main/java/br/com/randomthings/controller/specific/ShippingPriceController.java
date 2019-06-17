@@ -2,6 +2,7 @@ package br.com.randomthings.controller.specific;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ public class ShippingPriceController {
 	@Autowired
 	private ShippingPriceWebService priceWebService;
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value = "/calculete/client/{clientId}", method=RequestMethod.POST)
 	public ResponseEntity<Float> getShippingPrice(@PathVariable("clientId") Long clientId, @RequestBody DeliveryAddressDTO addressDTO) {
 		return ResponseEntity.ok(priceWebService.calculatePrice(clientId, addressDTO.getId()));

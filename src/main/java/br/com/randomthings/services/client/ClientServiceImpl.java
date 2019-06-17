@@ -41,7 +41,7 @@ public class ClientServiceImpl extends AbstractService<Client, Long> implements 
 		domain = clientRepository.save(domain);
 		return domain;
 	}
-
+	
 	@Override
 	@Transactional 
 	public void deleteById(Long id) {

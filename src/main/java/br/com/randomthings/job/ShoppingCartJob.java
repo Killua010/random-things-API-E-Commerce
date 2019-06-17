@@ -10,9 +10,6 @@ import br.com.randomthings.services.shopping_cart.web.ShoppingCartWebService;
 
 @Service
 public class ShoppingCartJob implements Job {
-	
-//	@Autowired
-//	private ShoppingCartWeb shoppingCartWeb;
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {

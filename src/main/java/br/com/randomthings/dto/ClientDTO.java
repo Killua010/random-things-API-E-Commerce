@@ -22,6 +22,7 @@ import br.com.randomthings.domain.Contact;
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.DeliveryAddress;
 import br.com.randomthings.domain.Gender;
+import br.com.randomthings.domain.Role;
 import br.com.randomthings.domain.TelephoneType;
 import br.com.randomthings.domain.User;
 import br.com.randomthings.dto.validation.ClientPasswordEquals;
@@ -72,6 +73,9 @@ public class ClientDTO extends AbstractDTO<Client> {
 	@NotNull(message = "O campo senha é obrigatório.")
 	private String password;
 	
+	@JsonProperty(access = Access.READ_ONLY)
+	private List<Role> roles;
+	
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotBlank(message = "O campo confirmação de senha é obrigatório.")
 	@NotNull(message = "O campo confirmação de senha é obrigatório.")
@@ -113,6 +117,8 @@ public class ClientDTO extends AbstractDTO<Client> {
 		clientDTO.setPassword(SystemVariable.descrypt(client.getUser().getPassword()));
 		clientDTO.SetDeliveryAddress(client.getAddresses());
 		clientDTO.SetCreditCards(client.getCards());
+		
+		clientDTO.setRoles(new ArrayList<>(client.getUser().getRoles()));
 		
 		return clientDTO;
 	}

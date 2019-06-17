@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,7 @@ public class CreditCardController {
 	@Autowired
 	private CreditCardService creditCardService;
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(path="/client/{idClient}", method=RequestMethod.POST)
 	public ResponseEntity<Void> save(@Valid @RequestBody CreditCardDTO creditCardDTO,
 			@PathVariable("idClient") Long idClient) throws StrategyValidation {
@@ -39,6 +41,7 @@ public class CreditCardController {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/client/{idClient}/{idCard}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> alterar(@Valid @RequestBody CreditCardDTO creditCardDTO,
 			@PathVariable("idClient") Long idClient, @PathVariable("idCard") Long idCard){
@@ -47,6 +50,7 @@ public class CreditCardController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
 		creditCardService.deleteById(id);

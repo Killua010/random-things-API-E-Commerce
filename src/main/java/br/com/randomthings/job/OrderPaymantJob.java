@@ -11,9 +11,6 @@ import br.com.randomthings.services.shopping_cart.web.ShoppingCartWebService;
 @Service
 public class OrderPaymantJob implements Job {
 	
-//	@Autowired
-//	private ShoppingCartWeb shoppingCartWeb;
-
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		int test1 = new Double(Math.random() * 100).intValue() % 2;

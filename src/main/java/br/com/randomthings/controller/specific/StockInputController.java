@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class StockInputController {
 	@Autowired
 	private StockInputServiceWeb stockInputServiceWeb;
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(path="", method=RequestMethod.POST)
 	public ResponseEntity<Void> save(@Valid @RequestBody StockInputDTO stockInputDTO) throws StrategyValidation {
 		StockInput stockInput = stockInputServiceWeb.save(stockInputDTO);
@@ -34,6 +36,7 @@ public class StockInputController {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(path="", method=RequestMethod.GET)
 	public ResponseEntity<List<StockInputDTO>> getAll() {
 		return ResponseEntity.ok(stockInputServiceWeb.getAll());

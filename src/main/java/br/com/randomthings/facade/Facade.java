@@ -40,7 +40,15 @@ public class Facade<entity extends DomainEntity> implements IFacade<entity> {
 	@Override
 	public Result find(entity entity) {
 		result = new Result();
-		result.setResultEntities(serviceDao.find(entity));		
+		
+		StringBuilder errors = runStrategys(entity, "Find");
+
+		if (errors.length() == 0) {
+			result.setResultEntities(serviceDao.find(entity));		
+		} else {
+			throw new StrategyValidation(errors);
+		}
+		
 		return result;
 	}
 
@@ -61,12 +69,23 @@ public class Facade<entity extends DomainEntity> implements IFacade<entity> {
 	@Override
 	public Result delete(entity entity) {
 		result = new Result();
-		serviceDao.delete(entity);
+		StringBuilder errors = runStrategys(entity, "Delete");
+
+		if (errors.length() == 0) {
+			serviceDao.delete(entity);
+		} else {
+			throw new StrategyValidation(errors);
+		}
+		
 		return result;
 	}
 
 	private StringBuilder runStrategys(entity entity, String operation) {
 		StringBuilder errors = new StringBuilder();
+		if(listSequence
+			.get(operation.toUpperCase().concat("_").concat(entity.getClass().getSimpleName()).toUpperCase()) == null) {
+			return errors;
+		}
 		
 		listSequence
 			.get(operation.toUpperCase().concat("_").concat(entity.getClass().getSimpleName()).toUpperCase())

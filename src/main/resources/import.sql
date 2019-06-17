@@ -6397,7 +6397,28 @@ INSERT INTO _order_item(creation_date, last_update, status, quantity, product_id
 INSERT INTO _order_item(creation_date, last_update, status, quantity, product_id, order_id) VALUES (NOW(), NOW(), 1, 3, 1,  29);
 INSERT INTO _order_item(creation_date, last_update, status, quantity, product_id, order_id) VALUES (NOW(), NOW(), 1, 3, 7,  30);
 
-
+INSERT INTO _roles(_user_id, roles) values (1, 1);
+INSERT INTO _roles(_user_id, roles) values (1, 2);
+INSERT INTO _roles(_user_id, roles) values (2, 2);
+INSERT INTO _roles(_user_id, roles) values (3, 2);
+INSERT INTO _roles(_user_id, roles) values (4, 2);
+INSERT INTO _roles(_user_id, roles) values (5, 2);
+INSERT INTO _roles(_user_id, roles) values (6, 2);
+INSERT INTO _roles(_user_id, roles) values (7, 2);
+INSERT INTO _roles(_user_id, roles) values (8, 2);
+INSERT INTO _roles(_user_id, roles) values (9, 2);
+INSERT INTO _roles(_user_id, roles) values (10, 2);
+INSERT INTO _roles(_user_id, roles) values (11, 2);
+INSERT INTO _roles(_user_id, roles) values (12, 2);
+INSERT INTO _roles(_user_id, roles) values (13, 2);
+INSERT INTO _roles(_user_id, roles) values (14, 2);
+INSERT INTO _roles(_user_id, roles) values (15, 2);
+INSERT INTO _roles(_user_id, roles) values (16, 2);
+INSERT INTO _roles(_user_id, roles) values (17, 2);
+INSERT INTO _roles(_user_id, roles) values (18, 2);
+INSERT INTO _roles(_user_id, roles) values (19, 2);
+INSERT INTO _roles(_user_id, roles) values (20, 2);
+INSERT INTO _roles(_user_id, roles) values (21, 2);
 
 
 

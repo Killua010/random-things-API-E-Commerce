@@ -1,5 +1,8 @@
 package br.com.randomthings.controller.generic;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.randomthings.domain.Category;
 import br.com.randomthings.dto.CategoryDTO;
 import br.com.randomthings.services.category.web.CategoryServiceWeb;
 import br.com.randomthings.utils.Result;
@@ -28,22 +34,14 @@ public class CategoryController extends AbstractController<CategoryDTO>{
 	@PostMapping
 	public @ResponseBody ResponseEntity<Result> save(@Valid @ModelAttribute CategoryDTO dto) {
 		Result result = searchCommand("Save").execute(dto.fill());
-		if (null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
-			result.setHttpStatus(400);
-		} else {
-			result.setHttpStatus(201);
-		}
+		result.setHttpStatus(201);
 		return restResponse(result);
 	}
 	
 	@PutMapping("/{id}")
 	public @ResponseBody ResponseEntity<Result> update(@Valid @ModelAttribute CategoryDTO dto, @PathVariable Long id) {
 		Result result = searchCommand("Update").execute(dto.fill(id));
-		if (null != result.getResponse() && !result.getResponse().toString().isEmpty()) {
-			result.setHttpStatus(400);
-		} else {
-			result.setHttpStatus(200);
-		}
+		result.setHttpStatus(200);
 		return restResponse(result);
 	}
 	

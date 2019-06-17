@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,7 @@ public class DeliveryAddressController {
 	@Autowired
 	private DeliveryAddressService deliveryAddressService;
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(path="/client/{idClient}", method=RequestMethod.POST)
 	public ResponseEntity<Void> save(@Valid @RequestBody DeliveryAddressDTO deliveryAddressDTO,
 			@PathVariable("idClient") Long idClient) throws StrategyValidation {
@@ -39,6 +41,7 @@ public class DeliveryAddressController {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/client/{idClient}/{idAddress}", method=RequestMethod.PUT)
 	public ResponseEntity<Void> alterar(@Valid @RequestBody DeliveryAddressDTO deliveryAddressDTO,
 			@PathVariable("idClient") Long idClient, @PathVariable("idAddress") Long idAddress){
@@ -47,6 +50,7 @@ public class DeliveryAddressController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@PreAuthorize("hasAnyRole('CLIENT')")
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
 		deliveryAddressService.deleteById(id);
