@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
+import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.strategy.IStrategy;
 

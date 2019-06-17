@@ -34,4 +34,8 @@ public class User extends DomainEntity {
 	public Set<Role> getRoles(){
 		return roles.stream().map(x -> Role.toEnum(x)).collect(Collectors.toSet());
 	}
+	
+	public void addRole(Role role) {
+		this.roles.add(role.getCod());
+	}
 }

@@ -18,6 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.randomthings.dto.specific.LoginDTO;
+import br.com.randomthings.exception.StrategyValidation;
 import br.com.randomthings.utils.SystemVariable;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
@@ -60,6 +61,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		response.addHeader("Authorization", "Bearer " + token );
 	}
 
-	
+	@Override
+	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException failed) throws IOException, ServletException {
+		response.setStatus(400);
+		response.setContentType("application/json");
+		response.getWriter().append("Email ou senha incorretos");
+	}
 	
 }

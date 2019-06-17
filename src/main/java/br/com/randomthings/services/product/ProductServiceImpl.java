@@ -140,5 +140,10 @@ public class ProductServiceImpl extends AbstractService<Product, Long> implement
 	public List<Product> findByCategory(Category category) {
 		return productRepository.findByCategory(category);
 	}
+
+	@Override
+	public List<Product> findAllByStatusFalse() {
+		return productRepository.findAllByStatusFalse();
+	}
 	
 }

@@ -52,6 +52,7 @@ public class StockInputServiceWebImpl extends ExecuteStrategys<StockInput> imple
 		newPrice = (float) new BigDecimal(newPrice).setScale(2, BigDecimal.ROUND_FLOOR).doubleValue();
 		
 		product.setPrice(newPrice);
+		product.setStatus(true);
 		
 		stockInput = stockInputService.save(stockInput);
 		

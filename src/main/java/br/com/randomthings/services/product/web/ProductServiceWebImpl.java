@@ -97,13 +97,15 @@ public class ProductServiceWebImpl implements ProductServiceWeb {
 	public List<ProductDTO> getPopularProduct() {
 		Map<Product, Integer> mapProduct = new HashMap<>();
 
-		for (Product product : productService.findAll()) {
+		for (Product product : productService.findAllByStatusTrue()) {
 			mapProduct.put(product, 0);
 		}
 
 		for (Order order : orderService.findAll()) {
 			for (OrderItem item : order.getItems()) {
-				mapProduct.put(item.getProduct(), mapProduct.get(item.getProduct()) + item.getQuantity());
+				if(item.getProduct().getStatus() == true) {
+					mapProduct.put(item.getProduct(), mapProduct.get(item.getProduct()) + item.getQuantity());
+				}
 			}
 		}
 		
@@ -139,6 +141,17 @@ public class ProductServiceWebImpl implements ProductServiceWeb {
 		}
 		
 		return productDTOs;
+	}
+
+	@Override
+	public List<ProductDTO> getInactivesProduct() {
+		List<ProductDTO> helpers = new ArrayList<>();
+		List<Product> products =  productService.findAllByStatusFalse();
+		for(Product product : products) {
+			ProductDTO helper = (ProductDTO) new ProductDTO().from(product);
+			helpers.add(helper);
+		}
+		return helpers;
 	}
 
 	

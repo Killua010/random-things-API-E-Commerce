@@ -22,6 +22,7 @@ import br.com.randomthings.services.change_coupon.ChangeCouponService;
 import br.com.randomthings.services.client.ClientService;
 import br.com.randomthings.services.order.OrderItemService;
 import br.com.randomthings.services.order.OrderService;
+import br.com.randomthings.services.product.ProductService;
 import br.com.randomthings.strategy.standard.StRegistration;
 
 @Service
@@ -29,6 +30,9 @@ public class ChangeServiceWebImpl extends ExecuteStrategys<Change> implements Ch
 
 	@Autowired
 	private ChangeCouponService changeCouponService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@Autowired
 	private ChangeService changeService;
@@ -106,6 +110,8 @@ public class ChangeServiceWebImpl extends ExecuteStrategys<Change> implements Ch
 		Float total = (float) 0.0;
 		for(ChangeItem item: change.getItems()) {
 			total += (item.getProduct().getPrice() * item.getQuantity()); 
+			item.getProduct().setStatus(true);
+			productService.update(item.getProduct());
 		}
 		ChangeCoupon coupon = new ChangeCoupon();
 		coupon.setClient(change.getClient());

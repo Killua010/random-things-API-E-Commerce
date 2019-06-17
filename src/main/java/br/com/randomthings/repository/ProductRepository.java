@@ -24,6 +24,8 @@ public interface ProductRepository extends IRepository<Product, Long>, JpaReposi
 	@Transactional(readOnly=true)
 	Page<Product> findAllBySubCategoryIn(SubCategory subCategory, Pageable pageRequest);
 	
+	@Transactional(readOnly=true)
+	List<Product> findAllByStatusFalse();	
 	
 	 @Query("SELECT prod FROM _product prod JOIN prod.subCategory subCat  WHERE TRUE = prod.status AND "
 		 + "(UPPER(prod.name) LIKE UPPER(CONCAT('%',:param,'%')) OR UPPER(subCat.name) LIKE UPPER(CONCAT('%',:param,'%'))"

@@ -14,4 +14,6 @@ public interface ProductServiceWeb {
 	List<ProductDTO> findByCategoryId(Long categoryId);
 
 	List<ProductDTO> getPopularProduct();
+
+	List<ProductDTO> getInactivesProduct();
 }

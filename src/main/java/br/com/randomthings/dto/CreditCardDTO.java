@@ -3,16 +3,13 @@ package br.com.randomthings.dto;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.CreditCardFlag;
-import br.com.randomthings.domain.DeliveryAddress;
 import lombok.Data;
 import lombok.Setter;
 
@@ -33,6 +30,8 @@ public class CreditCardDTO extends AbstractDTO<CreditCard> {
 	
 	@NotBlank(message = "O campo código de segurança é obrigatório.")
 	@NotNull(message = "O campo código de segurança é obrigatório.")
+	
+	@Pattern(regexp="\\d{3}", message = "Somente é aceito digitos numéricos no código de segurança")
 	@Length(min = 3, max = 3, message = "O campo código de segurança deve ter 3 caracteres")
 	private String securityCode;
 	

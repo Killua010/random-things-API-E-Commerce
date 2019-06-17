@@ -26,6 +26,7 @@ import br.com.randomthings.domain.Client;
 import br.com.randomthings.domain.CouponPayment;
 import br.com.randomthings.domain.CreditCard;
 import br.com.randomthings.domain.DeliveryAddress;
+import br.com.randomthings.domain.Inactivation;
 import br.com.randomthings.domain.Order;
 import br.com.randomthings.domain.OrderItem;
 import br.com.randomthings.domain.PayamentType;
@@ -34,6 +35,7 @@ import br.com.randomthings.domain.ShippingPrice;
 import br.com.randomthings.domain.ShoppingCart;
 import br.com.randomthings.domain.ShoppingCartItem;
 import br.com.randomthings.domain.StatusChange;
+import br.com.randomthings.domain.StatusInactivation;
 import br.com.randomthings.domain.StatusOrder;
 import br.com.randomthings.dto.OrderDTO;
 import br.com.randomthings.dto.specific.GetOrderDTO;
@@ -47,11 +49,14 @@ import br.com.randomthings.services.cart_item.CartItemService;
 import br.com.randomthings.services.change_coupon.ChangeCouponService;
 import br.com.randomthings.services.client.ClientService;
 import br.com.randomthings.services.coupons.PromotionalCouponService;
+import br.com.randomthings.services.inactive.InactivationService;
 import br.com.randomthings.services.order.OrderService;
+import br.com.randomthings.services.product.ProductService;
 import br.com.randomthings.services.shipping_price.web.ShippingPriceWebService;
 import br.com.randomthings.services.shopping_cart.ShoppingCartService;
 import br.com.randomthings.services.shopping_cart.web.ShoppingCartWebService;
 import br.com.randomthings.services.stock.StockService;
+import br.com.randomthings.strategy.inactivation.StInactivationValidateProduct;
 import br.com.randomthings.strategy.standard.StRegistration;
 
 @Service
@@ -59,6 +64,9 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
 	
 	@Autowired
 	private StockService stockService;
+	
+	@Autowired
+	private InactivationService inactivationService;
 	
 	@Autowired
 	private ChangeCouponService changeCouponService;
@@ -93,6 +101,9 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
 	@Autowired
 	private StRegistration stRegistration;
 	
+	@Autowired
+	private StInactivationValidateProduct inactivationValidateProduct;
+	
 	private Scheduler scheduler;
 	
 	@PostConstruct
@@ -119,6 +130,14 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
 		
 		for(ShoppingCartItem cartItem: cart.getCartItems()) {
 			value += (cartItem.getProduct().getPrice() * cartItem.getQuantity());
+			
+			if(cartItem.getProduct().getStock().getTotalQuantity() == 0) {
+				Inactivation inactivation = new Inactivation("Sem estoque", StatusInactivation.FORADEMERCADO, cartItem.getProduct());
+				inactivationValidateProduct.execute(inactivation);
+				stRegistration.execute(inactivation);
+				inactivationService.save(inactivation);
+			}
+			
 			OrderItem item = new OrderItem();
 			stRegistration.execute(item);
 			item.setOrder(order);
@@ -139,7 +158,6 @@ public class OrderServiceWebImpl extends ExecuteStrategys<Order> implements Orde
 		shippingPrice.setBusinessDays(10);
 		shippingPrice.setValue(priceWebService.calculatePrice(client.getId(), orderDTO.getAddressId()));
 		stRegistration.execute(shippingPrice);
-		
 		
 		cartWebService.cleanShoppingCart(client.getId());
 		

@@ -29,6 +29,9 @@ public class StActivationValidateProduct implements IStrategy<Activation> {
 			return "Produto já ativado";
 		}
 		
+		optionalProduct.get().setStatus(true);
+		entity.setProduct(optionalProduct.get());
+		
 		return "";
 	}
 

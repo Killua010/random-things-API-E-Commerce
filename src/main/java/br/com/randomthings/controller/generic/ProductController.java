@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -73,5 +74,11 @@ public class ProductController extends AbstractController<ProductDTO>{
 	@RequestMapping(path="/popular", method=RequestMethod.GET)
 	public ResponseEntity<List<ProductDTO>> getPopularProduct(){
 		return ResponseEntity.ok(productServiceWeb.getPopularProduct());
+	}
+	
+	@PreAuthorize("hasAnyRole('ADMIN')")
+	@RequestMapping(path="/inactives", method=RequestMethod.GET)
+	public ResponseEntity<List<ProductDTO>> getInactivesProduct(){
+		return ResponseEntity.ok(productServiceWeb.getInactivesProduct());
 	}
 }

@@ -58,7 +58,7 @@ public class ActivationDTO extends AbstractDTO<Activation> {
 		activation.setProduct(product);
 		activation.setStatusActivation(statusActivation);
 		
-		activation.setId((null == params[0]) ? null : params[0]);
+		activation.setId((params.length == 0) ? null : params[0]);
 		activation.setStatus((null == this.status) ? null : this.status);
 		
 		return activation;

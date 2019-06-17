@@ -10,6 +10,7 @@ import br.com.randomthings.domain.DomainEntity;
 import br.com.randomthings.strategy.Sequence;
 import br.com.randomthings.strategy.client.StClientExistenceValidation;
 import br.com.randomthings.strategy.client.StClientPasswordEncrypt;
+import br.com.randomthings.strategy.client.StClientSaveHelper;
 import br.com.randomthings.strategy.client.StClientUpdateHelper;
 import br.com.randomthings.strategy.client.StClientValidateAuthorization;
 import br.com.randomthings.strategy.client.StClientValidatePassword;
@@ -44,12 +45,16 @@ public class ClientSequence {
 	@Autowired
 	StClientUpdateHelper stClientUpdateHelper;
 	
+	@Autowired
+	StClientSaveHelper stClientSaveHelper;
+	
 	@Bean("SAVE_CLIENT")
 	public Sequence<Client> saveClient() {
 		return new Sequence<Client>()
 				.add(stClientExistenceValidation)
 				.add(stClientValidatePassword)
 				.add(stClientPasswordEncrypt)
+				.add(stClientSaveHelper)
 				.add(stRegistration);
 	}
 	

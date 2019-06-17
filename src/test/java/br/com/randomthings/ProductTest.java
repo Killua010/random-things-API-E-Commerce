@@ -19,6 +19,15 @@ public class ProductTest {
 	@Test
 	public void crud() throws InterruptedException{
 		navegador = new ChromeDriver();
+		
+		navegador.get("http://localhost:3000/login");
+		navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		navegador.findElement(By.id("email")).sendKeys("admin@admin.com");
+		navegador.findElement(By.id("password")).sendKeys("admin1234");
+		navegador.findElement(By.id("entrar")).click();
+		
+		Thread.sleep(1500);
+		
 		navegador.get(caminho);
 		navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Thread.sleep(3000);

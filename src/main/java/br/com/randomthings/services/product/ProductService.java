@@ -18,4 +18,6 @@ public interface ProductService extends IService<Product, Long> {
 	List<Product> findBy(@Param("param") String param);
 
 	List<Product> findByCategory(Category category);
+	
+	List<Product> findAllByStatusFalse();
 }
